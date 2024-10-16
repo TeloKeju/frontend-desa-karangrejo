@@ -14,8 +14,10 @@ import Infografis from "./pages/infografis";
 import IDM from "./pages/idm";
 import Berita from "./pages/berita";
 
+import Penduduk from "./pages/infografis/penduduk";
+
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <BrowserRouter>
@@ -24,9 +26,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile-desa" element={<ProfileDesa />} />
         <Route path="/listing" element={<Listing />} />
-        <Route path="/infografis" element={<Infografis />} />
+        <Route path="/infografis/penduduk" element={<Infografis />} />
         <Route path="/idm" element={<IDM />} />
         <Route path="/berita" element={<Berita />} />
+        <Route path="/infografis/penduduk" element={<Penduduk />} />
+        {/* <Route path="/test" element={<Penduduk />} /> */}
       </Routes>
       <FooterDev />
     </BrowserRouter>

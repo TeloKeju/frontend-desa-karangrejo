@@ -5,15 +5,18 @@ const ProfileDesa = () => {
     <>
       <main className="mt-14">
         <section className="container mx-auto my-10 p-4">
-          <section className="grid sm:grid-cols-2 justify-center items-center">
-            <section className="">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Logo_Kabupaten_Kediri_%28Seal_of_Kediri_Regency%29.svg"
-                alt="logo kediri"
-                className="w-52"
-              />
-              <h1 className="font-bold text-3xl">Desa Karangrejo</h1>
-              <p className="font-bold text-base">
+          <section className="grid sm:grid-cols-2 ">
+            <section className="my-auto">
+              <section className="flex justify-center">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Logo_Kabupaten_Kediri_%28Seal_of_Kediri_Regency%29.svg"
+                  alt="logo kediri"
+                  className="w-52"
+                />
+              </section>
+
+              <h1 className="font-bold text-3xl mt-2">Desa Karangrejo</h1>
+              <p className="font-bold text-base mt-1">
                 Kecamatan Kandat, Kabupaten Kediri, Provinsi Jawa Timur
               </p>
             </section>

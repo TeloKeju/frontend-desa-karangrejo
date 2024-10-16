@@ -1,8 +1,9 @@
-const IDM = () => {
+const Penduduk = () => {
+  //   console.log("test");
   return (
     <>
+      {/* LINK INFOGRAFIS */}
       <main className="mt-14">
-        {/* LINK INFOGRAFIS */}
         <section className="container p-4 mx-auto mt-10">
           <section className="grid grid-cols-1 sm:grid-cols-2">
             <section>
@@ -10,7 +11,7 @@ const IDM = () => {
               <p>
                 Indeks Desa Membangun (IDM) merupakan indeks komposit yang
                 dibentuk dari tiga indeks, yaitu Indeks Ketahanan Sosial, Indeks
-                Ketahanan Ekonomi, dan Indeks Ketahanan Ekologi/Lingkungan.
+                Ketahanan Ekonomi, dan Indeks Ketahanan Ekologi/Lingkungan. test
               </p>
             </section>
           </section>
@@ -20,4 +21,4 @@ const IDM = () => {
   );
 };
 
-export default IDM;
+export default Penduduk;

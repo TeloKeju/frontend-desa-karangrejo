@@ -14,7 +14,7 @@ const Header = () => {
     },
     {
       name: "Infografis",
-      link: "/infografis",
+      link: "/infografis/penduduk",
     },
     {
       name: "Listing",
