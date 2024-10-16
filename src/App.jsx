@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/header";
 import { FooterDev } from "./components/footer";
@@ -26,11 +23,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile-desa" element={<ProfileDesa />} />
         <Route path="/listing" element={<Listing />} />
-        <Route path="/infografis/penduduk" element={<Infografis />} />
+        <Route path="/infografis/penduduk" element={<Penduduk />} />
         <Route path="/idm" element={<IDM />} />
         <Route path="/berita" element={<Berita />} />
-        <Route path="/infografis/penduduk" element={<Penduduk />} />
-        {/* <Route path="/test" element={<Penduduk />} /> */}
+        {/* <Route path="/infografis/penduduk" element={<Penduduk />} /> */}
       </Routes>
       <FooterDev />
     </BrowserRouter>

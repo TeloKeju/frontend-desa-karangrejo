@@ -1,9 +1,12 @@
+import InfografisLink from "./link";
+
 const Penduduk = () => {
   //   console.log("test");
   return (
     <>
       {/* LINK INFOGRAFIS */}
       <main className="mt-14">
+        <InfografisLink />
         <section className="container p-4 mx-auto mt-10">
           <section className="grid grid-cols-1 sm:grid-cols-2">
             <section>
