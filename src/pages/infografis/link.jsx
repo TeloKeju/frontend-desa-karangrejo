@@ -13,89 +13,127 @@ import {
 const InfografisLink = () => {
   const infografisMenu = [
     {
-      icon: IconUser,
+      icon: <IconUser />,
       name: "Home",
-      link: "/",
+      // link: "/",
     },
     {
-      name: "Profil Desa",
-      link: "/profile-desa",
+      icon: <IconUser />,
+      name: "Home",
+      // link: "/",
     },
     {
-      name: "Infografis",
-      link: "/infografis/penduduk",
+      icon: <IconUser />,
+      name: "Home",
+      // link: "/",
     },
     {
-      name: "Listing",
-      link: "/listing",
-    },
-    {
-      name: "IDM",
-      link: "/idm",
-    },
-    {
-      name: "Berita",
-      link: "/berita",
+      icon: <IconUser />,
+      name: "Home",
+      // link: "/",
     },
   ];
 
   return (
     <>
       <section className="p-2">
-        <section className="flex justify-between">
-          <section className="text-start self-center whitespace-nowrap text-3xl  dark:text-white uppercase font-bold">
+        <section className=" hidden md:flex md:justify-between ">
+          <section className="text-start self-center whitespace-nowrap text-3xl  dark:text-white uppercase font-bold ">
             <h1>
               Infografis <br /> desa Karangrejo
             </h1>
           </section>
           <section>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap">
               <Button.Group outline>
-                <Button color="gray" className="">
-                  <IconUser className="mr-3 h-4 w-4" />
-                  Penduduk
+                <Button color="gray" className="w-20 lg:w-28">
+                  <section className="flex flex-col justify-center items-center">
+                    <IconUser className="" />
+                    <p>Penduduk</p>
+                  </section>
                 </Button>
-                <Button color="gray">
-                  <IconCash className="mr-3 h-4 w-4" />
-                  APBDes
+                <Button color="gray" className="w-20 lg:w-28">
+                  <section className="flex flex-col justify-center items-center">
+                    <IconCash className="" />
+                    <p>APBDes</p>
+                  </section>
                 </Button>
-                <Button color="gray">
-                  <IconChartBar className="mr-3 h-4 w-4" /> <br />
-                  Stunting
+                <Button color="gray" className="w-20 lg:w-28">
+                  <section className="flex flex-col justify-center items-center">
+                    <IconChartBar className="" />
+                    <p>Stunting</p>
+                  </section>
                 </Button>
-                <Button color="gray">
-                  <IconPackage className="mr-3 h-4 w-4" />
-                  Bansos
+                <Button color="gray" className="w-20 lg:w-28">
+                  <section className="flex flex-col justify-center items-center">
+                    <IconPackage className="" />
+                    <p>Bansos</p>
+                  </section>
                 </Button>
-                <Button color="gray">
-                  <IconCrown className="mr-3 h-4 w-4" />
-                  IDM
+                <Button color="gray" className="w-20 lg:w-28">
+                  <section className="flex flex-col justify-center items-center">
+                    <IconCrown className="" />
+                    <p>IDM</p>
+                  </section>
                 </Button>
-                <Button color="gray">
-                  <IconNumbers className="mr-3 h-4 w-4" />
-                  SDGs
+                <Button color="gray" className="w-20 lg:w-28">
+                  <section className="flex flex-col justify-center items-center">
+                    <IconNumbers className="" />
+                    <p>APBDes</p>
+                  </section>
                 </Button>
               </Button.Group>
             </div>
           </section>
         </section>
-      </section>
-      <section className="">
-        <Navbar fluid rounded className="relative">
-          <Navbar.Brand href="https://flowbite-react.com">
-            <span className=" text-start self-center whitespace-nowrap text-3xl  dark:text-white uppercase font-bold">
+
+        <div className="flex flex-wrap md:hidden justify-center items-center mt">
+          <section className=" self-center whitespace-nowrap text-3xl  dark:text-white uppercase font-bold ">
+            <h1>
               Infografis <br /> desa Karangrejo
-            </span>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse>
-            {infografisMenu.map((item, i) => (
-              <Navbar.Link key={i}>
-                <Link to={item.link}>{item.name}</Link>
-              </Navbar.Link>
-            ))}
-          </Navbar.Collapse>
-        </Navbar>
+            </h1>
+          </section>
+          <Button.Group outline>
+            <Button color="gray" className="w-32">
+              <section className="flex flex-col justify-center items-center">
+                <IconUser className="" />
+                <p>Penduduk</p>
+              </section>
+            </Button>
+            <Button color="gray" className="w-32">
+              <section className="flex flex-col justify-center items-center">
+                <IconCash className="" />
+                <p>APBDes</p>
+              </section>
+            </Button>
+            <Button color="gray" className="w-32">
+              <section className="flex flex-col justify-center items-center">
+                <IconChartBar className="" />
+                <p>Stunting</p>
+              </section>
+            </Button>
+          </Button.Group>
+          <Button.Group outline>
+            <Button color="gray" className="w-32">
+              <section className="flex flex-col justify-center items-center">
+                <IconPackage className="" />
+                <p>Bansos</p>
+              </section>
+            </Button>
+            <Button color="gray" className="w-32">
+              <section className="flex flex-col justify-center items-center">
+                <IconCrown className="" />
+                <p>IDM</p>
+              </section>
+            </Button>
+            <Button color="gray" className="w-32">
+              <section className="flex flex-col justify-center items-center">
+                <IconNumbers className="" />
+                <p>APBDes</p>
+              </section>
+            </Button>
+          </Button.Group>
+        </div>
       </section>
     </>
   );

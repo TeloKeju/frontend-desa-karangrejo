@@ -5,17 +5,30 @@ const Penduduk = () => {
   return (
     <>
       {/* LINK INFOGRAFIS */}
-      <main className="mt-14">
+      <main className="mt-20">
         <InfografisLink />
-        <section className="container p-4 mx-auto mt-10">
-          <section className="grid grid-cols-1 sm:grid-cols-2">
-            <section>
-              <h1 className="text-3xl font-bold">IDM</h1>
-              <p>
-                Indeks Desa Membangun (IDM) merupakan indeks komposit yang
-                dibentuk dari tiga indeks, yaitu Indeks Ketahanan Sosial, Indeks
-                Ketahanan Ekonomi, dan Indeks Ketahanan Ekologi/Lingkungan. test
-              </p>
+        <section className="container p-5  mx-auto mt-10">
+          <section className="grid gap-2 grid-cols-1 sm:grid-cols-2">
+            <section className="flex justify-center items-center">
+              <section>
+                <h1 className="text-start text-3xl font-bold uppercase">
+                  Demografi <br /> Penduduk
+                </h1>
+                <p className="text-start text-xl">
+                  Memberikan informasi lengkap mengenai karakteristik demografi
+                  penduduk suatu wilayah. Mulai dari jumlah penduduk, usia,
+                  jenis kelamin, tingkat pendidikan, pekerjaan, agama, dan aspek
+                  penting lainnya yang menggambarkan komposisi populasi secara
+                  rinci.
+                </p>
+              </section>
+            </section>
+            <section className="flex justify-center sm:justify-end">
+              <img
+                src="https://cdn.digitaldesa.com/statics/profil-v2/assets/other-1-DEP2VegA.png"
+                alt=""
+                className="w-80"
+              />
             </section>
           </section>
         </section>

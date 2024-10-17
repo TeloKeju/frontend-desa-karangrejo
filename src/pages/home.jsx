@@ -171,7 +171,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="mt-14">
+      <main className="mt-20">
         <section className="h-56 sm:h-64 xl:h-96 2xl:h-full rounded-none">
           <Carousel indicators="false">
             <img

@@ -1,7 +1,7 @@
 const Listing = () => {
   return (
     <>
-      <main className="mt-14">
+      <main className="mt-20">
         <section className="container p-4 mx-auto mt-10">
           <section>
             <section>

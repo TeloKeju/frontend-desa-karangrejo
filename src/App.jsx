@@ -7,8 +7,7 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import ProfileDesa from "./pages/profilDesa";
 import Listing from "./pages/listing";
-import Infografis from "./pages/infografis";
-import IDM from "./pages/idm";
+import IDM from "./pages/infografis/idm";
 import Berita from "./pages/berita";
 
 import Penduduk from "./pages/infografis/penduduk";
@@ -24,7 +23,7 @@ function App() {
         <Route path="/profile-desa" element={<ProfileDesa />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/infografis/penduduk" element={<Penduduk />} />
-        <Route path="/idm" element={<IDM />} />
+        <Route path="/infografis/idm" element={<IDM />} />
         <Route path="/berita" element={<Berita />} />
         {/* <Route path="/infografis/penduduk" element={<Penduduk />} /> */}
       </Routes>
