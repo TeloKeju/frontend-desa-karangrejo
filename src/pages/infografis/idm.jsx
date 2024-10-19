@@ -1,8 +1,11 @@
+import InfografisLink from "./link";
+
 const IDM = () => {
   return (
     <>
-      <main className="mt-20">
+      <main style={{ marginTop: "84px" }}>
         {/* LINK INFOGRAFIS */}
+        <InfografisLink/>
         <section className="container p-4 mx-auto mt-10">
           <section className="grid grid-cols-1 sm:grid-cols-2">
             <section>

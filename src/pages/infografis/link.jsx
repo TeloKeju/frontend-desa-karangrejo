@@ -14,23 +14,33 @@ const InfografisLink = () => {
   const infografisMenu = [
     {
       icon: <IconUser />,
-      name: "Home",
-      // link: "/",
+      name: "Penduduk",
+      link: "./",
     },
     {
-      icon: <IconUser />,
-      name: "Home",
-      // link: "/",
+      icon: <IconCash />,
+      name: "APBDes",
+      link: "./apb-desa",
     },
     {
-      icon: <IconUser />,
-      name: "Home",
-      // link: "/",
+      icon: <IconChartBar />,
+      name: "Stunting",
+      link: "./stunting",
     },
     {
-      icon: <IconUser />,
-      name: "Home",
-      // link: "/",
+      icon: <IconPackage />,
+      name: "Basos",
+      link: "./bansos",
+    },
+    {
+      icon: <IconCrown />,
+      name: "IDM",
+      link: "./idm",
+    },
+    {
+      icon: <IconCash />,
+      name: "APBDes",
+      link: "./apb-desa",
     },
   ];
 
@@ -46,42 +56,16 @@ const InfografisLink = () => {
           <section>
             <div className="flex flex-wrap">
               <Button.Group outline>
-                <Button color="gray" className="w-20 lg:w-28">
-                  <section className="flex flex-col justify-center items-center">
-                    <IconUser className="" />
-                    <p>Penduduk</p>
-                  </section>
-                </Button>
-                <Button color="gray" className="w-20 lg:w-28">
-                  <section className="flex flex-col justify-center items-center">
-                    <IconCash className="" />
-                    <p>APBDes</p>
-                  </section>
-                </Button>
-                <Button color="gray" className="w-20 lg:w-28">
-                  <section className="flex flex-col justify-center items-center">
-                    <IconChartBar className="" />
-                    <p>Stunting</p>
-                  </section>
-                </Button>
-                <Button color="gray" className="w-20 lg:w-28">
-                  <section className="flex flex-col justify-center items-center">
-                    <IconPackage className="" />
-                    <p>Bansos</p>
-                  </section>
-                </Button>
-                <Button color="gray" className="w-20 lg:w-28">
-                  <section className="flex flex-col justify-center items-center">
-                    <IconCrown className="" />
-                    <p>IDM</p>
-                  </section>
-                </Button>
-                <Button color="gray" className="w-20 lg:w-28">
-                  <section className="flex flex-col justify-center items-center">
-                    <IconNumbers className="" />
-                    <p>APBDes</p>
-                  </section>
-                </Button>
+                {infografisMenu.map((item, index) => {
+                  return (
+                    <Link to={item.link} color="gray" className="w-20 lg:w-28">
+                      <section className="flex flex-col justify-center items-center">
+                        {item.icon}
+                        <p>{item.name}</p>
+                      </section>
+                    </Link>
+                  );
+                })}
               </Button.Group>
             </div>
           </section>
@@ -94,44 +78,32 @@ const InfografisLink = () => {
             </h1>
           </section>
           <Button.Group outline>
-            <Button color="gray" className="w-32">
-              <section className="flex flex-col justify-center items-center">
-                <IconUser className="" />
-                <p>Penduduk</p>
-              </section>
-            </Button>
-            <Button color="gray" className="w-32">
-              <section className="flex flex-col justify-center items-center">
-                <IconCash className="" />
-                <p>APBDes</p>
-              </section>
-            </Button>
-            <Button color="gray" className="w-32">
-              <section className="flex flex-col justify-center items-center">
-                <IconChartBar className="" />
-                <p>Stunting</p>
-              </section>
-            </Button>
+            {infografisMenu.map((item, index) => {
+              if (index < 3) {
+                return (
+                  <Link to={item.link} color="gray" className="w-32">
+                    <section className="flex flex-col justify-center items-center">
+                      {item.icon}
+                      <p>{item.name}</p>
+                    </section>
+                  </Link>
+                );
+              }
+            })}
           </Button.Group>
           <Button.Group outline>
-            <Button color="gray" className="w-32">
-              <section className="flex flex-col justify-center items-center">
-                <IconPackage className="" />
-                <p>Bansos</p>
-              </section>
-            </Button>
-            <Button color="gray" className="w-32">
-              <section className="flex flex-col justify-center items-center">
-                <IconCrown className="" />
-                <p>IDM</p>
-              </section>
-            </Button>
-            <Button color="gray" className="w-32">
-              <section className="flex flex-col justify-center items-center">
-                <IconNumbers className="" />
-                <p>APBDes</p>
-              </section>
-            </Button>
+            {infografisMenu.map((item, index) => {
+              if (index > 2) {
+                return (
+                  <Link to={item.link} color="gray" className="w-32">
+                    <section className="flex flex-col justify-center items-center">
+                      {item.icon}
+                      <p>{item.name}</p>
+                    </section>
+                  </Link>
+                );
+              }
+            })}
           </Button.Group>
         </div>
       </section>
