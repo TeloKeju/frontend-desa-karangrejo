@@ -264,6 +264,7 @@ const Home = () => {
                   src="https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg"
                   alt=""
                   className="object-cover rounded-full shadow-md"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -403,6 +404,7 @@ const Home = () => {
                   src="https://cdn.digitaldesa.com/statics/profil-v2/assets/other-D5R53cMR.png"
                   alt=""
                   className="w-72 sm:w-full"
+                  loading="lazy"
                 />
               </section>
 
@@ -619,7 +621,12 @@ const Home = () => {
                   return (
                     <>
                       <section>
-                        <img src={item.image} alt="Galeri" className="w-full" />
+                        <img
+                          src={item.image}
+                          alt="Galeri"
+                          className="w-full"
+                          loading="lazy"
+                        />
                       </section>
                     </>
                   );
