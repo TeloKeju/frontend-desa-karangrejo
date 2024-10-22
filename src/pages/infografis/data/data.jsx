@@ -1,5 +1,6 @@
-//penduduk.jsx
+import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
 
+//Penduduk
 export const jumlahPenduduk = [
   {
     image:
@@ -287,5 +288,208 @@ export const agama = [
       "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-kepercayaan-lainnya-DFa3yh4T.svg",
     judul: "Kepercayaan Lainya",
     jumlah: 0,
+  },
+];
+
+// APBDesa
+export const apbDesa = [
+  {
+    icon1: <IconArrowBadgeUpFilled />,
+    title: "Pendapatan",
+    jumlah: 2409228574,
+  },
+  { icon2: <IconPointFilled />, title1: "Belanja", jumlah1: 0 },
+  { icon3: <IconPointFilled />, title2: "Penerimaan", jumlah2: 0 },
+  { icon4: <IconPointFilled />, title3: "Pengeluaran", jumlah3: 0 },
+];
+
+export const pendapatanBelanja = [
+  {
+    tahun: 2022,
+    Pendapatan: 2104415300,
+    Belanja: 2235758752,
+  },
+  {
+    tahun: 2023,
+    Pendapatan: 2280122957,
+    Belanja: 2372026612,
+  },
+  {
+    tahun: 2024,
+    Pendapatan: 2211273600,
+    Belanja: 0,
+  },
+];
+
+export const pendapatanDesa = [
+  { judul: "Pendapatan Asli Desa", jumlah: 8000000 },
+  { judul: "Pendapatan Transfer", jumlah: 2203273600 },
+  { judul: "Pendapatan Lain-lain", jumlah: 0 },
+];
+
+export const belanjaDesa = [
+  { judul: "Penyelenggaraan Pemerintahan Desa", jumlah: 0 },
+  { judul: "Pelaksanaan Pembangunan Desa", jumlah: 0 },
+  { judul: "Pembinaan Kemasyarakatan Desa", jumlah: 0 },
+  { judul: "Pemberdayaan Masyarakat Desa", jumlah: 0 },
+  {
+    judul: "Penanggulangan Bencana, Keadaan Darurat, dan Keadaan Mendesak Desa",
+    jumlah: 0,
+  },
+];
+
+export const pembiayaanDesa = [
+  { judul: "Penerimaan", jumlah: 0 },
+  { judul: "Pengeluaran", jumlah: 0 },
+];
+
+// Bansos
+
+export const bansos = [
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "Vaksin 1",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "Vaksin 2",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "BNPT",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "BLT",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "PKH",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "BST",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "Bantuan Caleg",
+  },
+  {
+    jumlah: 0,
+    penduduk: "Penduduk",
+    mendapat: "Mendapatkan Bantuan",
+    bantuan: "Baznas",
+  },
+];
+
+// IDM
+export const idm = [
+  { judul: "Skor IDM 2023", jumlah: 0.8619 },
+  { judul: "Status IDM 2023", jumlah: "MANDIRI" },
+  { judul: "Target Status", jumlah: "MANDIRI" },
+  { judul: "Skor Minimal", jumlah: 0.8156 },
+  { judul: "Penambahan", jumlah: -0.0463 },
+  { judul: "Skor IKS", jumlah: 0.8857 },
+  { judul: "Skor IKE", jumlah: 0.9 },
+  { judul: "Skor IKL", jumlah: 0.8 },
+];
+
+export const skorIDMTahun = [
+  { tahun: 2022, skor: 0.8268 },
+  { tahun: 2023, skor: 0.8435 },
+  { tahun: 2024, skor: 0.8619 },
+];
+
+// SDGs
+
+export const sdgs = [
+  { judul: "Skor SDGs Desa Karangrejo", nilai: 54.38 },
+  { judul: "Desa Tanpa Kemiskinan", image: "/iconSDGs/1.webp", nilai: 53.75 },
+  { judul: "Desa Tanpa Kelaparan", image: "/iconSDGs/2.webp", nilai: 53.75 },
+  {
+    judul: "Desa Sehat dan Sejahtera",
+    image: "/iconSDGs/3.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Pendidikan Desa Berkualitas",
+    image: "/iconSDGs/4.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Keterlibatan Perempuan Desa",
+    image: "/iconSDGs/5.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Desa Layak Air Bersih dan Sanitasi",
+    image: "/iconSDGs/6.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Desa Berenergi Bersih dan Terbarukan",
+    image: "/iconSDGs/7.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Pertumbuhan Ekonomi Desa Merata",
+    image: "/iconSDGs/8.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Infrastruktur dan Inovasi Desa Sesuai Kebutuhan",
+    image: "/iconSDGs/9.webp",
+    nilai: 53.75,
+  },
+  { judul: "Desa Tanpa Kesenjangan", image: "/iconSDGs/10.webp", nilai: 53.75 },
+  {
+    judul: "Kawasan Pemukiman Desa Aman dan Nyaman",
+    image: "/iconSDGs/11.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Konsumsi dan Produksi Desa Sadar Lingkungan",
+    image: "/iconSDGs/12.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Desa Tanggap Perubahan Iklim",
+    image: "/iconSDGs/13.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Desa Peduli Lingkungan Laut",
+    image: "/iconSDGs/14.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Desa Peduli Lingkungan Darat",
+    image: "/iconSDGs/15.webp",
+    nilai: 53.75,
+  },
+  { judul: "Desa Damai Berkeadilan", image: "/iconSDGs/16.webp", nilai: 53.75 },
+  {
+    judul: "Kemitraan Untuk Pembangunan Desa",
+    image: "/iconSDGs/17.webp",
+    nilai: 53.75,
+  },
+  {
+    judul: "Kelembagaan Desa Dinamis dan Budaya Desa Adaptif",
+    image: "/iconSDGs/18.webp",
+    nilai: 53.75,
   },
 ];

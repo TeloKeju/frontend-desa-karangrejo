@@ -1,5 +1,5 @@
 import { Navbar, Button } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   IconUser,
@@ -11,36 +11,38 @@ import {
 } from "@tabler/icons-react";
 
 const InfografisLink = () => {
+  const navigate = useNavigate();
+
   const infografisMenu = [
     {
       icon: <IconUser />,
       name: "Penduduk",
-      link: "./",
+      link: "/infografis/",
     },
     {
       icon: <IconCash />,
       name: "APBDes",
-      link: "./apb-desa",
+      link: "/infografis/apb-desa",
     },
     {
       icon: <IconChartBar />,
       name: "Stunting",
-      link: "./stunting",
+      link: "/infografis/stunting",
     },
     {
       icon: <IconPackage />,
-      name: "Basos",
-      link: "./bansos",
+      name: "Bansos",
+      link: "/infografis/bansos",
     },
     {
       icon: <IconCrown />,
       name: "IDM",
-      link: "./idm",
+      link: "/infografis/idm",
     },
     {
-      icon: <IconCash />,
-      name: "APBDes",
-      link: "./apb-desa",
+      icon: <IconNumbers />,
+      name: "SDGs",
+      link: "/infografis/sdgs",
     },
   ];
 
@@ -58,12 +60,16 @@ const InfografisLink = () => {
               <Button.Group outline>
                 {infografisMenu.map((item, index) => {
                   return (
-                    <Link to={item.link} color="gray" className="w-20 lg:w-28">
+                    <Button
+                      color="gray"
+                      className="w-20 lg:w-28"
+                      onClick={() => navigate(`${item.link}`)}
+                    >
                       <section className="flex flex-col justify-center items-center">
                         {item.icon}
                         <p>{item.name}</p>
                       </section>
-                    </Link>
+                    </Button>
                   );
                 })}
               </Button.Group>
@@ -81,12 +87,17 @@ const InfografisLink = () => {
             {infografisMenu.map((item, index) => {
               if (index < 3) {
                 return (
-                  <Link to={item.link} color="gray" className="w-32">
+                  <Button
+                    to={item.link}
+                    color="gray"
+                    className="w-32"
+                    onClick={() => navigate(`${item.link}`)}
+                  >
                     <section className="flex flex-col justify-center items-center">
                       {item.icon}
                       <p>{item.name}</p>
                     </section>
-                  </Link>
+                  </Button>
                 );
               }
             })}
@@ -95,12 +106,17 @@ const InfografisLink = () => {
             {infografisMenu.map((item, index) => {
               if (index > 2) {
                 return (
-                  <Link to={item.link} color="gray" className="w-32">
+                  <Button
+                    to={item.link}
+                    color="gray"
+                    className="w-32"
+                    onClick={() => navigate(`${item.link}`)}
+                  >
                     <section className="flex flex-col justify-center items-center">
                       {item.icon}
                       <p>{item.name}</p>
                     </section>
-                  </Link>
+                  </Button>
                 );
               }
             })}

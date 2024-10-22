@@ -11,9 +11,10 @@ import IDM from "./pages/infografis/idm";
 import Berita from "./pages/berita";
 
 import Penduduk from "./pages/infografis/penduduk";
-import APBDesa from "./pages/infografis/APBDesa";
+import APBDesa from "./pages/infografis/apbDesa";
 import Stunting from "./pages/infografis/stunting";
 import Bansos from "./pages/infografis/bansos";
+import SDGs from "./pages/infografis/sdgs";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -31,6 +32,7 @@ function App() {
           <Route path="apb-desa" element={<APBDesa />} />
           <Route path="stunting" element={<Stunting />} />
           <Route path="bansos" element={<Bansos />} />
+          <Route path="sdgs" element={<SDGs />} />
         </Route>
         <Route path="/berita" element={<Berita />} />
         {/* <Route path="/infografis/penduduk" element={<Penduduk />} /> */}

@@ -95,7 +95,7 @@ const ProfileDesa = () => {
               <h2 className="text-xl">Peta Lokasi Desa Karangrejo</h2>
             </section>
             <section className="grid sm:grid-cols-2 gap-4">
-              <Card className="max-w-sm text-start mt-6">
+              <Card className="w-full text-start mt-6">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Desa Karangrejo
                 </h1>

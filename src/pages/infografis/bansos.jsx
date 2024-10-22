@@ -1,12 +1,61 @@
+import { IconSearch } from "@tabler/icons-react";
+import { bansos } from "./data/data";
+import InfografisLink from "./link";
+
+import { Card, TextInput, Label } from "flowbite-react";
+
+// export InfografisLink
+
 const Bansos = () => {
-    return ( 
-        <section style={{ marginTop: "84px" }}>
-            <InfografisLink/>
-            <div>
-                Bansos
-            </div>
+  return (
+    <main className="mt-20">
+      <InfografisLink />
+      <section className="container p-5  mx-auto mt-10">
+        <h1 className=" text-start font-bold text-4xl">
+          Jumlah Penerima Bansos
+        </h1>
+        <section className="grid sm:grid-cols-2 gap-3 mt-3">
+          {bansos.map((item) => (
+            <>
+              <Card className=" ">
+                <section className="grid grid-cols-3">
+                  <section className="col-span-1">
+                    <section>
+                      <p className="text-4xl font-bold">{item.jumlah}</p>
+                      <p className="text-xl font-semibold">{item.penduduk}</p>
+                    </section>
+                  </section>
+                  <section className=" flex flex-col justify-center col-span-2">
+                    <h2 className="text-start text-xl font-semibold ms-10 uppercase">
+                      {item.mendapat}
+                    </h2>
+                    <p className="text-start text-xl ms-10">
+                      <span className="font-bold">{item.bantuan}</span>
+                    </p>
+                  </section>
+                </section>
+              </Card>
+            </>
+          ))}
         </section>
-     );
-}
- 
+        <section className="mt-28">
+          <h1 className=" text-start font-bold text-4xl">
+            Cek Penerima Bansos
+          </h1>
+          <div className="max-w">
+            <div className="mb-2 block">
+              {/* <Label htmlFor="email4" value="Your email" /> */}
+            </div>
+            <TextInput
+              icon={IconSearch}
+              placeholder="Masukkan NIK Penerima Bansos"
+              required
+            />
+          </div>
+        </section>
+      </section>
+    </main>
+  );
+};
+
 export default Bansos;
