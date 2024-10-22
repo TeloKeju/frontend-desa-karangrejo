@@ -5,169 +5,12 @@ import { Link } from "react-router-dom";
 import { IconNotes, IconUser, IconEye } from "@tabler/icons-react";
 import { FormatRupiah } from "@arismun/format-rupiah";
 
+import { sotk, administrasi, berita, beli, galeri } from "./data/data";
+
 const Home = () => {
   function falseRate(trueRate) {
     return 5 - trueRate;
   }
-  const sotk = [
-    {
-      nama: "Dani Ardiansyach",
-      jabatan: "Kepala Desa",
-      foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
-    },
-    {
-      nama: "Dani Ardiansyach",
-      jabatan: "Kepala Desa",
-      foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
-    },
-    {
-      nama: "Dani Ardiansyach",
-      jabatan: "Kepala Desa",
-      foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
-    },
-    {
-      nama: "Dani Ardiansyach",
-      jabatan: "Kepala Desa",
-      foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
-    },
-    {
-      nama: "Dani Ardiansyach",
-      jabatan: "Kepala Desa",
-      foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
-    },
-  ];
-
-  const administrasi = [
-    {
-      number: 4.484,
-      title: "Penduduk",
-    },
-    {
-      number: 4.484,
-      title: "Laki-Laki",
-    },
-    {
-      number: 4.484,
-      title: "Kepala Keluarga",
-    },
-    {
-      number: 4.484,
-      title: "Perempuan",
-    },
-    {
-      number: 4.484,
-      title: "Penduduk Sementara",
-    },
-    {
-      number: 4.484,
-      title: "Mutasi Penduduk",
-    },
-  ];
-
-  const berita = [
-    {
-      image: "https://placehold.co/100x100",
-      title: "Contoh Judul Berita",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      writer: "Admin Desa",
-      seen: 123,
-      publisDate: "12-03-2023",
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Contoh Judul Berita",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      writer: "Admin Desa",
-      seen: 123,
-      publisDate: "12-03-2023",
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Contoh Judul Berita",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      writer: "Admin Desa",
-      seen: 123,
-      publisDate: "12-03-2023",
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Contoh Judul Berita",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      writer: "Admin Desa",
-      seen: 123,
-      publisDate: "12-03-2023",
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Contoh Judul Berita",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      writer: "Admin Desa",
-      seen: 123,
-      publisDate: "12-03-2023",
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Contoh Judul Berita",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      writer: "Admin Desa",
-      seen: 123,
-      publisDate: "12-03-2023",
-    },
-  ];
-
-  const beli = [
-    {
-      image: "https://placehold.co/100x100",
-      title: "Title",
-      Rating: 1,
-      Harga: 100000,
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Title",
-      Rating: 2,
-      Harga: 100000,
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Title",
-      Rating: 3,
-      Harga: 100000,
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Title",
-      Rating: 4,
-      Harga: 100000,
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Title",
-      Rating: 5,
-      Harga: 100000,
-    },
-    {
-      image: "https://placehold.co/100x100",
-      title: "Title",
-      Rating: 1,
-      Harga: 100000,
-    },
-  ];
-
-  const galeri = [
-    { image: "https://placehold.co/100x100" },
-    { image: "https://placehold.co/100x100" },
-    { image: "https://placehold.co/100x100" },
-    { image: "https://placehold.co/100x100" },
-    { image: "https://placehold.co/100x100" },
-    { image: "https://placehold.co/100x100" },
-  ];
 
   return (
     <>
@@ -219,7 +62,7 @@ const Home = () => {
                     </h1>
                   </Card>
                 </Link>
-                <Link to={"#"}>
+                <Link to={"https://cekdptonline.kpu.go.id/"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60 ">
                     <img
                       src="https://cdn.digitaldesa.com/statics/profil-v2/assets/explore-menu-2-SbK3LIat.png"

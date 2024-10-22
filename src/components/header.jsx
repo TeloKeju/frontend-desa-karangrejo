@@ -32,10 +32,10 @@ const Header = () => {
       name: "Belanja",
       link: "/belanja",
     },
-    {
-      name: "PPID",
-      link: "/ppid",
-    },
+    // {
+    //   name: "PPID",
+    //   link: "/ppid",
+    // },
   ];
 
   return (

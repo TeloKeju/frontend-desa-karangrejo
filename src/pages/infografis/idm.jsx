@@ -20,7 +20,7 @@ const IDM = () => {
       <main style={{ marginTop: "84px" }}>
         {/* LINK INFOGRAFIS */}
         <InfografisLink />
-        <section className="container p-4 mx-auto mt-10">
+        <section className="container p-5 mx-auto mt-10">
           <section className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <section className="flex justify-center flex-col sm:p-10">
               <h1 className=" text-start font-bold text-4xl">IDM</h1>
