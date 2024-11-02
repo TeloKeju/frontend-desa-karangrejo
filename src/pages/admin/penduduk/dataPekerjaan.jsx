@@ -288,12 +288,10 @@ const ModalAddPekerjaan = ({ setOpenModal, onAction }) => {
 const ModalDeletePekerjaan = ({ dataEdit, setOpenModal, onAction }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  async function handleDelete(params) {
+  async function handleDelete() {
     try {
       setIsLoading(true);
-      const res = await apiKarangrejo.delete(`/pekerjaan`, {
-        id: dataEdit.id,
-      });
+      const res = await apiKarangrejo.delete(`/pekerjaan?id=${dataEdit.id}`);
 
       setIsLoading(false);
       setOpenModal(false);

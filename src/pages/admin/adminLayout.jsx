@@ -14,7 +14,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Admin = ({ children }) => {
   const navMenu = [
@@ -56,6 +56,13 @@ const Admin = ({ children }) => {
   ];
 
   const [open, setOpen] = useState(true);
+
+  const [isLogin, setIsLogin] = useState(true);
+
+  if (!isLogin) {
+    return <Navigate to={"/"} />;
+  }
+
   return (
     <section className="w-full flex bg-blue-400">
       <div

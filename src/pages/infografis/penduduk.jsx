@@ -25,9 +25,65 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useEffect, useState } from "react";
+import apiKarangrejo from "../../lib/axios";
 
 const Penduduk = () => {
-  //   console.log("test");
+  const [pendudukKelompokUmur , setPendudukKelompokUmur] = useState({});
+  const [pendudukPendidikan, setPendudukPendidikan] = useState({});
+
+  async function getDataPenduduk() {
+    try {
+      const res = await apiKarangrejo.get("/penduduk");
+      jumlahPenduduk[0].number = res.data.penduduk.total_penduduk;
+      jumlahPenduduk[1].number = res.data.penduduk.kepala_keluarga;
+      jumlahPenduduk[2].number = res.data.penduduk.perempuan;
+      jumlahPenduduk[3].number = res.data.penduduk.laki_laki;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getPendudukKelompokUmur() {
+    try {
+      const res = await apiKarangrejo.get("/penduduk/umur");
+      setPendudukKelompokUmur(res.data.umur);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getDataPendidikan(params) {
+    try {
+      const res= await apiKarangrejo.get("/penduduk/pendidikan")
+      setPendudukPendidikan(res.data.pendidikan)
+      // console.log(res.data.pendidikan);
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function getDataAgama() {
+    try {
+      const res = await apiKarangrejo.get("/agama")
+      res.data.agama.map((item, i) => {
+        agama[i].id = item.id;
+        agama[i].judul = item.nama_agama;
+        agama[i].jumlah = item.jumlah_penganut;
+      });
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataPenduduk()
+    getPendudukKelompokUmur();
+    getDataPendidikan()
+    getDataAgama()
+  }, []);
 
   return (
     <>
@@ -99,14 +155,14 @@ const Penduduk = () => {
             </h1>
             <Card className=" w-full h-96 mt-3">
               <ResponsiveContainer width={"100%"} height={"100%"}>
-                <BarChart width={500} height={300} data={kelompokUmur}>
+                <BarChart width={500} height={300} data={pendudukKelompokUmur}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="Umur" />
+                  <XAxis dataKey="umur" />
                   <YAxis />
                   <Tooltip />
                   <Legend />
                   <Bar
-                    dataKey="Jumlah"
+                    dataKey="jumlah"
                     fill="#8884d8"
                     activeBar={<Rectangle fill="#8884d8" stroke="blue" />}
                   />
@@ -121,7 +177,7 @@ const Penduduk = () => {
             </h1>
             <Card className=" w-full h-96 mt-3">
               <ResponsiveContainer width={"100%"} height={"100%"}>
-                <BarChart width={500} height={300} data={pendidikan}>
+                <BarChart width={500} height={300} data={pendudukPendidikan}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="judul" />
                   <YAxis />

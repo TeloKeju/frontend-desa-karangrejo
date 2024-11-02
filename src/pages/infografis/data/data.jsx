@@ -5,22 +5,22 @@ export const jumlahPenduduk = [
   {
     image: "/iconPenduduk/iconTotalPenduduk.svg",
     title: "Total Penduduk",
-    number: 4.486,
+    number: 0,
   },
   {
     image: "/iconPenduduk/iconKepalaKeluarga.svg",
     title: "Kepala Keluarga",
-    number: 1.382,
+    number: 0,
   },
   {
     image: "/iconPenduduk/iconPerempuan.svg",
     title: "Perempuan",
-    number: 2.299,
+    number: 0,
   },
   {
     image: "/iconPenduduk/iconLaki.svg",
     title: "Laki-Laki",
-    number: 2.299,
+    number: 0,
   },
 ];
 
@@ -219,22 +219,22 @@ export const perkawinan = [
   {
     image: "/iconPenduduk/iconBelumKawin.svg",
     judul: "Belum Kawin",
-    jumlah: 2.426,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconKawin.svg",
     judul: "Kawin",
-    jumlah: 3.009,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconCeraiMati.svg",
     judul: "Cerai Mati",
-    jumlah: 409,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconCeraiHidup.svg",
     judul: "Cerai hidup",
-    jumlah: 224,
+    jumlah: 0,
   },
 ];
 
@@ -242,12 +242,12 @@ export const agama = [
   {
     image: "/iconPenduduk/iconIslam.svg",
     judul: "Islam",
-    jumlah: 5.979,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconKristen.svg",
     judul: "Kristen",
-    jumlah: 89,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconKonghucu.svg",
