@@ -3,8 +3,24 @@ import { Card } from "flowbite-react";
 import { berita } from "./data/data";
 
 import { IconUser, IconEye } from "@tabler/icons-react";
+import apiKarangrejo from "../lib/axios";
+import { useEffect, useState } from "react";
 
 const Berita = () => {
+  const [dataBerita, setDataBerita] = useState([]);
+
+  async function getDataBerita() {
+    try {
+      const res = await apiKarangrejo.get("/news");
+      setDataBerita(res.data.news);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataBerita();
+  }, []);
   return (
     <>
       <main className="mt-20">
@@ -16,46 +32,63 @@ const Berita = () => {
               dan artikel-artikel jurnalistik dari Desa Karangrejo
             </p>
           </section>
-          <section className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-3">
-            {berita.map((item) => {
-              return (
-                <>
-                  <section>
-                    <Card
-                      className=""
-                      imgAlt="Image Berita"
-                      imgSrc={item.image}
-                    >
-                      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        {item.title}
-                      </h5>
-                      <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
-                        {item.content}
-                      </p>
+          {dataBerita.length === 0 ? (
+            <section className="pt-5" style={{minHeight : "85vh"}}>
+              <Card
+                className="object-contain"
+                imgAlt="Image Berita"
+                imgSrc=""
+              >
+                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  Belum ada berita
+                </h5>
+              </Card>
+            </section>
+          ) : (
+            <section className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-3">
+              {dataBerita.map((item) => {
+                return (
+                  <>
+                    <section key={item.id}>
+                      <Card
+                        className="object-contain"
+                        imgAlt="Image Berita"
+                        imgSrc={
+                          import.meta.env.VITE_IMAGE_BASE + "/" + item?.image ||
+                          ""
+                        }
+                      >
+                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                          {item.title}
+                        </h5>
+                        <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
+                          {item.content}
+                        </p>
 
-                      <section className="flex justify-between">
-                        <section>
-                          <p className="flex flex-row">
-                            <span>
-                              <IconUser></IconUser>
-                            </span>
-                            &nbsp;{item.writer}
-                          </p>
-                          <p className="flex flex-row">
-                            <IconEye></IconEye>
-                            &nbsp;{item.seen}
-                          </p>
+                        <section className="flex justify-between">
+                          <section>
+                            <p className="flex flex-row">
+                              <span>
+                                <IconUser></IconUser>
+                              </span>
+                              &nbsp;{item?.writer || "admin"}
+                            </p>
+                            <p className="flex flex-row">
+                              <IconEye></IconEye>
+                              &nbsp;{item.views}
+                            </p>
+                          </section>
+                          <section>
+                            <p>{item.publisDate}</p>
+                          </section>
                         </section>
-                        <section>
-                          <p>{item.publisDate}</p>
-                        </section>
-                      </section>
-                    </Card>
-                  </section>
-                </>
-              );
-            })}
-          </section>
+                      </Card>
+                    </section>
+                  </>
+                );
+              })}
+            </section>
+          )}
         </section>
       </main>
     </>

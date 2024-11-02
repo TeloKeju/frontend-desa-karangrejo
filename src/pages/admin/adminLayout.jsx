@@ -57,7 +57,7 @@ const Admin = ({ children }) => {
 
   const [open, setOpen] = useState(true);
 
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   if (!isLogin) {
     return <Navigate to={"/"} />;
