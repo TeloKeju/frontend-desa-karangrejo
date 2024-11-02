@@ -53,10 +53,7 @@ const Home = () => {
               <section className="flex flex-row gap-5 justify-start">
                 <Link to={"#"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60">
-                    <img
-                      src="https://cdn.digitaldesa.com/statics/profil-v2/assets/explore-menu-3-DFdUkXec.png"
-                      alt=""
-                    />
+                    <img src="/home/iconPasarDesa.png" alt="" />
                     <h1 className="text-xs md:text-sm font-semibold uppercase">
                       Pasar Desa
                     </h1>
@@ -64,10 +61,7 @@ const Home = () => {
                 </Link>
                 <Link to={"https://cekdptonline.kpu.go.id/"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60 ">
-                    <img
-                      src="https://cdn.digitaldesa.com/statics/profil-v2/assets/explore-menu-2-SbK3LIat.png"
-                      alt=""
-                    />
+                    <img src="/home/iconCekDPT.png" alt="" />
                     <h1 className="text-xs md:text-sm font-semibold uppercase">
                       Cek DPT Online
                     </h1>
@@ -77,10 +71,7 @@ const Home = () => {
               <section className="flex flex-row gap-5 justify-end mt-5">
                 <Link to={"#"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60">
-                    <img
-                      src="https://cdn.digitaldesa.com/statics/profil-v2/assets/explore-menu-1-Dm8QiT59.png"
-                      alt=""
-                    />
+                    <img src="/home/iconBeritaDesa.png" alt="" />
                     <h1 className="text-xs md:text-sm font-semibold uppercase">
                       Berita Desa
                     </h1>
@@ -88,10 +79,7 @@ const Home = () => {
                 </Link>
                 <Link to={"#"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60">
-                    <img
-                      src="https://cdn.digitaldesa.com/statics/profil-v2/assets/explore-menu-4-DRJ4tzz0.png"
-                      alt=""
-                    />
+                    <img src="/home/iconInformasiDesa.png" alt="" />
                     <h1 className="text-xs md:text-sm font-semibold uppercase">
                       Informasi Desa
                     </h1>
@@ -244,7 +232,7 @@ const Home = () => {
             <section className="grid md:grid-cols-2">
               <section className="flex justify-center">
                 <img
-                  src="https://cdn.digitaldesa.com/statics/profil-v2/assets/other-D5R53cMR.png"
+                  src="/home/iconAPBD.png"
                   alt=""
                   className="w-72 sm:w-full"
                   loading="lazy"

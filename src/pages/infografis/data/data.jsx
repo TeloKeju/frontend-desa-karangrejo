@@ -3,26 +3,22 @@ import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
 //Penduduk
 export const jumlahPenduduk = [
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-total-penduduk-Du2cCbAO.svg",
+    image: "/iconPenduduk/iconTotalPenduduk.svg",
     title: "Total Penduduk",
     number: 4.486,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-kepala-keluarga-D4UfE36x.svg",
+    image: "/iconPenduduk/iconKepalaKeluarga.svg",
     title: "Kepala Keluarga",
     number: 1.382,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-perempuan-BCmUG8mA.svg",
+    image: "/iconPenduduk/iconPerempuan.svg",
     title: "Perempuan",
     number: 2.299,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-laki-CmERQRaD.svg",
+    image: "/iconPenduduk/iconLaki.svg",
     title: "Laki-Laki",
     number: 2.299,
   },
@@ -221,26 +217,22 @@ export const dataPekerjaan = [
 
 export const perkawinan = [
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-belum-kawin-B6LGf_QT.svg",
+    image: "/iconPenduduk/iconBelumKawin.svg",
     judul: "Belum Kawin",
     jumlah: 2.426,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-kawin-DDA193Z5.svg",
+    image: "/iconPenduduk/iconKawin.svg",
     judul: "Kawin",
     jumlah: 3.009,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-cerai-mati-VdEzxQgX.svg",
+    image: "/iconPenduduk/iconCeraiMati.svg",
     judul: "Cerai Mati",
     jumlah: 409,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-cerai-hidup-c75sVKpW.svg",
+    image: "/iconPenduduk/iconCeraiHidup.svg",
     judul: "Cerai hidup",
     jumlah: 224,
   },
@@ -248,44 +240,37 @@ export const perkawinan = [
 
 export const agama = [
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-islam-B2-fwtBi.svg",
+    image: "/iconPenduduk/iconIslam.svg",
     judul: "Islam",
     jumlah: 5.979,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-kristen-CvNUV1pq.svg",
+    image: "/iconPenduduk/iconKristen.svg",
     judul: "Kristen",
     jumlah: 89,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-konghuchu-Bt_R-Ivr.svg",
+    image: "/iconPenduduk/iconKonghucu.svg",
     judul: "Konghucu",
     jumlah: 0,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-katolik-DFXj5yZv.svg",
+    image: "/iconPenduduk/iconKatolik.svg",
     judul: "Katolik",
     jumlah: 0,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-hindu-D9LgBI6W.svg",
+    image: "/iconPenduduk/iconHindu.svg",
     judul: "Hindu",
     jumlah: 0,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-buddha-Cfftt9vu.svg",
+    image: "/iconPenduduk/iconBudha.svg",
     judul: "Budha",
     jumlah: 0,
   },
   {
-    image:
-      "https://cdn.digitaldesa.com/statics/profil-v2/assets/icon-kepercayaan-lainnya-DFa3yh4T.svg",
+    image: "/iconPenduduk/iconKepercayaanLainya.svg",
     judul: "Kepercayaan Lainya",
     jumlah: 0,
   },

@@ -52,7 +52,7 @@ const Penduduk = () => {
             </section>
             <section className="flex justify-center sm:justify-end">
               <img
-                src="https://cdn.digitaldesa.com/statics/profil-v2/assets/other-1-DEP2VegA.png"
+                src="/iconPenduduk/iconPenduduk.png"
                 alt=""
                 className="w-80"
                 loading="lazy"
