@@ -42,7 +42,7 @@ const Header = () => {
     <>
       <section className="relative z-50 bg">
         <Navbar fluid rounded className="fixed top-0 left-0 right-0">
-          <Navbar.Brand href="https://flowbite-react.com">
+          <Navbar.Brand href="/">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Logo_Kabupaten_Kediri_%28Seal_of_Kediri_Regency%29.svg"
               className="mr-3 h-12 sm:h-16"
