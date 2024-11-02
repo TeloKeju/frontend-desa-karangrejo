@@ -29,7 +29,7 @@ const NewsPageAdmin = () => {
   async function getDataNews(params) {
     try {
       setIsLoading(true);
-      const res = await apiKarangrejo("/news");
+      const res = await apiKarangrejo.get("/news");
 
       setNews(res.data.news);
       setIsLoading(false);
@@ -110,7 +110,7 @@ const NewsPageAdmin = () => {
                         <button
                           onClick={() => {
                             setAction("delete");
-                            
+
                             setOpenModal(true);
                             setDataEdit(item);
                           }}
@@ -399,13 +399,16 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
 
 const ModalDeleteNews = ({ dataEdit, setOpenModal, onAction }) => {
   const [isLoading, setIsLoading] = useState(false);
+  console.log(dataEdit);
+  
 
-  async function handleDelete(params) {
+  async function handleDelete() {
     try {
       setIsLoading(true);
-      const res = await apiKarangrejo.delete(`/news`, {
-        id: dataEdit.id,
-      });
+      const res = await apiKarangrejo.delete(`/news?id=${dataEdit.id}`);
+
+      console.log(res.data);
+      
 
       setIsLoading(false);
       setOpenModal(false);

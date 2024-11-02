@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an instance of axios
 const apiKarangrejo = axios.create({
-    baseURL: 'http://localhost:8000/api',
+    baseURL: import.meta.env.VITE_SEVER_ENDPOINT,
 });
 
 // Request interceptor
