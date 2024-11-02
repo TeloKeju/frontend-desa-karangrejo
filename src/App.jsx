@@ -16,6 +16,8 @@ import Listing from "./pages/listing";
 import IDM from "./pages/infografis/idm";
 import Berita from "./pages/berita";
 import Belanja from "./pages/belanja";
+import Pemerintah from "./pages/pemerintah";
+import Galeri from "./pages/galeri";
 
 import PPID from "./pages/ppid";
 
@@ -48,6 +50,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/profile-desa" element={<ProfileDesa />} />
           <Route path="/listing" element={<Listing />} />
+          <Route path="/pemerintah" element={<Pemerintah />} />
+          <Route path="/galeri" element={<Galeri />} />
           <Route path="/infografis">
             <Route index element={<Penduduk />} />
             <Route path="idm" element={<IDM />} />

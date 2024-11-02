@@ -23,29 +23,31 @@ const ProfileDesa = () => {
             <section className="mt-4">
               <h1 className="font-bold text-3xl">Visi</h1>
               <p>
-                Desa Karangrejo yang Maju, Mandiri, dan Bernafaskan Keagamaan
+                Terwujudnya Desa Karangrejo yang harmonis, maju, berdaya saing,
+                agamis, tentram dan sejahtera pada tahun 2027
               </p>
               <h1 className="font-bold text-3xl">Misi</h1>
               <List ordered nested className="text-start">
                 <List.Item>
-                  Mewujudkan tata kelola pemerintahan desa yang baik, bersih
-                  (good and clean governance) serta layanan publik yang prima
-                  berbasis teknologi informasi.
+                  Meningkatkan kualitas pelayanan publik dan tata kelola
+                  pemerintahan berbasis Good Government.
                 </List.Item>
                 <List.Item>
-                  Meningkatkan keterpenuhan sarana dan prasarana pengembangan
-                  wilayah, ekonomi, sosial dan lingkungan hidup di desa serta
-                  keterpenuhan hak-hak dasar masyarakat.
+                  Meningkatkan Kualitas pembangunan sumber daya manusia
+                  seutuhnya melalui optimalisasi gerakan pemberdayaan masyarakat
+                  di berbagai bidang secara terpadu.
                 </List.Item>
                 <List.Item>
-                  Meningkatkan pemanfaatan potensi ekonomi untuk kemandirian
-                  masyarakat.
+                  Meningkatkan pengembangan perekonomian Desa secara
+                  berkelanjutan didukung infrastruktur dan kawasan berkualitas
+                  berbasis TIK.
                 </List.Item>
                 <List.Item>
-                  Mengembangkan kegiatan strategis desa untuk mendukung kemajuan
-                  desa.
+                  Menjaga dan meningkatkan keamanan, ketentraman, ketertiban,
+                  dan kerukunan masyarakat untuk pelaksanaan pembangunan
+                  didukung dengan pengalaman keagamaan dan nilai - nilai luhur
+                  berdaya bangsa.
                 </List.Item>
-                <List.Item>Meningkatkan kegiatan beragama</List.Item>
               </List>
             </section>
           </section>
@@ -100,25 +102,27 @@ const ProfileDesa = () => {
                   Desa Karangrejo
                 </h1>
                 <section className="border-b-2" />
-                <p className="font-normal text-xl text-gray-700 dark:text-gray-400">
+                <p className="font-normal text-xl text-slate-700 dark:text-gray-400">
                   Batas Desa
                 </p>
                 <section className="grid grid-cols-2 text-lg">
                   <section className="">
                     <p>Utara</p>
-                    <p>Desa test</p>
+                    <p>Desa Kandat dan Desa Selosari</p>
                   </section>
                   <section>
                     <p>Timur</p>
-                    <p>Desa test</p>
+                    <p>Desa Selosari</p>
                   </section>
                   <section>
                     <p>Selatan</p>
-                    <p>Desa test</p>
+                    <p>
+                      Desa Purwodadi dan Desa Selodono (Kecamatan Ringinrejo)
+                    </p>
                   </section>
                   <section>
                     <p>barat</p>
-                    <p>Desa test</p>
+                    <p>Desa Sumberjo</p>
                   </section>
                 </section>
                 <section className="border-b-2" />

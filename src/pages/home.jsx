@@ -51,7 +51,7 @@ const Home = () => {
             </section>
             <section className="p-4">
               <section className="flex flex-row gap-5 justify-start">
-                <Link to={"#"}>
+                <Link to={"/belanja"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60">
                     <img src="/home/iconPasarDesa.png" alt="" />
                     <h1 className="text-xs md:text-sm font-semibold uppercase">
@@ -69,7 +69,7 @@ const Home = () => {
                 </Link>
               </section>
               <section className="flex flex-row gap-5 justify-end mt-5">
-                <Link to={"#"}>
+                <Link to={"/berita"}>
                   <Card className="w-40 sm:w-52 md:w-36 lg:w-48 xl:w-60">
                     <img src="/home/iconBeritaDesa.png" alt="" />
                     <h1 className="text-xs md:text-sm font-semibold uppercase">
@@ -105,7 +105,7 @@ const Home = () => {
                   Sambutan Kepala Desa
                 </h1>
                 <p className="font-semibold text-xl md:text-start">
-                  Dani Ardiansyach SD SMP SMK
+                  HERI SUJOKO, S.Pd.
                 </p>
                 <p className="font-light text-lg md:text-start">
                   Kepala Desa Karangrejo
@@ -192,7 +192,7 @@ const Home = () => {
               })}
             </section>
             <section className="flex justify-end my-4">
-              <Link to={"#"} className="flex">
+              <Link to={"/pemerintah"} className="flex">
                 <IconNotes></IconNotes>
                 <span className="uppercase font-bold">
                   Lihat struktur lebih lengkap
@@ -266,7 +266,7 @@ const Home = () => {
               </section>
             </section>
             <section className="flex justify-end my-4">
-              <Link to={"#"} className="flex">
+              <Link to={"/infografis/apb-desa"} className="flex">
                 <IconNotes></IconNotes>
                 <span className="uppercase font-bold">
                   Lihat data lebih lengkap
@@ -325,10 +325,10 @@ const Home = () => {
               })}
             </section>
             <section className="flex justify-end my-4">
-              <Link to={"#"} className="flex">
+              <Link to={"/berita"} className="flex">
                 <IconNotes></IconNotes>
                 <span className="uppercase font-bold">
-                  Lihat struktur lebih lengkap
+                  Lihat berita lebih lengkap
                 </span>
               </Link>
             </section>
@@ -429,7 +429,7 @@ const Home = () => {
               })}
             </section>
             <section className="flex justify-end my-4">
-              <Link to={"#"} className="flex">
+              <Link to={"/belanja"} className="flex">
                 <IconNotes></IconNotes>
                 <span className="uppercase font-bold">
                   Lihat Produk lebih lengkap
@@ -465,7 +465,7 @@ const Home = () => {
               })}
             </section>
             <section className="flex justify-end my-4">
-              <Link to={"#"} className="flex">
+              <Link to={"/galeri"} className="flex">
                 <IconNotes></IconNotes>
                 <span className="uppercase font-bold">
                   Lihat foto lebih banyak

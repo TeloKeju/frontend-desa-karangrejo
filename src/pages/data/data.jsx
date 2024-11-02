@@ -2,28 +2,73 @@
 
 export const sotk = [
   {
-    nama: "Dani Ardiansyach",
+    nama: "HERI SUJOKO, S.Pd.",
     jabatan: "Kepala Desa",
     foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
   },
   {
-    nama: "Dani Ardiansyach",
-    jabatan: "Kepala Desa",
+    nama: "MOHAMMAD DICKI WILDAN SAURI, S.Pd.",
+    jabatan: "Sekretaris Desa",
     foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
   },
   {
-    nama: "Dani Ardiansyach",
-    jabatan: "Kepala Desa",
+    nama: "KUNCORO ADI WIYONO",
+    jabatan: "Kepala Dusun Karangrejo",
     foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
   },
   {
-    nama: "Dani Ardiansyach",
-    jabatan: "Kepala Desa",
+    nama: "HARISSANDY PRAMUDYA",
+    jabatan: "Kepala Dusun Sentul",
     foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
   },
   {
-    nama: "Dani Ardiansyach",
-    jabatan: "Kepala Desa",
+    nama: "DUWI PRASETIYO",
+    jabatan: "Kepala Dusun Tulungrejo",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "GALIH PRASTIYAWAN",
+    jabatan: "Kaur Keuangan",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "NIHRIATUZAHRO'",
+    jabatan: "Kaur Tata Usaha Dan Umum",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "YANUAR GILANG PRATAMA",
+    jabatan: "Kaur Perencanaan",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "SIGIT DWI LAKSONO",
+    jabatan: "Kasi Pemerintahan",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "RELI WAHYUDI",
+    jabatan: "Kasi Kesejahteraan",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "IMAM SAFII, S.Pd.I",
+    jabatan: "Kasi Pelayanan",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "NIHRIATUZAHRO'",
+    jabatan: "Kaur Tata Usaha Dan Umum",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "NIHRIATUZAHRO'",
+    jabatan: "Kaur Tata Usaha Dan Umum",
+    foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
+  },
+  {
+    nama: "NIHRIATUZAHRO'",
+    jabatan: "Kaur Tata Usaha Dan Umum",
     foto: "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg",
   },
 ];
