@@ -8,12 +8,16 @@ import { useEffect, useState } from "react";
 
 const Berita = () => {
   const [dataBerita, setDataBerita] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function getDataBerita() {
     try {
+      setIsLoading(true);
       const res = await apiKarangrejo.get("/news");
       setDataBerita(res.data.news);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   }
@@ -32,13 +36,21 @@ const Berita = () => {
               dan artikel-artikel jurnalistik dari Desa Karangrejo
             </p>
           </section>
-          {dataBerita.length === 0 ? (
-            <section className="pt-5" style={{minHeight : "85vh"}}>
-              <Card
-                className="object-contain"
-                imgAlt="Image Berita"
-                imgSrc=""
+          {isLoading ? (
+            <section
+              className="pt-5 flex justify-center items-center"
+              style={{ minHeight: "calc(100vh - 160px)" }}
+            >
+              <div
+                className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+                role="status"
               >
+                <span className="visually-hidden"></span>
+              </div>
+            </section>
+          ) : dataBerita.length === 0 ? (
+            <section className="pt-5" style={{ minHeight: "85vh" }}>
+              <Card className="object-contain" imgAlt="Image Berita" imgSrc="">
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Belum ada berita
                 </h5>
