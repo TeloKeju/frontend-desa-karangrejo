@@ -27,8 +27,8 @@ const Berita = () => {
   }, []);
   return (
     <>
-      <main className="mt-20">
-        <section className="container p-5  mx-auto mt-10">
+      <main className="">
+        <section className="container mx-auto px-4 py-8" style={{ minHeight: "calc(100vh - 84px)" }}>
           <section>
             <h1 className=" text-start font-bold text-4xl">Berita Desa</h1>
             <p className="text-start font-semibold text-base mt-3">

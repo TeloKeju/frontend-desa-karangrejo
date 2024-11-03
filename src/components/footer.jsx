@@ -37,7 +37,7 @@ export function FooterDev() {
   return (
     <Footer bgDark>
       <div className="w-full">
-        <div className="grid w-full grid-cols-1 px-6 py-8 md:grid-cols-12 md:gap-6">
+        <div className="container mx-auto grid w-full grid-cols-1 px-4 py-8 md:grid-cols-12 md:gap-6">
           <div className="md:col-span-5 mb-10 md:mb-0">
             {/* <Footer.Title title="Company" /> */}
             <Footer.LinkGroup col>
@@ -129,7 +129,8 @@ export function FooterDev() {
             </div>
           </div>
         </div>
-        <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
+        <div className="w-full bg-gray-700 py-6 ">
+          <div className="container mx-auto px-4 sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright by="DRTPM" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon href="#" icon={IconBrandInstagram} />
@@ -137,6 +138,7 @@ export function FooterDev() {
             <Footer.Icon href="#" icon={BsTwitter} />
             <Footer.Icon href="#" icon={BsGithub} />
             <Footer.Icon href="#" icon={BsDribbble} /> */}
+          </div>
           </div>
         </div>
       </div>

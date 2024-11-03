@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 const DetailBelanja = () => {
   return (
     <>
-      <main className="mt-20">
-        <section className="container p-5  mx-auto mt-10">
+      <main className="">
+        <section className="container p-5  mx-auto py-8" style={{ minHeight: "calc(100vh - 84px)" }}>
           <Card>
             <section className="grid grid-cols-1 sm:grid-cols-8 gap-6">
               <img

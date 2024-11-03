@@ -1,6 +1,7 @@
 import { Card, Rating } from "flowbite-react";
 import { beli } from "./data/data";
 import { FormatRupiah } from "@arismun/format-rupiah";
+import { Link } from "react-router-dom";
 
 const Belanja = () => {
   function falseRate(trueRate) {
@@ -9,8 +10,8 @@ const Belanja = () => {
 
   return (
     <>
-      <main className="mt-20">
-        <section className="container p-5  mx-auto mt-10">
+      <main className="">
+        <section className="container mx-auto px-4 py-8" style={{ minHeight: "calc(100vh - 84px)" }}>
           <section>
             <h1 className=" text-start font-bold text-4xl">Beli Dari Desa</h1>
             <p className="text-start font-semibold text-base mt-3">
@@ -22,7 +23,7 @@ const Belanja = () => {
             {beli.map((item) => {
               return (
                 <>
-                  <section>
+                  <Link to={`/belanja/${item.id}`}>
                     <Card
                       className=""
                       imgAlt="Image Berita"
@@ -55,7 +56,7 @@ const Belanja = () => {
                         </section>
                       </section>
                     </Card>
-                  </section>
+                  </Link>
                 </>
               );
             })}

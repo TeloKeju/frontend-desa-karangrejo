@@ -159,36 +159,42 @@ export const berita = [
 
 export const beli = [
   {
+    id : 1,
     image: "https://placehold.co/100x100",
     title: "Title",
     Rating: 1,
     Harga: 100000,
   },
   {
+    id : 2,
     image: "https://placehold.co/100x100",
     title: "Title",
     Rating: 2,
     Harga: 100000,
   },
   {
+    id : 3,
     image: "https://placehold.co/100x100",
     title: "Title",
     Rating: 3,
     Harga: 100000,
   },
   {
+    id : 4,
     image: "https://placehold.co/100x100",
     title: "Title",
     Rating: 4,
     Harga: 100000,
   },
   {
+    id : 5,
     image: "https://placehold.co/100x100",
     title: "Title",
     Rating: 5,
     Harga: 100000,
   },
   {
+    id : 6,
     image: "https://placehold.co/100x100",
     title: "Title",
     Rating: 1,

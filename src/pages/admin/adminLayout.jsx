@@ -13,6 +13,7 @@ import {
   IconPaperclip,
   IconUser,
 } from "@tabler/icons-react";
+import { getCookie } from "cookies-next";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 
@@ -57,10 +58,10 @@ const Admin = ({ children }) => {
 
   const [open, setOpen] = useState(true);
 
-  const [isLogin, setIsLogin] = useState(true);
+  const token = getCookie("token")
 
-  if (!isLogin) {
-    return <Navigate to={"/"} />;
+  if (!token) {
+    return <Navigate to={"/admin/login"} />;
   }
 
   return (
@@ -125,6 +126,8 @@ const Admin = ({ children }) => {
               )}
             </button>
           </div>
+
+          <button>Log sOut</button>
         </div>
         <div className="bg-white h-[calc(100vh-112px)] overflow-auto">
           {children}

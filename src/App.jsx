@@ -36,6 +36,7 @@ import BansosAdmin from "./pages/admin/bansos";
 import SDGsAdmin from "./pages/admin/sdgs";
 import IDMAdmin from "./pages/admin/IDM";
 import NewsPageAdmin from "./pages/admin/news";
+import Login from "./pages/admin/login/login";
 
 function App() {
   const location = useLocation();
@@ -81,6 +82,7 @@ function App() {
             <Route path="setiap-saat" element={<Bansos />} />
           </Route>
         </Route>
+        <Route path="/admin/login" element={<Login/>} />
         <Route path="/admin">
           <Route index element={<PendudukAdmin />} />
           <Route path="stunting" element={<StuntingAdmin />} />
