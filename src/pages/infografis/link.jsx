@@ -1,5 +1,5 @@
-import { Navbar, Button } from "flowbite-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Button } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 import {
   IconUser,
@@ -48,7 +48,7 @@ const InfografisLink = () => {
 
   return (
     <>
-      <section className="p-2">
+      <section className="px-4 container mx-auto">
         <section className=" hidden md:flex md:justify-between ">
           <section className="text-start self-center whitespace-nowrap text-3xl  dark:text-white uppercase font-bold ">
             <h1>
@@ -64,6 +64,7 @@ const InfografisLink = () => {
                       color="gray"
                       className="w-20 lg:w-28"
                       onClick={() => navigate(`${item.link}`)}
+                      key={index}
                     >
                       <section className="flex flex-col justify-center items-center">
                         {item.icon}
@@ -92,6 +93,7 @@ const InfografisLink = () => {
                     color="gray"
                     className="w-32"
                     onClick={() => navigate(`${item.link}`)}
+                    key={index}
                   >
                     <section className="flex flex-col justify-center items-center">
                       {item.icon}
@@ -111,6 +113,7 @@ const InfografisLink = () => {
                     color="gray"
                     className="w-32"
                     onClick={() => navigate(`${item.link}`)}
+                    key={index}
                   >
                     <section className="flex flex-col justify-center items-center">
                       {item.icon}

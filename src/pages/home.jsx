@@ -2,30 +2,73 @@
 
 import { Carousel, Card, Rating } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { IconNotes, IconUser, IconEye } from "@tabler/icons-react";
+import { IconNotes, IconUser, IconEye, IconCircleX } from "@tabler/icons-react";
 import { FormatRupiah } from "@arismun/format-rupiah";
 
-import { sotk, administrasi, berita, beli, galeri } from "./data/data";
+import { sotk, administrasi, beli } from "./data/data";
+import apiKarangrejo from "../lib/axios";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [galeri, setGaleri] = useState([]);
+  async function getDataGalery() {
+    try {
+      const res = await apiKarangrejo.get("/galery");
+      setGaleri(res.data.galery);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const [dataBerita, setDataBerita] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function getDataBerita() {
+    try {
+      setIsLoading(true);
+      const res = await apiKarangrejo.get("/news");
+      setDataBerita(res.data.news);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataBerita();
+    getDataGalery();
+  }, []);
+
   function falseRate(trueRate) {
     return 5 - trueRate;
   }
 
   return (
     <>
-      <main className="mt-20">
-        <section className="h-56 sm:h-64 xl:h-96 2xl:h-full rounded-none">
+      <main className="">
+        <section className="h-56 sm:h-64 xl:h-[750px] 2xl:h-full">
           <Carousel indicators="false">
-            <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-              alt="..."
-            />
-            <img
-              src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-              alt="..."
-            />
-            <img
+            <div className="relative flex justify-center items-center">
+              <h1 className="flex flex-col gap-3 items-center justify-center bg-opacity-50 bg-slate-900 w-full h-56 sm:h-64 xl:h-[750px] 2xl:h-full absolute text-white z-10">
+                <span className="text-7xl font-extrabold">Selamat Datang</span>
+                <span className="text-7xl font-semibold">
+                  Website Resmi Desa Karangrejo
+                </span>
+              </h1>
+              <img src="/carousel/1.jpg" alt="hehe" />
+            </div>
+            <div className="relative flex justify-center items-center">
+              <h1 className="flex flex-col gap-3 items-center justify-center bg-opacity-50 bg-slate-900 w-full h-56 sm:h-64 xl:h-[750px] 2xl:h-full absolute text-white z-10">
+                <span className="text-7xl font-extrabold">Selamat Datang</span>
+                <span className="text-7xl font-semibold">
+                  Website Resmi Desa Karangrejo
+                </span>
+              </h1>
+              <img src="/carousel/2.jpg" alt="hehe" />
+            </div>
+            {/* <img src="/carousel/2.jpg" alt="..." /> */}
+            {/* <img
               src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
               alt="..."
             />
@@ -36,7 +79,7 @@ const Home = () => {
             <img
               src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
               alt="..."
-            />
+            /> */}
           </Carousel>
         </section>
         <section className="container mx-auto mt-10">
@@ -282,48 +325,71 @@ const Home = () => {
                 dan artikel-artikel jurnalistik dari Desa Karang Rejo
               </p>
             </section>
-            <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
-              {berita.map((item, i) => {
-                if (i < 6) {
-                  return (
-                    <>
-                      <section>
-                        <Card
-                          className=""
-                          imgAlt="Image Berita"
-                          imgSrc={item.image}
-                        >
-                          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {item.title}
-                          </h5>
-                          <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
-                            {item.content}
-                          </p>
+            {dataBerita == "" ? (
+              <Card className="mt-3">
+                <section className="flex flex-row justify-center items-center gap-2 h-80 ">
+                  <section className="text-inherit">
+                    <IconCircleX />
+                  </section>
+                  <section className="text-">Belum Ada Data</section>
+                </section>
+              </Card>
+            ) : (
+              <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
+                {dataBerita.map((item, i) => {
+                  if (i < 6) {
+                    return (
+                      <>
+                        <section>
+                          <Card
+                            className=""
+                            imgAlt="Image Berita"
+                            renderImage={() => (
+                              <div className="w-full flex justify-center">
+                                <img
+                                  src={
+                                    import.meta.env.VITE_IMAGE_BASE +
+                                    "/" +
+                                    item?.image
+                                  }
+                                  alt="Image Berita"
+                                  className="w-full rounded-t-md h-[300px] object-cover"
+                                />
+                              </div>
+                            )}
+                          >
+                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                              {item.title}
+                            </h5>
+                            <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
+                              {item.content}
+                            </p>
 
-                          <section className=" hidden sm:flex sm:justify-between">
-                            <section>
-                              <p className="flex flex-row">
-                                <span>
-                                  <IconUser></IconUser>
-                                </span>
-                                &nbsp;{item.writer}
-                              </p>
-                              <p className="flex flex-row">
-                                <IconEye></IconEye>
-                                &nbsp;{item.seen}
-                              </p>
+                            <section className=" hidden sm:flex sm:justify-between">
+                              <section>
+                                <p className="flex flex-row">
+                                  <span>
+                                    <IconUser></IconUser>
+                                  </span>
+                                  &nbsp;{item.writer}
+                                </p>
+                                <p className="flex flex-row">
+                                  <IconEye></IconEye>
+                                  &nbsp;{item.seen}
+                                </p>
+                              </section>
+                              <section>
+                                <p>{item.publisDate}</p>
+                              </section>
                             </section>
-                            <section>
-                              <p>{item.publisDate}</p>
-                            </section>
-                          </section>
-                        </Card>
-                      </section>
-                    </>
-                  );
-                }
-              })}
-            </section>
+                          </Card>
+                        </section>
+                      </>
+                    );
+                  }
+                })}
+              </section>
+            )}
             <section className="flex justify-end my-4">
               <Link to={"/berita"} className="flex">
                 <IconNotes></IconNotes>
@@ -446,24 +512,38 @@ const Home = () => {
                 Menampilkan kegiatan-kegiatan yang berlangsung di Desa
               </p>
             </section>
-            <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
-              {galeri.map((item, i) => {
-                if (i < 6) {
-                  return (
-                    <>
-                      <section>
-                        <img
-                          src={item.image}
-                          alt="Galeri"
-                          className="w-full"
-                          loading="lazy"
-                        />
-                      </section>
-                    </>
-                  );
-                }
-              })}
-            </section>
+
+            {galeri == "" ? (
+              <Card className="mt-3">
+                <section className="flex flex-row justify-center items-center gap-2 h-80 ">
+                  <section className="text-inherit">
+                    <IconCircleX />
+                  </section>
+                  <section className="text-">Belum Ada Data</section>
+                </section>
+              </Card>
+            ) : (
+              <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
+                {galeri.map((item, i) => {
+                  if (i < 6) {
+                    return (
+                      <>
+                        <section>
+                          <img
+                            src={
+                              import.meta.env.VITE_IMAGE_BASE + "/" + item.image
+                            }
+                            alt="Galeri"
+                            className="w-full"
+                            loading="lazy"
+                          />
+                        </section>
+                      </>
+                    );
+                  }
+                })}
+              </section>
+            )}
             <section className="flex justify-end my-4">
               <Link to={"/galeri"} className="flex">
                 <IconNotes></IconNotes>

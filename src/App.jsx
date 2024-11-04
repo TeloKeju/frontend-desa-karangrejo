@@ -2,13 +2,7 @@ import "./App.css";
 import Header from "./components/header";
 import { FooterDev } from "./components/footer";
 
-import {
-  BrowserRouter,
-  Route,
-  Router,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Home from "./pages/home";
 import ProfileDesa from "./pages/profilDesa";
@@ -31,12 +25,13 @@ import DetailBerita from "./pages/detail/detailBerita";
 import DetailBelanja from "./pages/detail/detailBelanja";
 import PendudukAdmin from "./pages/admin/penduduk/penduduk";
 import StuntingAdmin from "./pages/admin/stunting";
-import APBDesaAdmin from "./pages/admin/apbdesa";
+import APBDesaAdmin from "./pages/admin/apbDesa/apbdesa";
 import BansosAdmin from "./pages/admin/bansos";
 import SDGsAdmin from "./pages/admin/sdgs";
 import IDMAdmin from "./pages/admin/IDM";
 import NewsPageAdmin from "./pages/admin/news";
 import Login from "./pages/admin/login/login";
+import GaleriAdmin from "./pages/admin/galeri/galeri";
 
 function App() {
   const location = useLocation();
@@ -82,11 +77,12 @@ function App() {
             <Route path="setiap-saat" element={<Bansos />} />
           </Route>
         </Route>
-        <Route path="/admin/login" element={<Login/>} />
+        <Route path="/admin/login" element={<Login />} />
         <Route path="/admin">
           <Route index element={<PendudukAdmin />} />
           <Route path="stunting" element={<StuntingAdmin />} />
           <Route path="apb-desa" element={<APBDesaAdmin />} />
+          <Route path="galeri" element={<GaleriAdmin />} />
           <Route path="bansos" element={<BansosAdmin />} />
           <Route path="idm" element={<IDMAdmin />} />
           <Route path="sdgs" element={<SDGsAdmin />} />

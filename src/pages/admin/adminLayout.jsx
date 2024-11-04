@@ -1,22 +1,23 @@
 "use client";
 
 import {
+  IconCamera,
   IconCaretLeft,
   IconCaretRight,
   IconCash,
   IconChartBar,
   IconCrown,
-  IconMenu,
+  IconDoorExit,
   IconNews,
   IconNumber,
   IconPackage,
-  IconPaperclip,
   IconUser,
 } from "@tabler/icons-react";
-import { getCookie } from "cookies-next";
+import { deleteCookie, getCookie } from "cookies-next";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 const Admin = ({ children }) => {
   const navMenu = [
     {
@@ -25,14 +26,19 @@ const Admin = ({ children }) => {
       link: "",
     },
     {
+      icon: <IconCash size={32} />,
+      name: "APBDesa",
+      link: "apb-desa",
+    },
+    {
       icon: <IconNews size={32} />,
       name: "Berita",
       link: "berita",
     },
     {
-      icon: <IconCash size={32} />,
-      name: "APBDesa",
-      link: "apb-desa",
+      icon: <IconCamera size={32} />,
+      name: "Galeri",
+      link: "galeri",
     },
     {
       icon: <IconChartBar size={32} />,
@@ -58,7 +64,14 @@ const Admin = ({ children }) => {
 
   const [open, setOpen] = useState(true);
 
-  const token = getCookie("token")
+  const navigate = useNavigate();
+
+  function handleLogOut() {
+    deleteCookie("token");
+    return navigate("/");
+  }
+
+  const token = getCookie("token");
 
   if (!token) {
     return <Navigate to={"/admin/login"} />;
@@ -101,8 +114,11 @@ const Admin = ({ children }) => {
         </div>
         <div className="h-[calc(100vh-112px)]">
           <ul>
-            {navMenu.map((item) => (
-              <li className="text-white text-start text-2xl leading-6 py-4 px-6 flex items-center gap-2">
+            {navMenu.map((item, i) => (
+              <li
+                className="text-white text-start text-2xl leading-6 py-4 px-6 flex items-center gap-2"
+                key={i}
+              >
                 {item.icon}
                 <Link to={`/admin/${item.link}`}>{item.name}</Link>
               </li>
@@ -110,8 +126,8 @@ const Admin = ({ children }) => {
           </ul>
         </div>
       </div>
-      <div className={open ? "w-full lg:w-4/5" : "w-full"}>
-        <div className="h-28 flex items-center relative">
+      <div className={`${open ? "w-full lg:w-4/5" : "w-full"}`}>
+        <div className="h-28 flex items-center justify-end relative">
           <div className="absolute -left-6">
             <button
               className={`text-white rounded-full p-2 hover:bg-blue-500 ${
@@ -126,8 +142,14 @@ const Admin = ({ children }) => {
               )}
             </button>
           </div>
-
-          <button>Log sOut</button>
+          <div className="me-2">
+            <button
+              className="rounded-full bg-red-600 p-4 text-white"
+              onClick={handleLogOut}
+            >
+              <IconDoorExit />
+            </button>
+          </div>
         </div>
         <div className="bg-white h-[calc(100vh-112px)] overflow-auto">
           {children}

@@ -1,4 +1,4 @@
-import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
+// import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
 
 //Penduduk
 export const jumlahPenduduk = [
@@ -279,13 +279,26 @@ export const agama = [
 // APBDesa
 export const apbDesa = [
   {
-    icon1: <IconArrowBadgeUpFilled />,
-    title: "Pendapatan",
-    jumlah: 2409228574,
+    tahun: 2022,
+    pendapatan: 2104415300,
+    belanja: 2235758752,
+    penerimaan: 0,
+    pengeluaran: 0,
   },
-  { icon2: <IconPointFilled />, title1: "Belanja", jumlah1: 0 },
-  { icon3: <IconPointFilled />, title2: "Penerimaan", jumlah2: 0 },
-  { icon4: <IconPointFilled />, title3: "Pengeluaran", jumlah3: 0 },
+  {
+    tahun: 2023,
+    pendapatan: 2280122957,
+    belanja: 2372026612,
+    penerimaan: 0,
+    pengeluaran: 0,
+  },
+  {
+    tahun: 2024,
+    pendapatan: 2211273600,
+    belanja: 0,
+    penerimaan: 0,
+    pengeluaran: 0,
+  },
 ];
 
 export const pendapatanBelanja = [

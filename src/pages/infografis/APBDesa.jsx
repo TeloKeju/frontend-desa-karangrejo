@@ -4,7 +4,6 @@ import {
   apbDesa,
   belanjaDesa,
   pembiayaanDesa,
-  pendapatanBelanja,
   pendapatanDesa,
 } from "./data/data";
 
@@ -23,8 +22,10 @@ import { Card, Select } from "flowbite-react";
 import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
 
 import { FormatRupiah } from "@arismun/format-rupiah";
+import { useState } from "react";
 
 const APBDesa = () => {
+  const [tahun, setTahun] = useState("2024");
   return (
     <>
       <main className="mt-20">
@@ -41,10 +42,21 @@ const APBDesa = () => {
               </p>
             </section>
             <section className="flex flex-col gap-3">
-              <Select id="tahun" required className="">
-                <option>2024</option>
-                <option>2023</option>
-                <option>2022</option>
+              <Select
+                id="tahun"
+                required
+                className=""
+                onChange={(e) => setTahun(e.target.value)}
+              >
+                {apbDesa.map((item, i) => (
+                  <option
+                    key={i}
+                    value={item.tahun}
+                    selected={item.tahun == "2024"}
+                  >
+                    {item.tahun}
+                  </option>
+                ))}
               </Select>
               {/* {apbDesa.map((item) => (
                 <>
@@ -60,87 +72,104 @@ const APBDesa = () => {
                   </Card>
                 </>
               ))} */}
-              <section className="grid gap-5 grid-cols-1 sm:grid-cols-2">
-                <Card>
-                  <section className="flex gap-3 flex-row justify-start">
-                    <section className="text-green-500">
-                      <IconArrowBadgeUpFilled />
-                    </section>
-                    <section className="text-lg font-semibold">
-                      Pendapatan
-                    </section>
-                  </section>
-                  <section>
-                    <section className="text-green-500 text-start text-2xl font-bold">
-                      <FormatRupiah value={2409228574} />
-                    </section>
-                  </section>
-                </Card>
-                <Card>
-                  <section className="flex gap-3 flex-row justify-start">
-                    <section className="">
-                      <IconPointFilled />
-                    </section>
-                    <section className="text-lg font-semibold">Belanja</section>
-                  </section>
-                  <section>
-                    <section className=" text-start text-2xl font-bold">
-                      <FormatRupiah value={0} />
-                    </section>
-                  </section>
-                </Card>
-              </section>
-              <section>
-                <Card className="rounded-bl-none rounded-br-none">
-                  <section className="font-semibold text-start text-base">
-                    Pembiayaan
-                  </section>
-                </Card>
-                <section className="grid grid-cols-2">
-                  <Card className="rounded-t-none rounded-br-none">
-                    <section className="flex gap-3 flex-row justify-start">
-                      <section className="">
-                        <IconPointFilled />
+              {apbDesa.map((item, i) => {
+                if (item.tahun == tahun) {
+                  return (
+                    <>
+                      <section
+                        className="grid gap-5 grid-cols-1 sm:grid-cols-2"
+                        key={i}
+                      >
+                        <Card>
+                          <section className="flex gap-3 flex-row justify-start">
+                            <section className="text-green-500">
+                              <IconArrowBadgeUpFilled />
+                            </section>
+                            <section className="text-lg font-semibold">
+                              Pendapatan
+                            </section>
+                          </section>
+                          <section>
+                            <section className="text-green-500 text-start text-2xl font-bold">
+                              <FormatRupiah value={item.pendapatan} />
+                            </section>
+                          </section>
+                        </Card>
+                        <Card>
+                          <section className="flex gap-3 flex-row justify-start">
+                            <section className="">
+                              <IconPointFilled />
+                            </section>
+                            <section className="text-lg font-semibold">
+                              Belanja
+                            </section>
+                          </section>
+                          <section>
+                            <section className=" text-start text-2xl font-bold">
+                              <FormatRupiah value={item.belanja} />
+                            </section>
+                          </section>
+                        </Card>
                       </section>
-                      <section className="text-lg font-semibold">
-                        Penerimaan
+                      <section>
+                        <Card className="rounded-bl-none rounded-br-none">
+                          <section className="font-semibold text-start text-base">
+                            Pembiayaan
+                          </section>
+                        </Card>
+                        <section className="grid grid-cols-2">
+                          <Card className="rounded-t-none rounded-br-none">
+                            <section className="flex gap-3 flex-row justify-start">
+                              <section className="">
+                                <IconPointFilled />
+                              </section>
+                              <section className="text-lg font-semibold">
+                                Penerimaan
+                              </section>
+                            </section>
+                            <section>
+                              <section className=" text-start text-2xl font-bold">
+                                <FormatRupiah value={item.penerimaan} />
+                              </section>
+                            </section>
+                          </Card>
+                          <Card className="rounded-tl-none rounded-tr-none rounded-bl-none">
+                            <section className="flex gap-3 flex-row justify-start">
+                              <section className="">
+                                <IconPointFilled />
+                              </section>
+                              <section className="text-lg font-semibold">
+                                Pengeluaran
+                              </section>
+                            </section>
+                            <section>
+                              <section className=" text-start text-2xl font-bold">
+                                <FormatRupiah value={item.pengeluaran} />
+                              </section>
+                            </section>
+                          </Card>
+                        </section>
                       </section>
-                    </section>
-                    <section>
-                      <section className=" text-start text-2xl font-bold">
-                        <FormatRupiah value={0} />
+                      <section>
+                        <Card>
+                          <section className="flex flex-row justify-center items-center">
+                            <p className="me-3 text-lg font-semibold">
+                              Surplus/Defisit
+                            </p>
+                            <section className="text-green-500 font-bold text-2xl">
+                              <FormatRupiah
+                                value={
+                                  item?.pendapatan - item?.pengeluaran || 0
+                                }
+                              />
+                            </section>
+                          </section>
+                        </Card>
                       </section>
-                    </section>
-                  </Card>
-                  <Card className="rounded-tl-none rounded-tr-none rounded-bl-none">
-                    <section className="flex gap-3 flex-row justify-start">
-                      <section className="">
-                        <IconPointFilled />
-                      </section>
-                      <section className="text-lg font-semibold">
-                        Pengeluaran
-                      </section>
-                    </section>
-                    <section>
-                      <section className=" text-start text-2xl font-bold">
-                        <FormatRupiah value={0} />
-                      </section>
-                    </section>
-                  </Card>
-                </section>
-              </section>
-              <section>
-                <Card>
-                  <section className="flex flex-row justify-center items-center">
-                    <p className="me-3 text-lg font-semibold">
-                      Surplus/Defisit
-                    </p>
-                    <section className="text-green-500 font-bold text-2xl">
-                      <FormatRupiah value={2409228574} />
-                    </section>
-                  </section>
-                </Card>
-              </section>
+                    </>
+                  );
+                }
+              })}
             </section>
           </section>
 
@@ -150,19 +179,19 @@ const APBDesa = () => {
             </h1>
             <Card className=" w-full h-96 mt-3">
               <ResponsiveContainer width={"100%"} height={"100%"}>
-                <BarChart width={500} height={300} data={pendapatanBelanja}>
+                <BarChart width={500} height={300} data={apbDesa}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="tahun" />
                   <YAxis />
                   <Tooltip />
                   <Legend />
                   <Bar
-                    dataKey="Pendapatan"
+                    dataKey="pendapatan"
                     fill="#8884d8"
                     activeBar={<Rectangle fill="#8884d8" stroke="#84a3d8" />}
                   />
                   <Bar
-                    dataKey="Belanja"
+                    dataKey="belanja"
                     fill="#84a3d8"
                     activeBar={<Rectangle fill="#84a3d8" stroke="#8884d8" />}
                   />

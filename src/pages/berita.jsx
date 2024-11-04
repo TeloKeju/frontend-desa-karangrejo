@@ -1,7 +1,5 @@
 import { Card } from "flowbite-react";
 
-import { berita } from "./data/data";
-
 import { IconUser, IconEye } from "@tabler/icons-react";
 import apiKarangrejo from "../lib/axios";
 import { useEffect, useState } from "react";
@@ -28,7 +26,10 @@ const Berita = () => {
   return (
     <>
       <main className="">
-        <section className="container mx-auto px-4 py-8" style={{ minHeight: "calc(100vh - 84px)" }}>
+        <section
+          className="container mx-auto px-4 py-8"
+          style={{ minHeight: "calc(100vh - 84px)" }}
+        >
           <section>
             <h1 className=" text-start font-bold text-4xl">Berita Desa</h1>
             <p className="text-start font-semibold text-base mt-3">
@@ -63,12 +64,20 @@ const Berita = () => {
                   <>
                     <section key={item.id}>
                       <Card
-                        className="object-contain"
-                        imgAlt="Image Berita"
-                        imgSrc={
-                          import.meta.env.VITE_IMAGE_BASE + "/" + item?.image ||
-                          ""
-                        }
+                        className="p-0"
+                        renderImage={() => (
+                          <div className="w-full flex justify-center">
+                            <img
+                              src={
+                                import.meta.env.VITE_IMAGE_BASE +
+                                "/" +
+                                item?.image
+                              }
+                              alt="Image Berita"
+                              className="w-full rounded-t-md h-[210px] object-cover"
+                            />
+                          </div>
+                        )}
                       >
                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                           {item.title}

@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import apiKarangrejo from "../../../lib/axios";
 import { jumlahPenduduk } from "../../infografis/data/data";
 import { AccordionItem } from "./penduduk";
-import { Button, Card, Modal, TextInput } from "flowbite-react";
+import { Card, Modal, TextInput } from "flowbite-react";
 import { IconEdit } from "@tabler/icons-react";
 
 const JumlahPenduduk = () => {
@@ -10,8 +11,8 @@ const JumlahPenduduk = () => {
   const [isOpen, setOpenModal] = useState(false);
   const [editTittle, setEditTittle] = useState("");
 
-  const [dataPeduduk , setDataPenduduk] = useState({});
-  
+  const [dataPeduduk, setDataPenduduk] = useState({});
+
   async function getData() {
     setIsLoading(true);
     try {
@@ -30,7 +31,7 @@ const JumlahPenduduk = () => {
       setIsLoading(false);
     }
   }
-  
+
   useEffect(() => {
     getData();
   }, []);
@@ -68,8 +69,8 @@ const JumlahPenduduk = () => {
                   <button
                     className="text-end"
                     onClick={() => {
-                        setOpenModal(true)
-                        setEditTittle(item.title)
+                      setOpenModal(true);
+                      setEditTittle(item.title);
                     }}
                   >
                     <IconEdit className="w-6 h-6 text-reg-300" />
@@ -80,29 +81,43 @@ const JumlahPenduduk = () => {
           ))}
         </section>
       )}
-      <ModalPenduduk isOpen={isOpen} setOpenModal={setOpenModal} tittle={editTittle}/>
+      <ModalPenduduk
+        isOpen={isOpen}
+        setOpenModal={setOpenModal}
+        tittle={editTittle}
+      />
     </AccordionItem>
   );
 };
 
 export default JumlahPenduduk;
 
-const ModalPenduduk = ({ isOpen, setOpenModal, tittle , dataPeduduk }) => {
+const ModalPenduduk = ({ isOpen, setOpenModal, tittle, dataPeduduk }) => {
   const [dataPedudukEdit, setDataPendudukEdit] = useState({});
 
-  useEffect(()=>{
-    setDataPendudukEdit(dataPeduduk)
-  },[dataPeduduk])
+  useEffect(() => {
+    setDataPendudukEdit(dataPeduduk);
+  }, [dataPeduduk]);
   return (
     <Modal show={isOpen} onClose={() => setOpenModal(false)}>
       <Modal.Header>{tittle || ""}</Modal.Header>
       <Modal.Body>
         <div>
-            <TextInput label="Jumlah Penduduk" placeholder={`Masukkan Jumlah ${tittle}`} type="number" size={"xl"}/>
+          <TextInput
+            label="Jumlah Penduduk"
+            placeholder={`Masukkan Jumlah ${tittle}`}
+            type="number"
+            size={"xl"}
+          />
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <button onClick={() => setOpenModal(false)} className="w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg">Update</button>
+        <button
+          onClick={() => setOpenModal(false)}
+          className="w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg"
+        >
+          Update
+        </button>
       </Modal.Footer>
     </Modal>
   );

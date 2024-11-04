@@ -2,15 +2,7 @@ import InfografisLink from "./link";
 
 import { Card, Table } from "flowbite-react";
 
-import {
-  jumlahPenduduk,
-  kelompokUmur,
-  pendidikan,
-  wajibPilih,
-  dataPekerjaan,
-  perkawinan,
-  agama,
-} from "./data/data";
+import { jumlahPenduduk, wajibPilih, perkawinan, agama } from "./data/data";
 
 // import { Chart as ChartJS } from "chart.js/auto";
 // import { Bar, Doughnut, Line } from "react-chartjs-2";
@@ -29,8 +21,18 @@ import { useEffect, useState } from "react";
 import apiKarangrejo from "../../lib/axios";
 
 const Penduduk = () => {
-  const [pendudukKelompokUmur , setPendudukKelompokUmur] = useState({});
+  const [pendudukKelompokUmur, setPendudukKelompokUmur] = useState({});
   const [pendudukPendidikan, setPendudukPendidikan] = useState({});
+  const [pendudukPekerjaan, setPendudukPekerjaan] = useState([]);
+
+  async function getDataPekerjaanPenduduk() {
+    try {
+      const res = await apiKarangrejo("/pekerjaan");
+      setPendudukPekerjaan(res.data.pekerjaan);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   async function getDataPenduduk() {
     try {
@@ -53,36 +55,35 @@ const Penduduk = () => {
     }
   }
 
-  async function getDataPendidikan(params) {
+  async function getDataPendidikan() {
     try {
-      const res= await apiKarangrejo.get("/penduduk/pendidikan")
-      setPendudukPendidikan(res.data.pendidikan)
+      const res = await apiKarangrejo.get("/penduduk/pendidikan");
+      setPendudukPendidikan(res.data.pendidikan);
       // console.log(res.data.pendidikan);
-      
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   async function getDataAgama() {
     try {
-      const res = await apiKarangrejo.get("/agama")
+      const res = await apiKarangrejo.get("/agama");
       res.data.agama.map((item, i) => {
         agama[i].id = item.id;
         agama[i].judul = item.nama_agama;
         agama[i].jumlah = item.jumlah_penganut;
       });
-      
     } catch (error) {
       console.log(error);
     }
   }
 
   useEffect(() => {
-    getDataPenduduk()
+    getDataPenduduk();
     getPendudukKelompokUmur();
-    getDataPendidikan()
-    getDataAgama()
+    getDataPekerjaanPenduduk();
+    getDataPendidikan();
+    getDataAgama();
   }, []);
 
   return (
@@ -204,12 +205,12 @@ const Penduduk = () => {
                     <Table.HeadCell>Jenis Pekerjaan</Table.HeadCell>
                     <Table.HeadCell>Jumlah</Table.HeadCell>
                   </Table.Head>
-                  {dataPekerjaan.map((item) => (
+                  {pendudukPekerjaan?.map((item) => (
                     <>
                       <Table.Body className="divide-y">
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                          <Table.Cell>{item.jenisPekerjaan}</Table.Cell>
-                          <Table.Cell>{item.jumlah}</Table.Cell>
+                          <Table.Cell>{item?.pekerjaan}</Table.Cell>
+                          <Table.Cell>{item?.jumlah}</Table.Cell>
                         </Table.Row>
                       </Table.Body>
                     </>
@@ -217,16 +218,16 @@ const Penduduk = () => {
                 </Table>
               </section>
               <section className="lg:col-span-2 sm:grid hidden sm:gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {dataPekerjaan.map((item, i) => {
+                {pendudukPekerjaan.map((item, i) => {
                   if (i < 6) {
                     return (
                       <>
                         <Card className="">
                           <h1 className="text-start text-lg font-semibold">
-                            {item.jenisPekerjaan}
+                            {item?.pekerjaan}
                           </h1>
                           <p className="text-end text-2xl font-bold">
-                            {item.jumlah}
+                            {item?.jumlah}
                           </p>
                         </Card>
                       </>
