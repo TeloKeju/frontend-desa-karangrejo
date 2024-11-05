@@ -105,7 +105,7 @@ const ModalUmur = ({
       });
       setIsLoading(false);
       setOpenModal(false);
-      getDataPendidikan();
+      onAction();
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -136,9 +136,9 @@ const ModalUmur = ({
         <button
           onClick={() => handleEditUmur()}
           className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${
-            isLoading ? "opacity-50 cursor-not-allowed" : ""
+            isLoading || !editValues ? "opacity-30 cursor-not-allowed" : ""
           }`}
-          disabled={isLoading}
+          disabled={isLoading || !editValues}
         >
           Update
         </button>

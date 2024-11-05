@@ -199,9 +199,17 @@ const ModalEditPekerjaan = ({ dataEdit, setOpenModal, onAction }) => {
         <button
           onClick={() => handleEditPekerjaan()}
           className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${
-            isLoading ? "opacity-50 cursor-not-allowed" : ""
+            isLoading ||
+            dataEditValues.pekerjaan === "" ||
+            dataEditValues.jumlah === ""
+              ? "opacity-30 cursor-not-allowed"
+              : ""
           }`}
-          disabled={isLoading}
+          disabled={
+            isLoading ||
+            dataEditValues.pekerjaan === "" ||
+            dataEditValues.jumlah === ""
+          }
         >
           Update
         </button>
@@ -213,7 +221,7 @@ const ModalEditPekerjaan = ({ dataEdit, setOpenModal, onAction }) => {
 const ModalAddPekerjaan = ({ setOpenModal, onAction }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dataAdd, setDataAdd] = useState({
-    pekerjan: "",
+    pekerjaan: "",
     jumlah: "",
   });
 
@@ -274,9 +282,9 @@ const ModalAddPekerjaan = ({ setOpenModal, onAction }) => {
         <button
           onClick={() => handleAddPekerjaan()}
           className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${
-            isLoading ? "opacity-50 cursor-not-allowed" : ""
+            isLoading || dataAdd.pekerjan === "" || dataAdd.jumlah === "" ? "opacity-30 cursor-not-allowed" : ""
           }`}
-          disabled={isLoading}
+          disabled={isLoading || dataAdd.pekerjaan === "" || dataAdd.jumlah === ""}
         >
           Tambah
         </button>
@@ -322,7 +330,7 @@ const ModalDeletePekerjaan = ({ dataEdit, setOpenModal, onAction }) => {
         <button
           onClick={() => setOpenModal(false)}
           className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${
-            isLoading ? "opacity-50 cursor-not-allowed" : ""
+            isLoading ? "opacity-30 cursor-not-allowed" : ""
           }`}
           disabled={isLoading}
         >

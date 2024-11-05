@@ -1,7 +1,27 @@
 import { Card } from "flowbite-react";
-import { sotk } from "./data/data";
+import { useEffect, useState } from "react";
+import apiKarangrejo from "../lib/axios";
 
 const Pemerintah = () => {
+  const [sotk, setSotk] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function getDataSOTK() {
+    try {
+      setIsLoading(true);
+      const res = await apiKarangrejo.get("/sotk");
+      setSotk(res.data.sotk);
+
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataSOTK();
+  }, []);
   return (
     <>
       <main className="">
@@ -14,16 +34,34 @@ const Pemerintah = () => {
               Daftar Anggota Pemerintahan Desa
             </h1>
           </section>
-          <section className="grid grid-cols-2 gap-5 md:grid-cols-2 lg:grid-cols-4 mt-8">
-            {sotk.map((item, i) => {
-              if (i > 0) {
+          {isLoading ? (
+            <div className="min-h-[80vh] flex items-center justify-center">
+              Loading....
+            </div>
+          ) : (
+            <section className="grid grid-cols-2 gap-5 md:grid-cols-2 lg:grid-cols-4 mt-8">
+              {sotk.map((item, i) => {
                 return (
                   <>
                     <section className="flex justify-center" key={i}>
                       <Card
                         className="max-w-sm"
                         imgAlt="Meaningful alt text for an image that is not purely decorative"
-                        imgSrc={item.foto}
+                        renderImage={() => {
+                          return (
+                            <div className="flex justify-center items-center relative w-full">
+                              <img
+                                className="h-[300px] w-[400px] object-cover"
+                                src={
+                                  import.meta.env.VITE_IMAGE_BASE +
+                                  "/" +
+                                  item.image
+                                }
+                                alt=""
+                              />
+                            </div>
+                          );
+                        }}
                       >
                         <h5 className="text-base md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                           {item.nama}
@@ -35,9 +73,9 @@ const Pemerintah = () => {
                     </section>
                   </>
                 );
-              }
-            })}
-          </section>
+              })}
+            </section>
+          )}
         </section>
       </main>
     </>

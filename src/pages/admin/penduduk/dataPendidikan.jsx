@@ -132,8 +132,8 @@ const ModalPendidikan = ({ isOpen, setOpenModal, tittle, currentValues , idEdit 
       <Modal.Footer>
         <button
           onClick={() => handleEditPendidikan()}
-          className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
-          disabled={isLoading}
+          className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${isLoading || !editValues ? "opacity-30 cursor-not-allowed" : ""}`}
+          disabled={isLoading || !editValues}
         >
           Update
         </button>

@@ -12,6 +12,7 @@ import {
   IconNumber,
   IconPackage,
   IconUser,
+  IconUsers,
 } from "@tabler/icons-react";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useState } from "react";
@@ -41,25 +42,30 @@ const Admin = ({ children }) => {
       link: "galeri",
     },
     {
-      icon: <IconChartBar size={32} />,
-      name: "Stunting",
-      link: "stunting",
+      icon: <IconUsers size={32} />,
+      name: "SOTK",
+      link: "sotk",
     },
-    {
-      icon: <IconPackage size={32} />,
-      name: "Bansos",
-      link: "bansos",
-    },
-    {
-      icon: <IconCrown size={32} />,
-      name: "IDM",
-      link: "idm",
-    },
-    {
-      icon: <IconNumber size={32} />,
-      name: "SDGs",
-      link: "sdgs",
-    },
+    // {
+    //   icon: <IconChartBar size={32} />,
+    //   name: "Stunting",
+    //   link: "stunting",
+    // },
+    // {
+    //   icon: <IconPackage size={32} />,
+    //   name: "Bansos",
+    //   link: "bansos",
+    // },
+    // {
+    //   icon: <IconCrown size={32} />,
+    //   name: "IDM",
+    //   link: "idm",
+    // },
+    // {
+    //   icon: <IconNumber size={32} />,
+    //   name: "SDGs",
+    //   link: "sdgs",
+    // },
   ];
 
   const [open, setOpen] = useState(true);
@@ -144,7 +150,7 @@ const Admin = ({ children }) => {
           </div>
           <div className="me-2">
             <button
-              className="rounded-full bg-red-600 p-4 text-white"
+              className="rounded-full p-4 text-white font-bold"
               onClick={handleLogOut}
             >
               <IconDoorExit />

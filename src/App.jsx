@@ -32,6 +32,7 @@ import IDMAdmin from "./pages/admin/IDM";
 import NewsPageAdmin from "./pages/admin/news";
 import Login from "./pages/admin/login/login";
 import GaleriAdmin from "./pages/admin/galeri/galeri";
+import DataSOTK from "./pages/admin/SOTK/dataSOTK";
 
 function App() {
   const location = useLocation();
@@ -81,6 +82,7 @@ function App() {
         <Route path="/admin">
           <Route index element={<PendudukAdmin />} />
           <Route path="stunting" element={<StuntingAdmin />} />
+          <Route path="sotk" element={<DataSOTK />} />
           <Route path="apb-desa" element={<APBDesaAdmin />} />
           <Route path="galeri" element={<GaleriAdmin />} />
           <Route path="bansos" element={<BansosAdmin />} />

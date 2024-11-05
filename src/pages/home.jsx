@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { IconNotes, IconUser, IconEye, IconCircleX } from "@tabler/icons-react";
 import { FormatRupiah } from "@arismun/format-rupiah";
 
-import { sotk, administrasi, beli } from "./data/data";
+import { administrasi, beli } from "./data/data";
 import apiKarangrejo from "../lib/axios";
 import { useEffect, useState } from "react";
 
@@ -15,6 +15,17 @@ const Home = () => {
     try {
       const res = await apiKarangrejo.get("/galery");
       setGaleri(res.data.galery);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const [sotk, setSotk] = useState([]);
+
+  async function getDataSOTK() {
+    try {
+      const res = await apiKarangrejo.get("/sotk");
+      setSotk(res.data.sotk);
     } catch (error) {
       console.log(error);
     }
@@ -38,6 +49,7 @@ const Home = () => {
   useEffect(() => {
     getDataBerita();
     getDataGalery();
+    getDataSOTK();
   }, []);
 
   function falseRate(trueRate) {
@@ -209,31 +221,56 @@ const Home = () => {
           </section>
 
           <section className="p-4">
-            <h1 className="font-bold text-lg my-6">SOTK</h1>
-            <section className="grid grid-cols-2 gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {sotk.map((item, i) => {
-                if (i < 4) {
-                  return (
-                    <>
-                      <section className="flex justify-center" key={i}>
-                        <Card
-                          className="max-w-sm"
-                          imgAlt="Meaningful alt text for an image that is not purely decorative"
-                          imgSrc={item.foto}
-                        >
-                          <h5 className="text-base md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {item.nama}
-                          </h5>
-                          <p className="text-sm md:text-base font-normal text-gray-700 dark:text-gray-400">
-                            {item.jabatan}
-                          </p>
-                        </Card>
-                      </section>
-                    </>
-                  );
-                }
-              })}
-            </section>
+            <h1 className="text-start text-4xl font-bold mb-4">SOTK</h1>
+            {sotk.length == 0 ? (
+              <Card className="mt-3">
+                <section className="flex flex-row justify-center items-center gap-2 h-80 ">
+                  <section className="text-inherit">
+                    <IconCircleX />
+                  </section>
+                  <section className="text-">Belum Ada Data</section>
+                </section>
+              </Card>
+            ) : (
+              <section className="grid grid-cols-2 gap-5 md:grid-cols-2 lg:grid-cols-4">
+                {sotk.map((item, i) => {
+                  if (i < 4) {
+                    return (
+                      <>
+                        <section className="flex justify-center" key={i}>
+                          <Card
+                            className="max-w-sm"
+                            imgAlt="Meaningful alt text for an image that is not purely decorative"
+                            renderImage={() => {
+                              return (
+                                <div className="flex justify-center items-center relative w-full">
+                                  <img
+                                    className="h-[300px] w-[400px] object-cover"
+                                    src={
+                                      import.meta.env.VITE_IMAGE_BASE +
+                                      "/" +
+                                      item.image
+                                    }
+                                    alt=""
+                                  />
+                                </div>
+                              );
+                            }}
+                          >
+                            <h5 className="text-base md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                              {item.nama}
+                            </h5>
+                            <p className="text-sm md:text-base font-normal text-gray-700 dark:text-gray-400">
+                              {item.jabatan}
+                            </p>
+                          </Card>
+                        </section>
+                      </>
+                    );
+                  }
+                })}
+              </section>
+            )}
             <section className="flex justify-end my-4">
               <Link to={"/pemerintah"} className="flex">
                 <IconNotes></IconNotes>
