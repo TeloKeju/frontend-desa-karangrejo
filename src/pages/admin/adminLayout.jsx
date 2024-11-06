@@ -5,12 +5,9 @@ import {
   IconCaretLeft,
   IconCaretRight,
   IconCash,
-  IconChartBar,
-  IconCrown,
   IconDoorExit,
   IconNews,
-  IconNumber,
-  IconPackage,
+  IconShoppingBag,
   IconUser,
   IconUsers,
 } from "@tabler/icons-react";
@@ -45,6 +42,11 @@ const Admin = ({ children }) => {
       icon: <IconUsers size={32} />,
       name: "SOTK",
       link: "sotk",
+    },
+    {
+      icon: <IconShoppingBag size={32} />,
+      name: "UMKM",
+      link: "umkm",
     },
     // {
     //   icon: <IconChartBar size={32} />,

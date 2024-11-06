@@ -52,6 +52,21 @@ const Home = () => {
     getDataSOTK();
   }, []);
 
+  const [dataUMKM, setDataUMKM] = useState([]);
+
+  async function getDataUMKM() {
+    try {
+      const res = await apiKarangrejo.get("/umkm");
+      setDataUMKM(res.data.umkm);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataUMKM();
+  }, []);
+
   function falseRate(trueRate) {
     return 5 - trueRate;
   }
@@ -147,9 +162,9 @@ const Home = () => {
             <div className="w-full flex justify-center items-center md:col-span-1">
               <div className="w-52">
                 <img
-                  src="https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S-500x500.jpg"
+                  src="/home/kepaladesa.jpg"
                   alt=""
-                  className="object-cover rounded-full shadow-md"
+                  className="object-cover h-52 w-full object-top rounded-full shadow-2xl"
                   loading="lazy"
                 />
               </div>
@@ -167,34 +182,38 @@ const Home = () => {
                 </p>
               </div>
               <div>
-                <div className="overflow-auto h-32 text-justify">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Magnam deleniti inventore dicta officia accusantium, et
-                  repellat quos assumenda. Veniam explicabo cupiditate molestias
-                  optio atque nulla odit iste! Maiores sunt dolore hic assumenda
-                  aperiam distinctio facilis! Laudantium nam accusamus omnis,
-                  sed voluptas dolorum id magnam modi corporis veniam!
-                  Consequuntur quis possimus vitae quod atque ullam beatae
-                  distinctio officiis laboriosam officia cum pariatur voluptas,
-                  eius fugit! Cupiditate est autem aut sapiente quia unde sequi
-                  minima impedit eos. Ea dignissimos quibusdam suscipit rerum
-                  quis velit reiciendis nisi voluptatem illo repellat qui
-                  reprehenderit ex vitae, doloremque accusantium pariatur
-                  aliquam fugit neque quo, magni, quos laboriosam quidem.
-                  Doloribus veniam at hic debitis inventore nostrum, rerum
-                  soluta quibusdam beatae incidunt similique laboriosam error
-                  impedit, excepturi sit officiis sint ipsum sapiente atque,
-                  cupiditate corporis. Neque dolor voluptates alias,
-                  reprehenderit modi, ducimus est voluptatibus laboriosam
-                  consequatur, suscipit numquam perferendis esse sequi. Beatae,
-                  necessitatibus adipisci. Impedit aut repellendus officiis ut
-                  maiores inventore magni, nemo dicta deserunt, natus
-                  consequatur laboriosam, at minima. Laborum possimus quaerat
-                  dolore quis dolores sed ducimus non sapiente consequatur animi
-                  exercitationem, veritatis ipsam autem sequi officiis
-                  voluptates quisquam ipsum, rerum inventore nesciunt quo.
-                  Aspernatur saepe asperiores architecto beatae molestiae
-                  laboriosam odit sapiente ad cumque. Ratione, esse.
+                <div className="overflow-auto h-44 text-justify">
+                  <p>
+                    Assalamu'alaikum Warahmatullahi Wabarakatuh, <br />
+                    Salam sejahtera <br />
+                    Rahayu <br /> <br />
+                    Puji syukur kita panjatkan ke hadirat Allah SWT, atas
+                    limpahan rahmat dan hidayah-Nya sehingga kita dapat
+                    bersama-sama melaksanakan tugas dan tanggung jawab dalam
+                    membangun Desa Karangrejo yang lebih baik. Sebagai Kepala
+                    Desa Karangrejo, Kecamatan Kandat, Kabupaten Kediri, saya
+                    menyambut dengan hangat kehadiran Bapak/Ibu dan seluruh
+                    masyarakat di website resmi Desa Karangrejo ini. Website ini
+                    kami hadirkan sebagai sarana informasi yang lebih dekat dan
+                    mudah diakses oleh seluruh warga dan siapa pun yang ingin
+                    mengetahui perkembangan serta kegiatan di desa kami. Melalui
+                    platform ini, kami ingin mewujudkan transparansi
+                    pemerintahan desa serta meningkatkan pelayanan publik dalam
+                    berbagai aspek kehidupan. Di era digital ini, kebutuhan akan
+                    informasi yang cepat dan tepat sangatlah penting. Maka dari
+                    itu, kami akan terus berupaya menyediakan informasi yang
+                    akurat dan terkini, mulai dari kegiatan pemerintahan,
+                    pembangunan, pemberdayaan masyarakat, hingga informasi
+                    kebudayaan dan potensi ekonomi di Desa Karangrejo. Akhir
+                    kata, besar harapan kami agar website ini dapat memberi
+                    manfaat bagi kita semua. Semoga upaya kita dalam membangun
+                    Desa Karangrejo dapat memberikan hasil yang optimal, demi
+                    kemajuan dan kesejahteraan masyarakat yang kita cintai.{" "}
+                    <br /> <br />
+                    Wassalamu'alaikum Warahmatullahi Wabarakatuh. <br />
+                    Salam sejahtera <br />
+                    Rahayu <br /> <br />
+                  </p>
                 </div>
               </div>
             </div>
@@ -436,7 +455,7 @@ const Home = () => {
               </Link>
             </section>
           </section>
-          <section className="p-4">
+          {/* <section className="p-4">
             <section
               className=""
               // style={{
@@ -452,7 +471,7 @@ const Home = () => {
                 </p>
               </section>
               <section>
-                {/* <Carousel indicators="false">
+                <Carousel indicators="false">
                   <img src="https://placehold.co/100x100" alt="..." />
                   <img
                     src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
@@ -470,10 +489,10 @@ const Home = () => {
                     src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
                     alt="..."
                   />
-                </Carousel> */}
+                </Carousel>
               </section>
             </section>
-          </section>
+          </section> */}
           <section className="p-4">
             <section>
               <h1 className="text-start text-4xl font-bold uppercase">
@@ -485,18 +504,30 @@ const Home = () => {
               </p>
             </section>
             <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
-              {beli.map((item, i) => {
+              {dataUMKM.map((item, i) => {
                 if (i < 6) {
                   return (
                     <>
-                      <section>
+                      <Link to={`/belanja/${item.id}`}>
                         <Card
                           className=""
                           imgAlt="Image Berita"
-                          imgSrc={item.image}
+                          renderImage={() => (
+                            <div className="w-full flex justify-center">
+                              <img
+                                src={
+                                  import.meta.env.VITE_IMAGE_BASE +
+                                  "/" +
+                                  item?.image
+                                }
+                                alt="Image Berita"
+                                className="w-full rounded-t-md h-[300px] object-cover"
+                              />
+                            </div>
+                          )}
                         >
                           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {item.title}
+                            {item.name}
                           </h5>
 
                           <section className="flex flex-col sm:flex-row justify-between">
@@ -504,7 +535,7 @@ const Home = () => {
                               <Rating>
                                 {/* {let falseRate = 5 - item.Rating} */}
                                 {Array.from(
-                                  { length: item.Rating },
+                                  { length: item.rating },
                                   (_, index) => (
                                     <Rating.Star key={index} />
                                     // <>p</>
@@ -512,7 +543,7 @@ const Home = () => {
                                 )}
 
                                 {Array.from(
-                                  { length: falseRate(item.Rating) },
+                                  { length: falseRate(item.rating) },
                                   (_, index) => (
                                     <Rating.Star key={index} filled={false} />
                                     // <>p</>
@@ -521,11 +552,11 @@ const Home = () => {
                               </Rating>
                             </section>
                             <section className="text-start sm:text-center">
-                              <FormatRupiah value={item.Harga} />
+                              <FormatRupiah value={item.price} />
                             </section>
                           </section>
                         </Card>
-                      </section>
+                      </Link>
                     </>
                   );
                 }

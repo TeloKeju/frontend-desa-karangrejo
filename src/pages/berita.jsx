@@ -3,6 +3,7 @@ import { Card } from "flowbite-react";
 import { IconUser, IconEye } from "@tabler/icons-react";
 import apiKarangrejo from "../lib/axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Berita = () => {
   const [dataBerita, setDataBerita] = useState([]);
@@ -62,9 +63,9 @@ const Berita = () => {
               {dataBerita.map((item) => {
                 return (
                   <>
-                    <section key={item.id}>
+                    <Link key={item.id} to={`./${item.id}`} className="">
                       <Card
-                        className="p-0"
+                        className="p-0 h-full"
                         renderImage={() => (
                           <div className="w-full flex justify-center">
                             <img
@@ -104,7 +105,7 @@ const Berita = () => {
                           </section>
                         </section>
                       </Card>
-                    </section>
+                    </Link>
                   </>
                 );
               })}

@@ -61,7 +61,7 @@ const ProfileDesa = () => {
                 Struktur Organisasi Pemerintahan Desa
               </h1>
               <img
-                src="https://cdn.digitaldesa.com/uploads/profil/73.11.02.2006/common/400cda6fa33346ce30adf360a1bec880.jpg"
+                src="/home/sotk.jpg"
                 alt="Struktur Organisasi Pemerintahan Desa"
                 className="w-full"
               />
@@ -71,7 +71,7 @@ const ProfileDesa = () => {
                 Struktur Organisasi Badan Permusyawaratan Desa
               </h1>
               <img
-                src="https://cdn.digitaldesa.com/uploads/profil/73.11.02.2006/common/238db8ac9a20b8f91f444eb0cb8498fb.jpg"
+                src="https://placehold.co/16x9"
                 alt="Struktur Organisasi Badan Permusyawaratan Desa"
                 className="w-full"
               />

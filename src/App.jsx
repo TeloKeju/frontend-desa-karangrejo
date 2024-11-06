@@ -33,6 +33,7 @@ import NewsPageAdmin from "./pages/admin/news";
 import Login from "./pages/admin/login/login";
 import GaleriAdmin from "./pages/admin/galeri/galeri";
 import DataSOTK from "./pages/admin/SOTK/dataSOTK";
+import DataUMKM from "./pages/admin/umkm";
 
 function App() {
   const location = useLocation();
@@ -89,6 +90,7 @@ function App() {
           <Route path="idm" element={<IDMAdmin />} />
           <Route path="sdgs" element={<SDGsAdmin />} />
           <Route path="berita" element={<NewsPageAdmin />} />
+          <Route path="umkm" element={<DataUMKM />} />
           {/* <Route path="penduduk" element={<PendudukAdmin />} /> */}
         </Route>
         {/* <Route path="/infografis/penduduk" element={<Penduduk />} /> */}
