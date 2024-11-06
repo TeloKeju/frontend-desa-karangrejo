@@ -396,98 +396,98 @@ export const bansos = [
 
 // IDM
 export const idm = [
-  { judul: "Skor IDM 2023", jumlah: 0.8619 },
-  { judul: "Status IDM 2023", jumlah: "MANDIRI" },
-  { judul: "Target Status", jumlah: "MANDIRI" },
-  { judul: "Skor Minimal", jumlah: 0.8156 },
-  { judul: "Penambahan", jumlah: -0.0463 },
-  { judul: "Skor IKS", jumlah: 0.8857 },
-  { judul: "Skor IKE", jumlah: 0.9 },
-  { judul: "Skor IKL", jumlah: 0.8 },
+  { judul: "Skor IDM 2023", jumlah: "Belum Ada Data" },
+  { judul: "Status IDM 2023", jumlah: "Belum Ada Data" },
+  { judul: "Target Status", jumlah: "Belum Ada Data" },
+  { judul: "Skor Minimal", jumlah: "Belum Ada Data" },
+  { judul: "Penambahan", jumlah: "Belum Ada Data" },
+  { judul: "Skor IKS", jumlah: "Belum Ada Data" },
+  { judul: "Skor IKE", jumlah: "Belum Ada Data" },
+  { judul: "Skor IKL", jumlah: "Belum Ada Data" },
 ];
 
 export const skorIDMTahun = [
-  { tahun: 2022, skor: 0.8268 },
-  { tahun: 2023, skor: 0.8435 },
-  { tahun: 2024, skor: 0.8619 },
+  { tahun: 2022, skor: 0 },
+  { tahun: 2023, skor: 0 },
+  { tahun: 2024, skor: 0 },
 ];
 
 // SDGs
 
 export const sdgs = [
-  { judul: "Skor SDGs Desa Karangrejo", nilai: 54.38 },
-  { judul: "Desa Tanpa Kemiskinan", image: "/iconSDGs/1.webp", nilai: 53.75 },
-  { judul: "Desa Tanpa Kelaparan", image: "/iconSDGs/2.webp", nilai: 53.75 },
+  { judul: "Skor SDGs Desa Karangrejo", nilai: 0 },
+  { judul: "Desa Tanpa Kemiskinan", image: "/iconSDGs/1.webp", nilai: 0 },
+  { judul: "Desa Tanpa Kelaparan", image: "/iconSDGs/2.webp", nilai: 0 },
   {
     judul: "Desa Sehat dan Sejahtera",
     image: "/iconSDGs/3.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Pendidikan Desa Berkualitas",
     image: "/iconSDGs/4.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Keterlibatan Perempuan Desa",
     image: "/iconSDGs/5.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Desa Layak Air Bersih dan Sanitasi",
     image: "/iconSDGs/6.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Desa Berenergi Bersih dan Terbarukan",
     image: "/iconSDGs/7.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Pertumbuhan Ekonomi Desa Merata",
     image: "/iconSDGs/8.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Infrastruktur dan Inovasi Desa Sesuai Kebutuhan",
     image: "/iconSDGs/9.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
-  { judul: "Desa Tanpa Kesenjangan", image: "/iconSDGs/10.webp", nilai: 53.75 },
+  { judul: "Desa Tanpa Kesenjangan", image: "/iconSDGs/10.webp", nilai: 0 },
   {
     judul: "Kawasan Pemukiman Desa Aman dan Nyaman",
     image: "/iconSDGs/11.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Konsumsi dan Produksi Desa Sadar Lingkungan",
     image: "/iconSDGs/12.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Desa Tanggap Perubahan Iklim",
     image: "/iconSDGs/13.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Desa Peduli Lingkungan Laut",
     image: "/iconSDGs/14.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Desa Peduli Lingkungan Darat",
     image: "/iconSDGs/15.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
-  { judul: "Desa Damai Berkeadilan", image: "/iconSDGs/16.webp", nilai: 53.75 },
+  { judul: "Desa Damai Berkeadilan", image: "/iconSDGs/16.webp", nilai: 0 },
   {
     judul: "Kemitraan Untuk Pembangunan Desa",
     image: "/iconSDGs/17.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
   {
     judul: "Kelembagaan Desa Dinamis dan Budaya Desa Adaptif",
     image: "/iconSDGs/18.webp",
-    nilai: 53.75,
+    nilai: 0,
   },
 ];
