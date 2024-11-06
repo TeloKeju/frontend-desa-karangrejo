@@ -75,7 +75,7 @@ const Berita = () => {
                                 item?.image
                               }
                               alt="Image Berita"
-                              className="w-full rounded-t-md h-[210px] object-cover"
+                              className="w-full rounded-t-md h-[210px] object-cover object-top"
                             />
                           </div>
                         )}

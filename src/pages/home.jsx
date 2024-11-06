@@ -398,7 +398,7 @@ const Home = () => {
                       <>
                         <section>
                           <Card
-                            className=""
+                            className="min-h-full"
                             imgAlt="Image Berita"
                             renderImage={() => (
                               <div className="w-full flex justify-center">
@@ -409,7 +409,7 @@ const Home = () => {
                                     item?.image
                                   }
                                   alt="Image Berita"
-                                  className="w-full rounded-t-md h-[300px] object-cover"
+                                  className="w-full rounded-t-md h-[300px] object-cover object-top"
                                 />
                               </div>
                             )}
