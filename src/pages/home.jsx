@@ -78,8 +78,10 @@ const Home = () => {
           <Carousel indicators="false">
             <div className="relative flex justify-center items-center">
               <h1 className="flex flex-col gap-3 items-center justify-center bg-opacity-50 bg-slate-900 w-full h-56 sm:h-64 xl:h-[750px] 2xl:h-full absolute text-white z-10">
-                <span className="text-7xl font-extrabold">Selamat Datang</span>
-                <span className="text-7xl font-semibold">
+                <span className="text-2xl md:text-4xl xl:text-7xl font-extrabold">
+                  Selamat Datang
+                </span>
+                <span className="text-2xl md:text-4xl xl:text-7xl font-semibold">
                   Website Resmi Desa Karangrejo
                 </span>
               </h1>
@@ -87,8 +89,10 @@ const Home = () => {
             </div>
             <div className="relative flex justify-center items-center">
               <h1 className="flex flex-col gap-3 items-center justify-center bg-opacity-50 bg-slate-900 w-full h-56 sm:h-64 xl:h-[750px] 2xl:h-full absolute text-white z-10">
-                <span className="text-7xl font-extrabold">Selamat Datang</span>
-                <span className="text-7xl font-semibold">
+                <span className="text-2xl md:text-4xl xl:text-7xl font-extrabold">
+                  Selamat Datang
+                </span>
+                <span className="text-2xl md:text-4xl xl:text-7xl font-semibold">
                   Website Resmi Desa Karangrejo
                 </span>
               </h1>

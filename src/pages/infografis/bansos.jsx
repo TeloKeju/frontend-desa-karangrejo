@@ -1,8 +1,10 @@
-import { IconSearch } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 import { bansos } from "./data/data";
 import InfografisLink from "./link";
 
-import { Card, TextInput, Label } from "flowbite-react";
+import { IconListSearch } from "@tabler/icons-react";
+
+import { Card, TextInput, Button, Label } from "flowbite-react";
 
 // export InfografisLink
 
@@ -42,16 +44,28 @@ const Bansos = () => {
           <h1 className=" text-start font-bold text-4xl">
             Cek Penerima Bansos
           </h1>
-          <div className="max-w">
+          <div className="flex flex-wrap gap-2 my-4 w-full h-24">
+            <Button color="gray" className="items-center w-full">
+              <IconListSearch></IconListSearch>
+              <Link
+                to={"https://cekbansos.kemensos.go.id/"}
+                target="_blank"
+                className="font-semibold text-xl ms-2"
+              >
+                Cek Penerima Bansos
+              </Link>
+            </Button>
+          </div>
+          {/* <div className="max-w">
             <div className="mb-2 block">
-              {/* <Label htmlFor="email4" value="Your email" /> */}
+              <Label htmlFor="email4" value="Your email" />
             </div>
             <TextInput
               icon={IconSearch}
               placeholder="Masukkan NIK Penerima Bansos"
               required
             />
-          </div>
+          </div> */}
         </section>
       </section>
     </main>
