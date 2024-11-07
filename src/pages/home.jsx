@@ -400,7 +400,7 @@ const Home = () => {
                   if (i < 6) {
                     return (
                       <>
-                        <section>
+                        <Link to={"/berita/" + item.id}>
                           <Card
                             className="min-h-full"
                             imgAlt="Image Berita"
@@ -443,7 +443,7 @@ const Home = () => {
                               </section>
                             </section>
                           </Card>
-                        </section>
+                        </Link>
                       </>
                     );
                   }

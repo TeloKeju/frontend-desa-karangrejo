@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 "use client";
 
-import { Button, Footer, Popover } from "flowbite-react";
+import { Footer, Popover } from "flowbite-react";
 import {
   IconBrandYoutube,
   IconBrandFacebook,

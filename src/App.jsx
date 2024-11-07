@@ -34,6 +34,7 @@ import Login from "./pages/admin/login/login";
 import GaleriAdmin from "./pages/admin/galeri/galeri";
 import DataSOTK from "./pages/admin/SOTK/dataSOTK";
 import DataUMKM from "./pages/admin/umkm";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
@@ -42,6 +43,7 @@ function App() {
   return (
     // <BrowserRouter>
     <>
+      <ScrollToTop />
       {!isAdminRoute && <Header />}
       <Routes>
         <Route path="/">
@@ -100,5 +102,15 @@ function App() {
     </>
   );
 }
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 export default App;
