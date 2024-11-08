@@ -11,6 +11,7 @@ import { IconEdit, IconEye, IconPlus, IconTrash } from "@tabler/icons-react";
 import { useState, useEffect } from "react";
 import apiKarangrejo from "../../../lib/axios";
 import { data } from "autoprefixer";
+import { toast } from "react-toastify";
 
 const NewsPageAdmin = () => {
   const [news, setNews] = useState([]);
@@ -119,7 +120,7 @@ const NewsPageAdmin = () => {
                         </button>
                         <button
                           onClick={() => {
-                            alert("p")
+                            // alert("p");
                             setAction("show");
                             setOpenModal(true);
                             setDataEdit(item);
@@ -310,11 +311,13 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
 
       setIsLoading(false);
       setOpenModal(false);
+      toast.success("Berita berhasil diperbarui");
       onAction();
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Berita gagal diperbarui");
       onAction();
     }
   }
@@ -368,7 +371,7 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
             </Label>
             <Textarea
               id="content"
-              rows="4"
+              rows="8"
               placeholder="Masukkan konten"
               value={content}
               onChange={(e) => setContent(e.target.value)}
@@ -399,16 +402,11 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
 
 const ModalDeleteNews = ({ dataEdit, setOpenModal, onAction }) => {
   const [isLoading, setIsLoading] = useState(false);
-  console.log(dataEdit);
-  
 
   async function handleDelete() {
     try {
       setIsLoading(true);
       const res = await apiKarangrejo.delete(`/news?id=${dataEdit.id}`);
-
-      console.log(res.data);
-      
 
       setIsLoading(false);
       setOpenModal(false);
@@ -451,10 +449,18 @@ const ModalDeleteNews = ({ dataEdit, setOpenModal, onAction }) => {
 };
 
 const ModalDetailNews = ({ setOpenModal, data }) => {
+  console.log(data);
   return (
     <>
-      <Modal.Header>Detail Berita</Modal.Header>
-      <Modal.Body className="text-center text-2xl">Detail</Modal.Body>
+      <Modal.Header>{data?.title || "Judul Berita"}</Modal.Header>
+      <Modal.Body className="text-center text-2xl">
+        <div className="flex justify-center">
+          <img src={import.meta.env.VITE_IMAGE_BASE + "/" + data?.image} className="w-[300px]" />
+        </div>
+        <div>
+          <p className="text-justify text-sm mt-4">{data?.content || "Konten Berita"}</p>
+        </div>
+      </Modal.Body>
       <Modal.Footer>
         <button
           onClick={() => setOpenModal(false)}

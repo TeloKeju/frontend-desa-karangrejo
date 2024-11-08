@@ -4,8 +4,11 @@ import { agama, jumlahPenduduk, perkawinan } from "../../infografis/data/data";
 import { AccordionItem } from "./penduduk";
 import { Card, Modal, TextInput } from "flowbite-react";
 import { IconEdit } from "@tabler/icons-react";
+import { toast } from "react-toastify";
 
 const DataAgama = () => {
+  const [dataAgama, setDataAgama] = useState(agama);
+
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setOpenModal] = useState(false);
   const [editTittle, setEditTittle] = useState("");
@@ -16,12 +19,13 @@ const DataAgama = () => {
     setIsLoading(true);
     try {
       const res = await apiKarangrejo.get("/agama");
-      
+
       res.data.agama.map((item, i) => {
         agama[i].id = item.id;
         agama[i].judul = item.nama_agama;
         agama[i].jumlah = item.jumlah_penganut;
       });
+      setDataAgama(agama);
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -39,7 +43,7 @@ const DataAgama = () => {
         </div>
       ) : (
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-6">
-          {agama.map((item, i) => (
+          {dataAgama.map((item, i) => (
             <Card className="" key={i}>
               <section className="flex gap-2 items-center justify-between">
                 <div className="flex gap-2 items-center">
@@ -82,6 +86,7 @@ const DataAgama = () => {
         tittle={editTittle}
         currentValus={currentValues}
         idEdit={idEdit}
+        onAction={getDataAgama}
       />
     </AccordionItem>
   );
@@ -89,33 +94,41 @@ const DataAgama = () => {
 
 export default DataAgama;
 
-const ModalAgama = ({ isOpen, setOpenModal, tittle, idEdit, currentValus }) => {
+const ModalAgama = ({
+  isOpen,
+  setOpenModal,
+  tittle,
+  idEdit,
+  currentValus,
+  onAction,
+}) => {
   const [editValus, setEditValus] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   async function updateDataAgama() {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
-      const res = await apiKarangrejo.post(`agama/update/${idEdit}`,{
-        nama_agama : tittle,
-        jumlah : editValus
-      })
+      const res = await apiKarangrejo.post(`agama/update/${idEdit}`, {
+        agama: tittle,
+        jumlah: editValus,
+      });
 
-      setIsLoading(false)
-      setOpenModal(false)
-      alert("update data agama")
-
+      setIsLoading(false);
+      setOpenModal(false);
+      toast.success("Update Data Agama Berhasil !!");
+      onAction();
     } catch (error) {
-      setIsLoading(false)
-      setOpenModal(false)
+      onAction();
+      setIsLoading(false);
+      setOpenModal(false);
       console.log(error);
-      
+      toast.error("Update Data Agama Gagal !!");
     }
   }
 
   useEffect(() => {
-    setEditValus(currentValus)
-  },[currentValus])
+    setEditValus(currentValus);
+  }, [isOpen]);
 
   return (
     <Modal show={isOpen} onClose={() => setOpenModal(false)}>
@@ -135,8 +148,10 @@ const ModalAgama = ({ isOpen, setOpenModal, tittle, idEdit, currentValus }) => {
       <Modal.Footer>
         <button
           onClick={() => updateDataAgama()}
-          className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${isLoading ? "opacity-50" : ""}`}
-          disabled={isLoading}
+          className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${
+            isLoading || !editValus ? "opacity-30" : ""
+          }`}
+          disabled={isLoading || !editValus}
         >
           Update
         </button>

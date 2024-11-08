@@ -1,5 +1,3 @@
-"use client";
-
 import {
   IconCamera,
   IconCaretLeft,
@@ -14,6 +12,7 @@ import {
 import { deleteCookie, getCookie } from "cookies-next";
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
 const Admin = ({ children }) => {

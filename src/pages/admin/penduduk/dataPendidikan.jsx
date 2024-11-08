@@ -6,6 +6,7 @@ import { Card, Modal, TextInput } from "flowbite-react";
 import { IconEdit } from "@tabler/icons-react";
 
 import { Table } from "flowbite-react";
+import { toast } from "react-toastify";
 
 const DataPendidikanAdmin = () => {
   const [pendidikan, setPendidikan] = useState([]);
@@ -103,17 +104,19 @@ const ModalPendidikan = ({ isOpen, setOpenModal, tittle, currentValues , idEdit 
       setIsLoading(false);
       setOpenModal(false);
       getDataPendidikan();
+      toast.success("Data Pendidikan berhasil diupdate");
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
       getDataPendidikan();
+      toast.error("Data Pendidikan gagal diupdate");
     }
   }
 
   useEffect(()=>{
     setEditValues(currentValues)
-  },[currentValues])
+  },[isOpen])
   return (
     <Modal show={isOpen} onClose={() => setOpenModal(false)}>
       <Modal.Header>{tittle || ""}</Modal.Header>

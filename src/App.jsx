@@ -1,4 +1,6 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+
 import Header from "./components/header";
 import { FooterDev } from "./components/footer";
 
@@ -35,6 +37,7 @@ import GaleriAdmin from "./pages/admin/galeri/galeri";
 import DataSOTK from "./pages/admin/SOTK/dataSOTK";
 import DataUMKM from "./pages/admin/umkm";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const location = useLocation();
@@ -99,6 +102,18 @@ function App() {
       </Routes>
       {!isAdminRoute && <FooterDev />}
       {/* </BrowserRouter> */}
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className={""}
+      />
     </>
   );
 }

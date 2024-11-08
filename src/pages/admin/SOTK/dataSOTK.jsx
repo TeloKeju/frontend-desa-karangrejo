@@ -13,6 +13,7 @@ import Admin from "../adminLayout";
 import { IconEdit, IconPlus, IconTrash } from "@tabler/icons-react";
 import apiKarangrejo from "../../../lib/axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 // import { sotk } from "../../data/data";
 
 const DataSOTK = () => {
@@ -22,12 +23,16 @@ const DataSOTK = () => {
   const [title, setTitle] = useState("");
 
   const [sotk, setSotk] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function getDataSOTK() {
     try {
+      setIsLoading(true);
       const res = await apiKarangrejo.get("/sotk");
+      setIsLoading(false);
       setSotk(res.data.sotk);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   }
@@ -38,7 +43,7 @@ const DataSOTK = () => {
   return (
     <Admin>
       <div className="p-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-4">
           <h1 className="font-bold text-2xl lg:text-3xl text-start">
             Data SOTK
           </h1>
@@ -54,57 +59,65 @@ const DataSOTK = () => {
             Tambah Data SOTK
           </button>
         </div>
-        <section className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-4">
-          {sotk.map((item, i) => {
-            return (
-              <>
-                <section className="flex justify-center relative" key={i}>
-                  <Card
-                    imgAlt="Meaningful alt text for an image that is not purely decorative"
-                    renderImage={() => {
-                      return (
-                        <div className="flex justify-center items-center relative w-full">
-                          <img
-                            className="h-[300px] w-[400px] object-cover"
-                            src={
-                              import.meta.env.VITE_IMAGE_BASE + "/" + item.image
-                            }
-                            alt=""
-                          />
-                          <div className="absolute flex gap-2 bg-blue-500 text-white px-4 py-2 rounded-s-lg right-0 bottom-0">
-                            <IconTrash
-                              onClick={() => {
-                                setShowModal(true);
-                                setAction("hapus");
-                                setDataEdit(item);
-                                setTitle("Hapus Data SOTK");
-                              }}
+        {isLoading ? (
+          <section className="w-full min-h-[50vh] flex justify-center items-center bg-slate-100">
+            <div>Loading.....</div>
+          </section>
+        ) : (
+          <section className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {sotk.map((item, i) => {
+              return (
+                <>
+                  <section className="flex justify-center relative" key={i}>
+                    <Card
+                      imgAlt="Meaningful alt text for an image that is not purely decorative"
+                      renderImage={() => {
+                        return (
+                          <div className="flex justify-center items-center relative w-full">
+                            <img
+                              className="h-[300px] w-[400px] object-cover"
+                              src={
+                                import.meta.env.VITE_IMAGE_BASE +
+                                "/" +
+                                item.image
+                              }
+                              alt=""
                             />
-                            <IconEdit
-                              onClick={() => {
-                                setShowModal(true);
-                                setDataEdit(item);
-                                setTitle("Edit Data SOTK");
-                                setAction("edit");
-                              }}
-                            />
+                            <div className="absolute flex gap-2 bg-blue-500 text-white px-4 py-2 rounded-s-lg right-0 bottom-0">
+                              <IconTrash
+                                onClick={() => {
+                                  setShowModal(true);
+                                  setAction("hapus");
+                                  setDataEdit(item);
+                                  setTitle("Hapus Data SOTK");
+                                }}
+                              />
+                              <IconEdit
+                                onClick={() => {
+                                  setShowModal(true);
+                                  setDataEdit(item);
+                                  setTitle("Edit Data SOTK");
+                                  setAction("edit");
+                                }}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      );
-                    }}
-                  >
-                    <h5 className="text-base md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      {item.nama}
-                    </h5>
-                    <p className="text-sm md:text-base font-normal text-gray-700 dark:text-gray-400">
-                      {item.jabatan}
-                    </p>
-                  </Card>
-                </section>
-              </>
-            );
-          })}
-        </section>
+                        );
+                      }}
+                    >
+                      <h5 className="text-base md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {item.nama}
+                      </h5>
+                      <p className="text-sm md:text-base font-normal text-gray-700 dark:text-gray-400">
+                        {item.jabatan}
+                      </p>
+                    </Card>
+                  </section>
+                </>
+              );
+            })}
+          </section>
+        )}
       </div>
       <ModalSOTK
         title={title}
@@ -153,7 +166,7 @@ const ModalSOTK = ({
 };
 
 const ModalAddSOTK = ({ setOpenModal, onAction }) => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [nama, setNama] = useState("");
   const [jabatan, setJabatan] = useState("");
 
@@ -170,10 +183,12 @@ const ModalAddSOTK = ({ setOpenModal, onAction }) => {
       const res = await apiKarangrejo.post("/sotk", formData);
       setOpenModal(false);
       setIsLoading(false);
+      toast.success("Input SOTK Berhasil !!");
       onAction();
     } catch (error) {
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Input SOTK Gagal !!");
       onAction();
       console.log(error);
     }
@@ -246,13 +261,18 @@ const ModalEditSOTK = ({ setOpenModal, onAction, dataEdit }) => {
 
     try {
       setIsLoading(true);
-      const res = await apiKarangrejo.post("/sotk", formData);
+      const res = await apiKarangrejo.post(
+        `/sotk/update/${dataEdit.id}`,
+        formData
+      );
       setOpenModal(false);
       setIsLoading(false);
+      toast.success("Edit SOTK Berhasil !!");
       onAction();
     } catch (error) {
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Edit SOTK Gagal !!");
       onAction();
       console.log(error);
     }
@@ -311,11 +331,13 @@ const ModalDeleteSOTK = ({ setOpenModal, onAction, dataEdit }) => {
       setIsLoading(true);
       const res = await apiKarangrejo.delete(`/sotk?id=${dataEdit.id}`);
       setOpenModal(false);
-      onAction();
       setIsLoading(false);
+      toast.success("Delete SOTK Berhasil !!");
+      onAction();
     } catch (error) {
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Delete SOTK Gagal !!");
       onAction();
       console.log(error);
     }
@@ -328,7 +350,11 @@ const ModalDeleteSOTK = ({ setOpenModal, onAction, dataEdit }) => {
         </h1>
       </ModalBody>
       <ModalFooter>
-        <Button className="w-full bg-red-500" onClick={handleDeleteSotk}>
+        <Button
+          className={"w-full bg-red-500" + (isLoading ? " opacity-30" : "")}
+          onClick={handleDeleteSotk}
+          disabled={isLoading}
+        >
           Hapus
         </Button>
         <Button

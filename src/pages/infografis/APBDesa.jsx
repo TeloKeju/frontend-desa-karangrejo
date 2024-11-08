@@ -1,11 +1,6 @@
 import InfografisLink from "./link";
 
-import {
-  apbDesa,
-  belanjaDesa,
-  pembiayaanDesa,
-  pendapatanDesa,
-} from "./data/data";
+import { belanjaDesa, pembiayaanDesa, pendapatanDesa } from "./data/data";
 
 import {
   BarChart,
@@ -22,10 +17,29 @@ import { Card, Select } from "flowbite-react";
 import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
 
 import { FormatRupiah } from "@arismun/format-rupiah";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import apiKarangrejo from "../../lib/axios";
 
 const APBDesa = () => {
-  const [tahun, setTahun] = useState("2024");
+  let tahun = new Date().getFullYear();
+
+  const [apbDesa, setApbDesa] = useState([]);
+
+  async function getDataApbdesa() {
+    try {
+      // setIsLoading(true);
+      const res = await apiKarangrejo.get("/apb");
+      setApbDesa(res.data.apb);
+      // setIsLoading(false);
+    } catch (error) {
+      // setIsLoading(false);
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    getDataApbdesa();
+  }, []);
+
   return (
     <>
       <main className="mt-20">
@@ -73,6 +87,8 @@ const APBDesa = () => {
                 </>
               ))} */}
               {apbDesa.map((item, i) => {
+                // console.log(i);
+
                 if (item.tahun == tahun) {
                   return (
                     <>
@@ -83,14 +99,27 @@ const APBDesa = () => {
                         <Card>
                           <section className="flex gap-3 flex-row justify-start">
                             <section className="text-green-500">
-                              <IconArrowBadgeUpFilled />
+                              {i == 0 ? (
+                                <IconPointFilled />
+                              ) : apbDesa[i - 1].pendapatan <
+                                item.pendapatan ? (
+                                <IconArrowBadgeUpFilled />
+                              ) : (
+                                <IconArrowBadgeUpFilled className="text-red-500 transform rotate-180" />
+                              )}
                             </section>
                             <section className="text-lg font-semibold">
                               Pendapatan
                             </section>
                           </section>
                           <section>
-                            <section className="text-green-500 text-start text-2xl font-bold">
+                            <section
+                              className={`text-start text-2xl font-bold ${
+                                apbDesa[i - 1]?.pendapatan > item.pendapatan
+                                  ? "text-red-500"
+                                  : "text-green-500 "
+                              } `}
+                            >
                               <FormatRupiah value={item.pendapatan} />
                             </section>
                           </section>
@@ -156,7 +185,13 @@ const APBDesa = () => {
                             <p className="me-3 text-lg font-semibold">
                               Surplus/Defisit
                             </p>
-                            <section className="text-green-500 font-bold text-2xl">
+                            <section
+                              className={`font-bold text-2xl ${
+                                item?.pendapatan < item?.pengeluaran
+                                  ? "text-red-500"
+                                  : "text-green-500 "
+                              }`}
+                            >
                               <FormatRupiah
                                 value={
                                   item?.pendapatan - item?.pengeluaran || 0

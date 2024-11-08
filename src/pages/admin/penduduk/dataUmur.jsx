@@ -3,6 +3,7 @@ import { AccordionItem } from "./penduduk";
 import { useEffect, useState } from "react";
 import apiKarangrejo from "../../../lib/axios";
 import { IconEdit } from "@tabler/icons-react";
+import { toast } from "react-toastify";
 
 const DataUmur = () => {
   const [dataUmur, setDataUmur] = useState();
@@ -106,17 +107,19 @@ const ModalUmur = ({
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.success("Berhasil Update Data Umur !!");
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.error("Gagal Update Data Umur !!");
     }
   }
 
   useEffect(() => {
     setEditValues(currentValues);
-  }, [currentValues]);
+  }, [isOpen]);
   return (
     <Modal show={isOpen} onClose={() => setOpenModal(false)}>
       <Modal.Header>{tittle || ""} Tahun</Modal.Header>

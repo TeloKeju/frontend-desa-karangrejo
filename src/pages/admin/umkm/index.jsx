@@ -14,6 +14,7 @@ import Admin from "../adminLayout";
 import { IconEdit, IconPlus, IconTrash } from "@tabler/icons-react";
 import apiKarangrejo from "../../../lib/axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const DataUMKM = () => {
   const [dataUMKM, setDataUMKM] = useState([]);
@@ -118,7 +119,7 @@ const ModalAdd = ({ setShowModal, onAction }) => {
     formData.append("name", nama);
     formData.append("image", image);
     formData.append("description", deskripsi);
-    formData.append("contact", contact);
+    formData.append("contact", "+62"+contact);
     formData.append("price", price);
     try {
       //   console.logf(formData);
@@ -126,10 +127,12 @@ const ModalAdd = ({ setShowModal, onAction }) => {
       const res = await apiKarangrejo.post("/umkm", formData);
       setIsLoading(false);
       setShowModal(false);
+      toast.success("Input UMKM Berhasil !!");
       onAction();
     } catch (error) {
       setIsLoading(false);
       setShowModal(false);
+      toast.error("Input UMKM Gagal !!");
       onAction();
       console.log(error);
     }
@@ -166,12 +169,16 @@ const ModalAdd = ({ setShowModal, onAction }) => {
           </div>
           <div>
             <Label>Contact</Label>
-            <TextInput
-              type="number"
-              placeholder="Masukkan Contact UMKM"
-              required
-              onChange={(e) => setContact(e.target.value)}
-            />
+            <div className="flex items-center w-full">
+              <span className="px-3 py-2 bg-gray-100 rounded-l-md outline-1 outline-black">+62</span>
+              <input
+                type="number"
+                placeholder="Masukkan Contact UMKM"
+                required
+                onChange={(e) => setContact(e.target.value)}
+                className="w-full rounded-e-md px-3 py-2 outline-1 outline-slate-300"
+              />
+            </div>
           </div>
           <div>
             <Label>Price</Label>

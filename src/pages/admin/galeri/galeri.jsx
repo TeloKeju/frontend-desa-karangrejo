@@ -13,9 +13,11 @@ import { IconEdit, IconPlus, IconTrash } from "@tabler/icons-react";
 import { apbDesa } from "../../infografis/data/data";
 import apiKarangrejo from "../../../lib/axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const GaleriAdmin = () => {
   const [galeri, setGaleri] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [openModal, setOpenModal] = useState(false);
   const [action, setAction] = useState("");
@@ -25,9 +27,12 @@ const GaleriAdmin = () => {
 
   async function getDataGaleri() {
     try {
+      setIsLoading(true);
       const res = await apiKarangrejo.get("/galery");
+      setIsLoading(false);
       setGaleri(res.data.galery);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   }
@@ -61,49 +66,39 @@ const GaleriAdmin = () => {
               }}
             >
               <IconPlus />
-              Tambah Berita
+              Tambah Galery
             </button>
           </div>
         </div>
-        <div className="overflow-x-auto">
-          <Table>
-            <Table.Head>
-              <Table.HeadCell>No</Table.HeadCell>
-              <Table.HeadCell>Gambar</Table.HeadCell>
-              <Table.HeadCell></Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y">
-              {galeri.map((item, i) => (
-                <Table.Row
-                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
-                  key={i}
-                >
-                  <Table.Cell>{i + 1}</Table.Cell>
-                  <Table.Cell>
-                    <img
-                      src={import.meta.env.VITE_IMAGE_BASE + "/" + item?.image}
-                      alt="Galeri Alt"
-                      className="w-[200px]"
-                    />
-                  </Table.Cell>
+        {isLoading ? (
+          <section className="w-full min-h-[50vh] flex justify-center items-center bg-slate-100">
+            <div>Loading.....</div>
+          </section>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {galeri.map((item, index) => (
+              <div className="col-span-1 relative" key={index}>
+                <img
+                  src={import.meta.env.VITE_IMAGE_BASE + "/" + item?.image}
+                  alt="Galeri Alt"
+                  className="w-full h-[200px] lg:h-[280px] object-cover rounded-sm"
+                />
 
-                  <Table.Cell className="text-center w-10">
-                    <button
-                      onClick={() => {
-                        setOpenModal(true);
-                        setAction("delete");
-                        setTitle("Hapus Galery");
-                        setIdEdit(item?.id);
-                      }}
-                    >
-                      <IconTrash />
-                    </button>
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
-        </div>
+                <button
+                  className="absolute top-2 right-2 bg-red-400 text-white p-2 rounded-sm"
+                  onClick={() => {
+                    setOpenModal(true);
+                    setAction("delete");
+                    setTitle("Menghapus Galery");
+                    setIdEdit(item.id);
+                  }}
+                >
+                  <IconTrash />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <ModalGaleri
@@ -158,11 +153,13 @@ const ModalAddGaleri = ({ setOpenModal, onAction }) => {
       const res = await apiKarangrejo.post("/galery", formData);
       setOpenModal(false);
       setIsLoading(false);
+      toast.success("Input Galery Berhasil !!");
       onAction();
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Input Galery Gagal !!");
       onAction();
     }
   }
@@ -192,12 +189,14 @@ const ModalDeleteGalery = ({ setOpenModal, idEdit, onAction }) => {
       setIsLoading(true);
       const res = await apiKarangrejo.delete(`/galery?id=${idEdit}`);
       setOpenModal(false);
-      onAction();
       setIsLoading(false);
+      toast.success("Delete Galery Berhasil !!");
+      onAction();
     } catch (error) {
       setIsLoading(false);
       console.log(error);
       setOpenModal(false);
+      toast.error("Delete Galery Gagal !!");
       onAction();
     }
   }

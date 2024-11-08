@@ -201,7 +201,7 @@ const Penduduk = () => {
             <section className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <section className="overflow-x-auto overflow-y-auto sm:col-span-1 shadow-md h-96 lg:h-80">
                 <Table className="relative">
-                  <Table.Head className="sticky top-0 z-50">
+                  <Table.Head className="sticky top-0">
                     <Table.HeadCell>Jenis Pekerjaan</Table.HeadCell>
                     <Table.HeadCell>Jumlah</Table.HeadCell>
                   </Table.Head>

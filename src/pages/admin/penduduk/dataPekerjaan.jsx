@@ -3,6 +3,7 @@ import { AccordionItem } from "./penduduk";
 import { IconEdit, IconPlus, IconTrash } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import apiKarangrejo from "../../../lib/axios";
+import { toast } from "react-toastify";
 
 const DataPekerjaan = () => {
   const [dataPekerjaan, setDataPekerjaan] = useState([]);
@@ -149,11 +150,13 @@ const ModalEditPekerjaan = ({ dataEdit, setOpenModal, onAction }) => {
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.success("Edit Pekerjaan Berhasil !!");
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.error("Edit Pekerjaan Gagal !!");
     }
   }
 
@@ -236,11 +239,13 @@ const ModalAddPekerjaan = ({ setOpenModal, onAction }) => {
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.success("Input Pekerjaan Berhasil !!");
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.error("Input Pekerjaan Gagal !!");
     }
   }
 
@@ -304,11 +309,13 @@ const ModalDeletePekerjaan = ({ dataEdit, setOpenModal, onAction }) => {
       setIsLoading(false);
       setOpenModal(false);
       onAction();
+      toast.success("Pekerjaan Berhasil Dihapus");
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
       onAction;
+      toast.error("Pekerjaan Gagal Dihapus");
     }
   }
   return (

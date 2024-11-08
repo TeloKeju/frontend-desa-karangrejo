@@ -7,7 +7,7 @@ import {
   IconBrandFacebook,
 } from "@tabler/icons-react";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import apiKarangrejo from "../../lib/axios";
 
@@ -26,6 +26,8 @@ const DetailBelanja = () => {
     }
   }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getDataUMKM();
   }, [pathName]);
@@ -40,7 +42,7 @@ const DetailBelanja = () => {
             <section className="grid grid-cols-1 sm:grid-cols-8 gap-6">
               <img
                 src={import.meta.env.VITE_IMAGE_BASE + "/" + dataUMKM?.image}
-                className="col-span-2 w-full max-h-[500px]"
+                className="col-span-2 w-full max-h-[500px] rounded-md"
                 alt="Image Belanja"
               />
               <section className="col-span-6">
@@ -69,10 +71,15 @@ const DetailBelanja = () => {
                   <FormatRupiah value={dataUMKM?.price} />
                 </h2>
                 <p className="text-start mt-4">{dataUMKM?.description}F</p>
-                <Button color="gray" className="mt-6">
+                <Button
+                  className="mt-6 bg-green-500 text-white"
+                  onClick={() =>
+                    window.open(`https://wa.me/${dataUMKM?.contact}`, "_blank")
+                  }
+                >
                   <IconBrandWhatsapp /> &nbsp; Hubungi Penjual
                 </Button>
-                <section className="flex flex-row gap-4 mt-1">
+                {/* <section className="flex flex-row gap-4 pt-4">
                   Bagikan:
                   <Link to={""}>
                     <IconBrandInstagram />
@@ -83,7 +90,7 @@ const DetailBelanja = () => {
                   <Link to={""}>
                     <IconBrandWhatsapp />
                   </Link>
-                </section>
+                </section> */}
               </section>
             </section>
           </Card>
