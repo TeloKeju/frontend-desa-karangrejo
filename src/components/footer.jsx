@@ -19,7 +19,6 @@ function PopOverTelp({ childern, noTelp }) {
       content={
         <Link
           to={`https://wa.me/${noTelp}`}
-          target="_blank"
           className="text-sm text-gray-500 dark:text-gray-400"
         >
           <div className="border-b border-gray-200 dark:border-gray-600 dark:bg-gray-700">
