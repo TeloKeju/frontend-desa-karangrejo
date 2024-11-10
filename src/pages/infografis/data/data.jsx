@@ -219,22 +219,22 @@ export const perkawinan = [
   {
     image: "/iconPenduduk/iconBelumKawin.svg",
     judul: "Belum Kawin",
-    jumlah: 2426,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconKawin.svg",
     judul: "Kawin",
-    jumlah: 3009,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconCeraiMati.svg",
     judul: "Cerai Mati",
-    jumlah: 409,
+    jumlah: 0,
   },
   {
     image: "/iconPenduduk/iconCeraiHidup.svg",
     judul: "Cerai hidup",
-    jumlah: 224,
+    jumlah: 0,
   },
 ];
 

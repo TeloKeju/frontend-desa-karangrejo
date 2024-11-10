@@ -10,6 +10,31 @@ import apiKarangrejo from "../lib/axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [apbDesa, setApbDesa] = useState([]);
+  const currentYear = new Date().getFullYear();
+
+  async function getDataApbdesa() {
+    try {
+      const res = await apiKarangrejo.get("/apb");
+      setApbDesa(res.data.apb.filter((item) => item.tahun == currentYear)[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+
+  async function getDataPenduduk() {
+    try {
+      const res = await apiKarangrejo.get("/penduduk");
+      administrasi[0].number = res.data.penduduk.total_penduduk;
+      administrasi[1].number = res.data.penduduk.laki_laki;
+      administrasi[2].number = res.data.penduduk.kepala_keluarga;
+      administrasi[3].number = res.data.penduduk.perempuan;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const [galeri, setGaleri] = useState([]);
   async function getDataGalery() {
     try {
@@ -50,6 +75,8 @@ const Home = () => {
     getDataBerita();
     getDataGalery();
     getDataSOTK();
+    getDataApbdesa()
+    getDataPenduduk();
   }, []);
 
   const [dataUMKM, setDataUMKM] = useState([]);
@@ -353,7 +380,7 @@ const Home = () => {
                     <section>
                       <p className="text-start font-medium">Pendapatan Desa</p>
                       <p className="text-end text-xl font-bold sm:text-2xl md:text-3xl">
-                        Rp2.368.008.897,00
+                        <FormatRupiah value={apbDesa?.pendapatan || 0}/>
                       </p>
                     </section>
                   </Card>
@@ -361,7 +388,7 @@ const Home = () => {
                     <section>
                       <p className="text-start font-medium">Belanja Desa</p>
                       <p className="text-end text-xl font-bold sm:text-2xl md:text-3xl">
-                        Rp0,00
+                      <FormatRupiah value={apbDesa?.belanja || 0}/>
                       </p>
                     </section>
                   </Card>

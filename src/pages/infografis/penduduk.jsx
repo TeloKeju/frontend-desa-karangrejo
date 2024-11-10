@@ -34,6 +34,35 @@ const Penduduk = () => {
     }
   }
 
+  async function getDataPerkawinan() {
+    try {
+      const res = await apiKarangrejo.get("/perkawinan");
+
+      perkawinan[0] = {
+        ...perkawinan[0],
+        jumlah: res.data.perkawinan[0].belum_kawin,
+        slug: "belum_kawin",
+      };
+      perkawinan[1] = {
+        ...perkawinan[1],
+        jumlah: res.data.perkawinan[0].kawin,
+        slug: "kawin",
+      };
+      perkawinan[2] = {
+        ...perkawinan[2],
+        jumlah: res.data.perkawinan[0].cerai_mati,
+        slug: "cerai_mati",
+      };
+      perkawinan[3] = {
+        ...perkawinan[3],
+        jumlah: res.data.perkawinan[0].cerai_hidup,
+        slug: "cerai_hidup",
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function getDataPenduduk() {
     try {
       const res = await apiKarangrejo.get("/penduduk");
@@ -84,6 +113,7 @@ const Penduduk = () => {
     getDataPekerjaanPenduduk();
     getDataPendidikan();
     getDataAgama();
+    getDataPerkawinan()
   }, []);
 
   return (

@@ -57,7 +57,7 @@ const JumlahPenduduk = () => {
     getData();
   }, []);
   return (
-    <AccordionItem title="Jumlah Penduduk">
+    <AccordionItem title="Data Jumlah Penduduk">
       {isLoading ? (
         <div className="min-h-20 flex items-center justify-center">
           Loading....

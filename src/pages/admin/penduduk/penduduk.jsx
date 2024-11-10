@@ -9,6 +9,7 @@ import DataAgama from "./dataAgama";
 import DataPendidikanAdmin from "./dataPendidikan";
 import DataUmur from "./dataUmur";
 import DataPekerjaan from "./dataPekerjaan";
+import DataPerkawinan from "./perkawinan";
 
 const PendudukAdmin = () => {
   return (
@@ -16,6 +17,7 @@ const PendudukAdmin = () => {
       <div className="bg-reg-100">
         <section className="p-4 flex flex-col gap-3">
           <JumlahPenduduk />
+          <DataPerkawinan />
           <DataPendidikanAdmin />
           <DataAgama />
           <DataUmur />

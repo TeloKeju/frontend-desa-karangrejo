@@ -75,27 +75,27 @@ export const sotk = [
 
 export const administrasi = [
   {
-    number: 4.484,
+    number: 0,
     title: "Penduduk",
   },
   {
-    number: 4.484,
+    number: 0,
     title: "Laki-Laki",
   },
   {
-    number: 4.484,
+    number: 0,
     title: "Kepala Keluarga",
   },
   {
-    number: 4.484,
+    number: 0,
     title: "Perempuan",
   },
   {
-    number: 4.484,
+    number: 0,
     title: "Penduduk Sementara",
   },
   {
-    number: 4.484,
+    number: 0,
     title: "Mutasi Penduduk",
   },
 ];

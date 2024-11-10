@@ -205,14 +205,15 @@ const ModalAddBerita = ({ setOpenModal, onAction }) => {
       setIsLoading(true);
 
       const res = await apiKarangrejo.post("/news", formData);
-
       setIsLoading(false);
       setOpenModal(false);
+      toast.success("Berita berhasil ditambahkan");
       onAction();
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Berita gagal ditambahkan");
       onAction();
     }
   }
@@ -296,7 +297,7 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  async function handleEditNews(params) {
+  async function handleEditNews() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
@@ -410,11 +411,13 @@ const ModalDeleteNews = ({ dataEdit, setOpenModal, onAction }) => {
 
       setIsLoading(false);
       setOpenModal(false);
+      toast.success("Data Berhasil Dihapus");
       onAction();
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       setOpenModal(false);
+      toast.error("Data Gagal Dihapus");
       onAction;
     }
   }
@@ -449,7 +452,6 @@ const ModalDeleteNews = ({ dataEdit, setOpenModal, onAction }) => {
 };
 
 const ModalDetailNews = ({ setOpenModal, data }) => {
-  console.log(data);
   return (
     <>
       <Modal.Header>{data?.title || "Judul Berita"}</Modal.Header>

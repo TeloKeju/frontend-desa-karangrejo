@@ -31,7 +31,7 @@ const DataUmur = () => {
   }, []);
 
   return (
-    <AccordionItem title={"Berdasarkan Umur"}>
+    <AccordionItem title={"Data Umur"}>
       {isLoading ? (
         <div className="min-h-20 flex items-center justify-center">
           Loading....

@@ -35,7 +35,7 @@ const DataPendidikanAdmin = () => {
     getDataPendidikan();
   }, []);
   return (
-    <AccordionItem title={"Berdasarkan Pendidikan"}>
+    <AccordionItem title={"Data Pendidikan"}>
       {isLoading ? (
         <div className="min-h-20 flex items-center justify-center">
           Loading....

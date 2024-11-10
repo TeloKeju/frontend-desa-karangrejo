@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 import apiKarangrejo from "../../lib/axios";
 
 const APBDesa = () => {
-  let tahun = new Date().getFullYear();
+  const [tahun, setTahun] = useState();
 
   const [apbDesa, setApbDesa] = useState([]);
 
@@ -39,6 +39,11 @@ const APBDesa = () => {
   useEffect(() => {
     getDataApbdesa();
   }, []);
+
+  let currentYear = new Date().getFullYear();
+  useEffect(() => {
+    setTahun(currentYear);
+  }, [currentYear]);
 
   return (
     <>

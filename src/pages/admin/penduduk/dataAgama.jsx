@@ -36,7 +36,7 @@ const DataAgama = () => {
     getDataAgama();
   }, []);
   return (
-    <AccordionItem title={"Berdasarkan Agama"}>
+    <AccordionItem title={"Data Agama"}>
       {isLoading ? (
         <div className="min-h-20 flex items-center justify-center">
           Loading....

@@ -31,7 +31,7 @@ const DataPekerjaan = () => {
     getDataPekerjaan();
   }, []);
   return (
-    <AccordionItem title={"Berdasarkan Pekerjaan"}>
+    <AccordionItem title={"Data Pekerjaan"}>
       {isLoading ? (
         <div className="min-h-20 flex items-center justify-center">
           Loading....
