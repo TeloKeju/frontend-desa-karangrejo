@@ -70,7 +70,7 @@ const DetailBelanja = () => {
                 <h2 className="text-3xl font-bold text-start mt-2">
                   <FormatRupiah value={dataUMKM?.price} />
                 </h2>
-                <p className="text-start mt-4">{dataUMKM?.description}F</p>
+                <p className="text-start mt-4">{dataUMKM?.description}</p>
                 <Button
                   className="mt-6 bg-green-500 text-white"
                   onClick={() =>
