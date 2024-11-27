@@ -3,11 +3,13 @@ import {
   IconCaretLeft,
   IconCaretRight,
   IconCash,
+  IconCrown,
   IconDoorExit,
   IconNews,
   IconShoppingBag,
   IconUser,
   IconUsers,
+  IconNumbers,
 } from "@tabler/icons-react";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useState } from "react";
@@ -47,6 +49,16 @@ const Admin = ({ children }) => {
       name: "UMKM",
       link: "umkm",
     },
+    {
+      icon: <IconCrown size={32} />,
+      name: "IDM",
+      link: "idm",
+    },
+    {
+      icon: <IconNumbers size={32} />,
+      name: "SDGs",
+      link: "sdgs",
+    },
     // {
     //   icon: <IconChartBar size={32} />,
     //   name: "Stunting",
@@ -61,11 +73,6 @@ const Admin = ({ children }) => {
     //   icon: <IconCrown size={32} />,
     //   name: "IDM",
     //   link: "idm",
-    // },
-    // {
-    //   icon: <IconNumber size={32} />,
-    //   name: "SDGs",
-    //   link: "sdgs",
     // },
   ];
 
