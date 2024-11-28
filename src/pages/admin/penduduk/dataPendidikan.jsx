@@ -90,17 +90,27 @@ const DataPendidikanAdmin = () => {
 
 export default DataPendidikanAdmin;
 
-const ModalPendidikan = ({ isOpen, setOpenModal, tittle, currentValues , idEdit , getDataPendidikan }) => {
-  const [editValues , setEditValues] = useState();
+const ModalPendidikan = ({
+  isOpen,
+  setOpenModal,
+  tittle,
+  currentValues,
+  idEdit,
+  getDataPendidikan,
+}) => {
+  const [editValues, setEditValues] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleEditPendidikan() {
     try {
       setIsLoading(true);
-      const res = await apiKarangrejo.post(`/penduduk/pendidikan/update/${idEdit}`, {
-        pendidikan : tittle,
-        jumlah : editValues
-      })
+      const res = await apiKarangrejo.post(
+        `/penduduk/pendidikan/update/${idEdit}`,
+        {
+          pendidikan: tittle,
+          jumlah: editValues,
+        }
+      );
       setIsLoading(false);
       setOpenModal(false);
       getDataPendidikan();
@@ -114,9 +124,9 @@ const ModalPendidikan = ({ isOpen, setOpenModal, tittle, currentValues , idEdit 
     }
   }
 
-  useEffect(()=>{
-    setEditValues(currentValues)
-  },[isOpen])
+  useEffect(() => {
+    setEditValues(currentValues);
+  }, [isOpen]);
   return (
     <Modal show={isOpen} onClose={() => setOpenModal(false)}>
       <Modal.Header>{tittle || ""}</Modal.Header>
@@ -135,7 +145,9 @@ const ModalPendidikan = ({ isOpen, setOpenModal, tittle, currentValues , idEdit 
       <Modal.Footer>
         <button
           onClick={() => handleEditPendidikan()}
-          className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${isLoading || !editValues ? "opacity-30 cursor-not-allowed" : ""}`}
+          className={`w-full rounded-md flex justify-center bg-blue-400 px-4 py-5 text-white text-lg ${
+            isLoading || !editValues ? "opacity-30 cursor-not-allowed" : ""
+          }`}
           disabled={isLoading || !editValues}
         >
           Update

@@ -21,7 +21,6 @@ const Home = () => {
       console.log(error);
     }
   }
-  
 
   async function getDataPenduduk() {
     try {
@@ -75,7 +74,7 @@ const Home = () => {
     getDataBerita();
     getDataGalery();
     getDataSOTK();
-    getDataApbdesa()
+    getDataApbdesa();
     getDataPenduduk();
   }, []);
 
@@ -380,7 +379,7 @@ const Home = () => {
                     <section>
                       <p className="text-start font-medium">Pendapatan Desa</p>
                       <p className="text-end text-xl font-bold sm:text-2xl md:text-3xl">
-                        <FormatRupiah value={apbDesa?.pendapatan || 0}/>
+                        <FormatRupiah value={apbDesa?.pendapatan || 0} />
                       </p>
                     </section>
                   </Card>
@@ -388,7 +387,7 @@ const Home = () => {
                     <section>
                       <p className="text-start font-medium">Belanja Desa</p>
                       <p className="text-end text-xl font-bold sm:text-2xl md:text-3xl">
-                      <FormatRupiah value={apbDesa?.belanja || 0}/>
+                        <FormatRupiah value={apbDesa?.belanja || 0} />
                       </p>
                     </section>
                   </Card>
@@ -633,7 +632,7 @@ const Home = () => {
                               import.meta.env.VITE_IMAGE_BASE + "/" + item.image
                             }
                             alt="Galeri"
-                            className="w-full"
+                            className="w-full h-52 sm:h-72  md:h-96 object-cover object-top"
                             loading="lazy"
                           />
                         </section>

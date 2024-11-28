@@ -50,7 +50,7 @@ const Galeri = () => {
                       <img
                         src={import.meta.env.VITE_IMAGE_BASE + "/" + item.image}
                         alt="Galeri"
-                        className="w-full"
+                        className="w-full h-52 sm:h-72  md:h-96 object-cover object-top"
                         loading="lazy"
                       />
                     </section>
