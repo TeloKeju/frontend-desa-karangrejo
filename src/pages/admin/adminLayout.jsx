@@ -10,6 +10,7 @@ import {
   IconUser,
   IconUsers,
   IconNumbers,
+  IconBox,
 } from "@tabler/icons-react";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useState } from "react";
@@ -50,6 +51,11 @@ const Admin = ({ children }) => {
       link: "umkm",
     },
     {
+      icon: <IconBox size={32} />,
+      name: "Bansos",
+      link: "bansos",
+    },
+    {
       icon: <IconCrown size={32} />,
       name: "IDM",
       link: "idm",
@@ -60,8 +66,8 @@ const Admin = ({ children }) => {
       link: "sdgs",
     },
     // {
-    //   icon: <IconChartBar size={32} />,
-    //   name: "Stunting",
+      //   icon: <IconChartBar size={32} />,
+      //   name: "Stunting",
     //   link: "stunting",
     // },
     // {

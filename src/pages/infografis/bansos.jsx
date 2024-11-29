@@ -5,10 +5,42 @@ import InfografisLink from "./link";
 import { IconListSearch } from "@tabler/icons-react";
 
 import { Card, TextInput, Button, Label } from "flowbite-react";
+import { useEffect, useState } from "react";
+import apiKarangrejo from "../../lib/axios";
 
 // export InfografisLink
 
 const Bansos = () => {
+  const [displayBansos, setDisplayBansos] = useState([]);
+
+  async function getDataBansos() {
+    try {
+      const res = await apiKarangrejo.get(`/bansos`);
+
+      bansos[0].jumlah = res.data.Bansos[0].vaksin1;
+      bansos[0].slug = "vaksin1";
+      bansos[1].jumlah = res.data.Bansos[0].vaksin2;
+      bansos[1].slug = "vaksin2";
+      bansos[2].jumlah = res.data.Bansos[0].bnpt;
+      bansos[2].slug = "bnpt";
+      bansos[3].jumlah = res.data.Bansos[0].blt;
+      bansos[3].slug = "blt";
+      bansos[4].jumlah = res.data.Bansos[0].pkh;
+      bansos[4].slug = "pkh";
+      bansos[5].jumlah = res.data.Bansos[0].bst;
+      bansos[5].slug = "bst";
+      bansos[6].jumlah = res.data.Bansos[0].bantuanCaleg;
+      bansos[6].slug = "bantuanCaleg";
+      bansos[7].jumlah = res.data.Bansos[0].baznas;
+      bansos[7].slug = "baznas";
+      setDisplayBansos(bansos);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    getDataBansos();
+  }, []);
   return (
     <main className="mt-20">
       <InfografisLink />
@@ -17,7 +49,7 @@ const Bansos = () => {
           Jumlah Penerima Bansos
         </h1>
         <section className="grid sm:grid-cols-2 gap-3 mt-3">
-          {bansos.map((item) => (
+          {displayBansos?.map((item) => (
             <>
               <Card className=" ">
                 <section className="grid grid-cols-3">

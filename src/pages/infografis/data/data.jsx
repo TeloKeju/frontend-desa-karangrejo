@@ -1,5 +1,7 @@
 // import { IconArrowBadgeUpFilled, IconPointFilled } from "@tabler/icons-react";
 
+import { useState } from "react";
+
 //Penduduk
 export const jumlahPenduduk = [
   {
@@ -320,8 +322,8 @@ export const pendapatanBelanja = [
 ];
 
 export const pendapatanDesa = [
-  { judul: "Pendapatan Asli Desa", jumlah: 8000000 },
-  { judul: "Pendapatan Transfer", jumlah: 2203273600 },
+  { judul: "Pendapatan Asli Desa", jumlah: 0 },
+  { judul: "Pendapatan Transfer", jumlah: 0 },
   { judul: "Pendapatan Lain-lain", jumlah: 0 },
 ];
 
@@ -415,7 +417,7 @@ export const skorIDMTahun = [
 // SDGs
 
 export const sdgs = [
-  { judul: "Skor SDGs Desa Karangrejo", nilai: 0 },
+  { judul: "Skor SDGs Desa Karangrejo", nilai: 1000 },
   { judul: "Desa Tanpa Kemiskinan", image: "/iconSDGs/1.webp", nilai: 0 },
   { judul: "Desa Tanpa Kelaparan", image: "/iconSDGs/2.webp", nilai: 0 },
   {

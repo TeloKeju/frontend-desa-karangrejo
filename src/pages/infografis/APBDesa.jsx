@@ -24,6 +24,41 @@ const APBDesa = () => {
   const [tahun, setTahun] = useState();
 
   const [apbDesa, setApbDesa] = useState([]);
+  var dataAPBDCurrentYear = apbDesa.filter((item) => item.tahun == tahun)[0];
+
+  const [belanjaDesa2, setBelanjaDesa2] = useState(belanjaDesa);
+  const [pendapatanDesa2, setPendapatanDesa2] = useState(pendapatanDesa);
+  const [pembiayaanDesa2, setPembiayaanDesa2] = useState(pembiayaanDesa);
+
+  useEffect(() => {
+    if (dataAPBDCurrentYear) {
+      // Update belanjaDesa2
+      const updatedBelanjaDesa = [...belanjaDesa2];
+      updatedBelanjaDesa[0].jumlah =
+        dataAPBDCurrentYear.penyelenggaraan_pemerintahan_desa;
+      updatedBelanjaDesa[1].jumlah =
+        dataAPBDCurrentYear.pelaksanaan_pembangunan_desa;
+      updatedBelanjaDesa[2].jumlah =
+        dataAPBDCurrentYear.pembinaan_kemasyarakatan_desa;
+      updatedBelanjaDesa[3].jumlah =
+        dataAPBDCurrentYear.pemberdayaan_masyarakat_desa;
+      updatedBelanjaDesa[4].jumlah = dataAPBDCurrentYear.penanggulangan_bencana;
+      setBelanjaDesa2(updatedBelanjaDesa);
+
+      // Update pendapatanDesa2
+      const updatedPendapatanDesa = [...pendapatanDesa2];
+      updatedPendapatanDesa[0].jumlah = dataAPBDCurrentYear.hasil_desa;
+      updatedPendapatanDesa[1].jumlah = dataAPBDCurrentYear.transfer;
+      updatedPendapatanDesa[2].jumlah = dataAPBDCurrentYear.lain;
+      setPendapatanDesa2(updatedPendapatanDesa);
+
+      // Update pembiayaanDesa2
+      const updatedPembiayaanDesa = [...pembiayaanDesa2];
+      updatedPembiayaanDesa[0].jumlah = dataAPBDCurrentYear.penerimaan;
+      updatedPembiayaanDesa[1].jumlah = dataAPBDCurrentYear.pengeluaran;
+      setPembiayaanDesa2(updatedPembiayaanDesa);
+    }
+  }, [dataAPBDCurrentYear]);
 
   async function getDataApbdesa() {
     try {
@@ -53,7 +88,7 @@ const APBDesa = () => {
           <section className="grid sm:grid-cols-2 gap-3">
             <section className="flex flex-col justify-center items-center">
               <h1 className=" text-start font-bold text-4xl">
-                APB Desa Karangrejo Tahun 2024
+                APB Desa Karangrejo Tahun {tahun}
               </h1>
               <p className="text-start font-semibold text-base">
                 Desa Karangrejo, Kecamatan Kandat, Kabupaten Kediri, Provinsi
@@ -242,11 +277,11 @@ const APBDesa = () => {
 
           <section className="mt-28">
             <h1 className="font-bold text-3xl lg:text-4xl text-start">
-              Pendapatan Desa 2024
+              Pendapatan Desa {tahun}
             </h1>
             <Card className=" w-full h-96 mt-3">
               <ResponsiveContainer width={"100%"} height={"100%"}>
-                <BarChart width={500} height={300} data={pendapatanDesa}>
+                <BarChart width={500} height={300} data={pendapatanDesa2}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="judul" />
                   <YAxis />
@@ -264,11 +299,11 @@ const APBDesa = () => {
 
           <section className="mt-28">
             <h1 className="font-bold text-3xl lg:text-4xl text-start">
-              Belanja Desa 2024
+              Belanja Desa {tahun}
             </h1>
             <Card className=" w-full h-96 mt-3">
               <ResponsiveContainer width={"100%"} height={"100%"}>
-                <BarChart width={500} height={300} data={belanjaDesa}>
+                <BarChart width={500} height={300} data={belanjaDesa2}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="judul" />
                   <YAxis />
@@ -286,11 +321,11 @@ const APBDesa = () => {
 
           <section className="mt-28">
             <h1 className="font-bold text-3xl lg:text-4xl text-start">
-              Pembiayaan Desa 2024
+              Pembiayaan Desa {tahun}
             </h1>
             <Card className=" w-full h-96 mt-3">
               <ResponsiveContainer width={"100%"} height={"100%"}>
-                <BarChart width={500} height={300} data={pembiayaanDesa}>
+                <BarChart width={500} height={300} data={pembiayaanDesa2}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="judul" />
                   <YAxis />
