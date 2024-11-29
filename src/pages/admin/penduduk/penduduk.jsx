@@ -10,6 +10,7 @@ import DataPendidikanAdmin from "./dataPendidikan";
 import DataUmur from "./dataUmur";
 import DataPekerjaan from "./dataPekerjaan";
 import DataPerkawinan from "./perkawinan";
+import WajibPilihAdmin from "./wajibPilih";
 
 const PendudukAdmin = () => {
   return (
@@ -22,6 +23,7 @@ const PendudukAdmin = () => {
           <DataAgama />
           <DataUmur />
           <DataPekerjaan />
+          <WajibPilihAdmin/>
         </section>
       </div>
     </Admin>

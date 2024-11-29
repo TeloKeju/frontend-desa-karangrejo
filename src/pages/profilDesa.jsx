@@ -1,6 +1,22 @@
 import { List, Card } from "flowbite-react";
+import apiKarangrejo from "../lib/axios";
+import { useEffect, useState } from "react";
 
 const ProfileDesa = () => {
+  const [dataPenduduk, setDataPenduduk] = useState([]);
+
+  async function getDataPenduduk() {
+    try {
+      const res = await apiKarangrejo.get("/penduduk");
+      setDataPenduduk(res.data.penduduk);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(()=>{
+    getDataPenduduk()
+  },[])
   return (
     <>
       <main className="mt-20">
@@ -136,7 +152,7 @@ const ProfileDesa = () => {
                   <p className="font-normal text-xl text-gray-700 dark:text-gray-400">
                     Jumlah Penduduk
                   </p>
-                  <p className="font-semibold text-xl">4.444 Jiwa</p>
+                  <p className="font-semibold text-xl">{dataPenduduk.total_penduduk} Jiwa</p>
                 </section>
               </Card>
               <section className="shadow-md rounded-md mt-2 sm:mt-6">

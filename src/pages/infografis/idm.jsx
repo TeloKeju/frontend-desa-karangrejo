@@ -1,4 +1,5 @@
-import { idm, skorIDMTahun } from "./data/data";
+import { useEffect, useState } from "react";
+import { idm } from "./data/data";
 import InfografisLink from "./link";
 
 import { Card } from "flowbite-react";
@@ -13,8 +14,55 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import apiKarangrejo from "../../lib/axios";
 
 const IDM = () => {
+
+  const [skorIDMTahun , setSkorIDMTahun] = useState([]);
+
+  const tahun = new Date().getFullYear();
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [dataIDM2, setDataIDM2] = useState([]);
+
+
+  async function getDataIDM() {
+    try {
+      setIsLoading(true);
+      const res = await apiKarangrejo.get("/idm");
+      const dataIDM = res.data.idm;
+
+      setDataIDM2(dataIDM);
+
+      const dataIDMperTahun = dataIDM.filter((item) => item.tahun === tahun);
+
+      idm[0].jumlah = dataIDMperTahun[0].skor;
+      idm[0].judul = "Skor IDM " + tahun;
+      idm[1].jumlah = dataIDMperTahun[0].status;
+      idm[1].judul = "Status IDM " + tahun;
+      idm[2].jumlah = dataIDMperTahun[0].targetStatus;
+      idm[3].jumlah = dataIDMperTahun[0].skorMinimal;
+      idm[4].jumlah = dataIDMperTahun[0].penambahan;
+      idm[5].jumlah = dataIDMperTahun[0].skorIKS;
+      idm[6].jumlah = dataIDMperTahun[0].skorIKE;
+      idm[7].jumlah = dataIDMperTahun[0].skorIKL;
+
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getDataIDM();
+  }, []);
+  useEffect(() => {
+    dataIDM2.map((item) => {
+      setSkorIDMTahun((prev) => [...prev, { tahun: item.tahun, skor: item.skor }]);
+    });
+  },[dataIDM2])
+
   return (
     <>
       <main style={{ marginTop: "84px" }}>

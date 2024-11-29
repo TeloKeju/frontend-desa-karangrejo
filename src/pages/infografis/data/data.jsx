@@ -407,9 +407,9 @@ export const idm = [
 ];
 
 export const skorIDMTahun = [
-  { tahun: 2022, skor: 0 },
-  { tahun: 2023, skor: 0 },
-  { tahun: 2024, skor: 0 },
+  // { tahun: 2022, skor: 0 },
+  // { tahun: 2023, skor: 0 },
+  // { tahun: 2024, skor: 0 },
 ];
 
 // SDGs

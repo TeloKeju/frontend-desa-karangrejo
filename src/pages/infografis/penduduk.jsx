@@ -2,7 +2,7 @@ import InfografisLink from "./link";
 
 import { Card, Table } from "flowbite-react";
 
-import { jumlahPenduduk, wajibPilih, perkawinan, agama } from "./data/data";
+import { jumlahPenduduk, perkawinan, agama } from "./data/data";
 
 // import { Chart as ChartJS } from "chart.js/auto";
 // import { Bar, Doughnut, Line } from "react-chartjs-2";
@@ -107,13 +107,30 @@ const Penduduk = () => {
     }
   }
 
+  const [wajibPilih, setWajibPilih] = useState([]);
+  const dataWajibPilihDitampilkan = 3
+
+  async function getDataWajibPilih(s) {
+    try {
+      const res = await apiKarangrejo.get(`/wajibpilih`);
+      res.data.wajib_pilih.map((item, i) => {
+        if (i >= res.data.wajib_pilih.length - dataWajibPilihDitampilkan) {
+          setWajibPilih((prev) => [...prev, item]);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getDataPenduduk();
     getPendudukKelompokUmur();
     getDataPekerjaanPenduduk();
     getDataPendidikan();
     getDataAgama();
-    getDataPerkawinan()
+    getDataPerkawinan();
+    getDataWajibPilih();
   }, []);
 
   return (
@@ -277,12 +294,12 @@ const Penduduk = () => {
               <ResponsiveContainer width={"100%"} height={"100%"}>
                 <BarChart width={500} height={300} data={wajibPilih}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="tahun" />
+                  <XAxis dataKey="id" />
                   <YAxis />
                   <Tooltip />
                   <Legend />
                   <Bar
-                    dataKey="jumlah"
+                    dataKey="wajib_pilih"
                     fill="#8884d8"
                     activeBar={<Rectangle fill="#8884d8" stroke="blue" />}
                   />
