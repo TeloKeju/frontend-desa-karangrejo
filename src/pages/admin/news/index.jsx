@@ -1,4 +1,5 @@
 import {
+  Datepicker,
   FileInput,
   Label,
   Modal,
@@ -294,12 +295,14 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
+  const [publishDate, setPublishDate] = useState();
 
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleEditNews() {
     const formData = new FormData();
     formData.append("title", title);
+    formData.append("publish_date", publishDate);
     formData.append("content", content);
     formData.append("image", image);
     try {
@@ -327,6 +330,7 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
     setTitle(dataEdit.title);
     setContent(dataEdit.content);
     setImage(dataEdit.image);
+    setPublishDate(dataEdit.publish_date);
   }, [dataEdit]);
   return (
     <>
@@ -360,6 +364,22 @@ const ModalEditBerita = ({ dataEdit, setOpenModal, onAction }) => {
               placeholder="Masukkan judul"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <Label
+              htmlFor="publish_date"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Tanggal Publikasi
+            </Label>
+            <TextInput
+              type="date"
+              name="publish_date"
+              id="publish_date"
+              placeholder="Masukkan tanggal publikasi"
+              value={publishDate}
+              onChange={(e) => setPublishDate(e.target.value)}
             />
           </div>
 
@@ -457,10 +477,15 @@ const ModalDetailNews = ({ setOpenModal, data }) => {
       <Modal.Header>{data?.title || "Judul Berita"}</Modal.Header>
       <Modal.Body className="text-center text-2xl">
         <div className="flex justify-center">
-          <img src={import.meta.env.VITE_IMAGE_BASE + "/" + data?.image} className="w-[300px]" />
+          <img
+            src={import.meta.env.VITE_IMAGE_BASE + "/" + data?.image}
+            className="w-[300px]"
+          />
         </div>
         <div>
-          <p className="text-justify text-sm mt-4">{data?.content || "Konten Berita"}</p>
+          <p className="text-justify text-sm mt-4">
+            {data?.content || "Konten Berita"}
+          </p>
         </div>
       </Modal.Body>
       <Modal.Footer>

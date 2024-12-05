@@ -15,9 +15,11 @@ import { IconEdit, IconPlus, IconTrash } from "@tabler/icons-react";
 import apiKarangrejo from "../../../lib/axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const DataUMKM = () => {
   const [dataUMKM, setDataUMKM] = useState([]);
+  const navigate = useNavigate()
 
   const [isOpen, setOpenModal] = useState(false);
   const [action, setAction] = useState("add");
@@ -73,15 +75,16 @@ const DataUMKM = () => {
             </Table.Head>
             <Table.Body className="divide-y">
               {dataUMKM?.map((item, i) => (
-                <Table.Row key={i}>
+                <Table.Row key={i} onClick={() => navigate(`/admin/umkm/${item.id}`)}>
                   <Table.Cell>{i + 1}</Table.Cell>
                   <Table.Cell>{item.name}</Table.Cell>
                   <Table.Cell>{item.rating}</Table.Cell>
                   <Table.Cell>{item.contact}</Table.Cell>
                   <Table.Cell>{item.price}</Table.Cell>
-                  <Table.Cell className="flex items-center gap-1">
+                  <Table.Cell className="flex items-center gap-1 z-1">
                     <IconEdit
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setDataEdit(item);
                         setAction("edit");
                         setOpenModal(true);
@@ -89,7 +92,8 @@ const DataUMKM = () => {
                       }}
                     />
                     <IconTrash
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setTitle("Menghapus Data UMKM");
                         setDataEdit(item);
                         setAction("delete");
