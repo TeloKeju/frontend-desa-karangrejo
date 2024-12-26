@@ -119,7 +119,7 @@ const ProfileDesa = () => {
               diambil 20% (dua puluh persen) dari luas kepemilikan. Jumlah luas
               keseluruhan dari tanah sebitan dari masyarakat seluas 49 Hektar
               yang sebagian untuk bengkok, sisanya digunakan untuk kas desa,
-              kantor desa, lapangan, sekolahan, polindes, dan pemakaman.
+              kantor desa, lapangan, sekolahan, polindes,dan pemakaman.
             </p>
           </section>
 
