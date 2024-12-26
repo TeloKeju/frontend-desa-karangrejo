@@ -14,9 +14,9 @@ const ProfileDesa = () => {
     }
   }
 
-  useEffect(()=>{
-    getDataPenduduk()
-  },[])
+  useEffect(() => {
+    getDataPenduduk();
+  }, []);
   return (
     <>
       <main className="mt-20">
@@ -96,14 +96,30 @@ const ProfileDesa = () => {
           <section className="mt-10 text-start">
             <h1 className="font-bold text-2xl">Sejarah Desa Karangrejo</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              placeat, culpa minus repellendus natus reprehenderit corporis! Ex
-              deleniti veritatis minus architecto ea similique facere, et
-              laboriosam. Quis fugiat illo quidem. Dicta illo non quaerat ipsa
-              autem molestias perferendis saepe itaque, excepturi nemo
-              reprehenderit iure eligendi similique quos obcaecati possimus
-              corporis inventore aperiam, maxime sunt! Distinctio suscipit
-              dignissimos velit non provident.
+              Desa Karangrejo Kecamatan Kandat Kabupaten Kediri terbentuk dari
+              tiga dusun dari dua desa yang berbeda, yaitu Dusun Karangrejo dan
+              Dusun Sentul dari Desa Kandat serta Dusun Tulungrejo dari Desa
+              Selosari. Dikarenakan dua desa tersebut, yaitu Desa Kandat dan
+              Desa Selosari memiliki wilayah yang terlalu luas, maka ketiga
+              dusun dari dua desa tersebut dilepas dari asalnya dan pada tanggal
+              23 Agustus 1969 digabung menjadi satu wilayah bernama Desa
+              Karangrejo.
+              <br />
+              <br />
+              Pada awal terbentuk, Desa Karangrejo memiliki luas wilayah
+              5.190.000 m terdiri dari tiga dusun yaitu Dusun Karangrejo, Dusun
+              Sentul, dan Dusun Tulungrejo. Perangkat Desa atau pamong sudah
+              lengkap, jumlah penduduk sudah memenuhi syarat sebagai desa, namun
+              beberapa pamong belum memperoleh bengkok (tanah garapan untuk
+              pamong). Sebagian pamong sudah mendapat bengkok meskipun hanya
+              sedikit. Kemudian rakyat sepakat bengkok diambilkan dari tanah
+              masyarakat dengan cara disebit, yaitu pemilik tanah yang
+              berdomisili di dalam desa diambil 10% (sepuluh persen) dari luas
+              kepemilikan, sedangkan pemilik yang berdomisili di luar desa
+              diambil 20% (dua puluh persen) dari luas kepemilikan. Jumlah luas
+              keseluruhan dari tanah sebitan dari masyarakat seluas 49 Hektar
+              yang sebagian untuk bengkok, sisanya digunakan untuk kas desa,
+              kantor desa, lapangan, sekolahan, polindes, dan pemakaman.
             </p>
           </section>
 
@@ -152,7 +168,9 @@ const ProfileDesa = () => {
                   <p className="font-normal text-xl text-gray-700 dark:text-gray-400">
                     Jumlah Penduduk
                   </p>
-                  <p className="font-semibold text-xl">{dataPenduduk.total_penduduk} Jiwa</p>
+                  <p className="font-semibold text-xl">
+                    {dataPenduduk.total_penduduk} Jiwa
+                  </p>
                 </section>
               </Card>
               <section className="shadow-md rounded-md mt-2 sm:mt-6">
