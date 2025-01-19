@@ -229,10 +229,10 @@ const Home = () => {
                     mengetahui perkembangan serta kegiatan di desa kami. Melalui
                     platform ini, kami ingin mewujudkan transparansi
                     pemerintahan desa serta meningkatkan pelayanan publik dalam
-                    berbagai aspek kehidupan. Di era digital ini, kebutuhan akan
-                    informasi yang cepat dan tepat sangatlah penting. Maka dari
-                    itu, kami akan terus berupaya menyediakan informasi yang
-                    akurat dan terkini, mulai dari kegiatan pemerintahan,
+                    berbagai aspek pembangunan. Di era digital ini, kebutuhan
+                    akan informasi yang cepat dan tepat sangatlah penting. Maka
+                    dari itu, kami akan terus berupaya menyediakan informasi
+                    yang akurat dan terkini, mulai dari kegiatan pemerintahan,
                     pembangunan, pemberdayaan masyarakat, hingga informasi
                     kebudayaan dan potensi ekonomi di Desa Karangrejo. Akhir
                     kata, besar harapan kami agar website ini dapat memberi
@@ -391,6 +391,16 @@ const Home = () => {
                       </p>
                     </section>
                   </Card>
+                  <Card className="rounded-none w-full">
+                    <section>
+                      <p className="text-start font-medium">
+                        Sisa Lebih Pembiayaan Anggaran (SiLPA)
+                      </p>
+                      <p className="text-end text-xl font-bold sm:text-2xl md:text-3xl">
+                        <FormatRupiah value={0} />
+                      </p>
+                    </section>
+                  </Card>
                 </section>
               </section>
             </section>
@@ -408,7 +418,7 @@ const Home = () => {
               <h1 className="text-start text-4xl font-bold">Berita Desa</h1>
               <p className="text-start text-xl my-3">
                 Menyajikan informasi terbaru tentang peristiwa, berita terkini,
-                dan artikel-artikel jurnalistik dari Desa Karang Rejo
+                dan artikel-artikel jurnalistik dari Desa Karangrejo
               </p>
             </section>
             {dataBerita == "" ? (
