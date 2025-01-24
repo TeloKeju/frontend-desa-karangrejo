@@ -536,11 +536,10 @@ const Home = () => {
           <section className="p-4">
             <section>
               <h1 className="text-start text-4xl font-bold uppercase">
-                Beli dari desa
+                Beli dari Desa
               </h1>
               <p className="text-start text-xl my-3">
-                Menyajikan informasi terbaru tentang peristiwa, berita terkini,
-                dan artikel-artikel jurnalistik dari Desa Karang Rejo
+              Layanan yang disediakan promosi produk UMKM Desa sehingga mampu meningkatkan perekonomian masyarakat Desa Karangrejo, Kandat
               </p>
             </section>
             <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
@@ -617,7 +616,7 @@ const Home = () => {
                 Galeri desa
               </h1>
               <p className="text-start text-xl my-3">
-                Menampilkan kegiatan-kegiatan yang berlangsung di Desa
+                Menampilkan kegiatan-kegiatan yang berlangsung di Desa Karangrejo, Kandat
               </p>
             </section>
 
