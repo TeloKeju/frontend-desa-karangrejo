@@ -22,16 +22,13 @@ const Home = () => {
     }
   }
 
+  const [adminData, setAdminData] = useState(administrasi);
+
   async function getDataPenduduk() {
-    try {
-      const res = await apiKarangrejo.get("/penduduk");
-      administrasi[0].number = res.data.penduduk.total_penduduk;
-      administrasi[1].number = res.data.penduduk.laki_laki;
-      administrasi[2].number = res.data.penduduk.kepala_keluarga;
-      administrasi[3].number = res.data.penduduk.perempuan;
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await apiKarangrejo.get("/penduduk");
+    setAdminData([
+      { ...adminData[0], number: res.data.penduduk.total_penduduk },
+    ]);
   }
 
   const [galeri, setGaleri] = useState([]);
@@ -285,7 +282,7 @@ const Home = () => {
                 {sotk.map((item, i) => {
                   if (i < 4) {
                     return (
-                      <>
+                      <div key={item.id}>
                         <section className="flex justify-center" key={i}>
                           <Card
                             className="max-w-sm"
@@ -314,7 +311,7 @@ const Home = () => {
                             </p>
                           </Card>
                         </section>
-                      </>
+                      </div>
                     );
                   }
                 })}
@@ -339,8 +336,8 @@ const Home = () => {
               pelayanan publik yang efektif dan efisien
             </h2>
             <section className="p-2 grid grid-cols-2 gap-2">
-              {administrasi.map((item) => (
-                <div key={item.id}>
+              {adminData.map((item , i) => (
+                <div key={i}>
                   {/* <section className="p-3 grid grid-cols-2"> */}
                   <Card className="rounded-none w-full">
                     <section className="grid grid-cols-2 content-end gap-2 ">
@@ -435,7 +432,7 @@ const Home = () => {
                 {dataBerita.map((item, i) => {
                   if (i < 6) {
                     return (
-                      <>
+                      <div key={item.id}>
                         <Link to={"/berita/" + item.id}>
                           <Card
                             className="min-h-full"
@@ -480,7 +477,7 @@ const Home = () => {
                             </section>
                           </Card>
                         </Link>
-                      </>
+                      </div>
                     );
                   }
                 })}
@@ -539,14 +536,15 @@ const Home = () => {
                 Beli dari Desa
               </h1>
               <p className="text-start text-xl my-3">
-              Layanan yang disediakan promosi produk UMKM Desa sehingga mampu meningkatkan perekonomian masyarakat Desa Karangrejo, Kandat
+                Layanan yang disediakan promosi produk UMKM Desa sehingga mampu
+                meningkatkan perekonomian masyarakat Desa Karangrejo, Kandat
               </p>
             </section>
             <section className="grid gap-3 grid-cols-2 lg:grid-cols-3">
               {dataUMKM.map((item, i) => {
                 if (i < 6) {
                   return (
-                    <>
+                    <div key={item.id}>
                       <Link to={`/belanja/${item.id}`}>
                         <Card
                           className=""
@@ -596,7 +594,7 @@ const Home = () => {
                           </section>
                         </Card>
                       </Link>
-                    </>
+                    </div>
                   );
                 }
               })}
@@ -616,7 +614,8 @@ const Home = () => {
                 Galeri desa
               </h1>
               <p className="text-start text-xl my-3">
-                Menampilkan kegiatan-kegiatan yang berlangsung di Desa Karangrejo, Kandat
+                Menampilkan kegiatan-kegiatan yang berlangsung di Desa
+                Karangrejo, Kandat
               </p>
             </section>
 

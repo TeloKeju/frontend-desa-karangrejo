@@ -40,22 +40,22 @@ const Penduduk = () => {
 
       perkawinan[0] = {
         ...perkawinan[0],
-        jumlah: res.data.perkawinan[0].belum_kawin,
+        jumlah: res.data.perkawinan?.[0]?.belum_kawin,
         slug: "belum_kawin",
       };
       perkawinan[1] = {
         ...perkawinan[1],
-        jumlah: res.data.perkawinan[0].kawin,
+        jumlah: res.data.perkawinan?.[0]?.kawin,
         slug: "kawin",
       };
       perkawinan[2] = {
         ...perkawinan[2],
-        jumlah: res.data.perkawinan[0].cerai_mati,
+        jumlah: res.data.perkawinan?.[0]?.cerai_mati,
         slug: "cerai_mati",
       };
       perkawinan[3] = {
         ...perkawinan[3],
-        jumlah: res.data.perkawinan[0].cerai_hidup,
+        jumlah: res.data.perkawinan?.[0].cerai_hidup,
         slug: "cerai_hidup",
       };
     } catch (error) {
@@ -169,8 +169,8 @@ const Penduduk = () => {
               Jumlah Penduduk dan Kepala Keluarga
             </h1>
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-6">
-              {jumlahPenduduk.map((item) => (
-                <>
+              {jumlahPenduduk.map((item , i) => (
+                <div key={i}>
                   <Card className=" ">
                     <section className="grid grid-cols-3">
                       <section className="col-span-1">
@@ -192,7 +192,7 @@ const Penduduk = () => {
                       </section>
                     </section>
                   </Card>
-                </>
+                </div>
               ))}
             </section>
           </section>
@@ -252,15 +252,15 @@ const Penduduk = () => {
                     <Table.HeadCell>Jenis Pekerjaan</Table.HeadCell>
                     <Table.HeadCell>Jumlah</Table.HeadCell>
                   </Table.Head>
-                  {pendudukPekerjaan?.map((item) => (
-                    <>
+                  {pendudukPekerjaan?.map((item , i) => (
+                    <div key={i}>
                       <Table.Body className="divide-y">
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                           <Table.Cell>{item?.pekerjaan}</Table.Cell>
                           <Table.Cell>{item?.jumlah}</Table.Cell>
                         </Table.Row>
                       </Table.Body>
-                    </>
+                    </div>
                   ))}
                 </Table>
               </section>
@@ -268,7 +268,7 @@ const Penduduk = () => {
                 {pendudukPekerjaan.map((item, i) => {
                   if (i < 6) {
                     return (
-                      <>
+                      <div key={i}>
                         <Card className="">
                           <h1 className="text-start text-lg font-semibold">
                             {item?.pekerjaan}
@@ -277,7 +277,7 @@ const Penduduk = () => {
                             {item?.jumlah}
                           </p>
                         </Card>
-                      </>
+                      </div>
                     );
                   }
                 })}
@@ -346,8 +346,8 @@ const Penduduk = () => {
               Berdasarkan Agama
             </h1>
             <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
-              {agama.map((item) => (
-                <>
+              {agama.map((item , i) => (
+                <div key={i}>
                   <Card className=" ">
                     <section className="grid grid-cols-3">
                       <section className="col-span-1">
@@ -369,7 +369,7 @@ const Penduduk = () => {
                       </section>
                     </section>
                   </Card>
-                </>
+                </div>
               ))}
             </section>
           </section>

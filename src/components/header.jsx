@@ -61,9 +61,9 @@ const Header = () => {
             <Navbar.Toggle />
             <Navbar.Collapse>
               {headerMenu.map((item, i) => (
-                <Navbar.Link key={i} className="text-start text-white">
-                  <Link to={item.link}>{item.name}</Link>
-                </Navbar.Link>
+                <Link key={i} className="text-start text-white" to={`${item.link}`}>
+                 {item.name}
+                </Link>
               ))}
             </Navbar.Collapse>
           </Navbar>
