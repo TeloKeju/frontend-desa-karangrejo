@@ -36,16 +36,16 @@ const IDM = () => {
 
       const dataIDMperTahun = dataIDM.filter((item) => item.tahun === tahun);
 
-      idm[0].jumlah = dataIDMperTahun[0].skor;
+      idm[0].jumlah = dataIDMperTahun[0]?.skor;
       idm[0].judul = "Skor IDM " + tahun;
-      idm[1].jumlah = dataIDMperTahun[0].status;
+      idm[1].jumlah = dataIDMperTahun[0]?.status;
       idm[1].judul = "Status IDM " + tahun;
-      idm[2].jumlah = dataIDMperTahun[0].targetStatus;
-      idm[3].jumlah = dataIDMperTahun[0].skorMinimal;
-      idm[4].jumlah = dataIDMperTahun[0].penambahan;
-      idm[5].jumlah = dataIDMperTahun[0].skorIKS;
-      idm[6].jumlah = dataIDMperTahun[0].skorIKE;
-      idm[7].jumlah = dataIDMperTahun[0].skorIKL;
+      idm[2].jumlah = dataIDMperTahun[0]?.targetStatus;
+      idm[3].jumlah = dataIDMperTahun[0]?.skorMinimal;
+      idm[4].jumlah = dataIDMperTahun[0]?.penambahan;
+      idm[5].jumlah = dataIDMperTahun[0]?.skorIKS;
+      idm[6].jumlah = dataIDMperTahun[0]?.skorIKE;
+      idm[7].jumlah = dataIDMperTahun[0]?.skorIKL;
 
       setIsLoading(false);
     } catch (error) {
@@ -59,7 +59,7 @@ const IDM = () => {
   }, []);
   useEffect(() => {
     dataIDM2.map((item) => {
-      setSkorIDMTahun((prev) => [...prev, { tahun: item.tahun, skor: item.skor }]);
+      setSkorIDMTahun((prev) => [...prev, { tahun: item.tahun, skor: item?.skor }]);
     });
   },[dataIDM2])
 
@@ -82,7 +82,7 @@ const IDM = () => {
               {idm.map((item, i) => {
                 if (i < 2) {
                   return (
-                    <>
+                    <div key={i}>
                       <Card className="">
                         <h1 className="text-start text-lg font-semibold">
                           {item.judul}
@@ -91,7 +91,7 @@ const IDM = () => {
                           {item.jumlah}
                         </p>
                       </Card>
-                    </>
+                    </div>
                   );
                 }
               })}

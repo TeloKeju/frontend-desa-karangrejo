@@ -41,7 +41,7 @@ const Belanja = () => {
           <section className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-3">
             {dataUMKM.map((item) => {
               return (
-                <>
+                <div key={item.id}>
                   <Link to={`/belanja/${item.id}`}>
                     <Card
                       className=""
@@ -88,7 +88,7 @@ const Belanja = () => {
                       </section>
                     </Card>
                   </Link>
-                </>
+                </div>
               );
             })}
           </section>

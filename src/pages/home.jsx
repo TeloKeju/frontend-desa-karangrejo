@@ -122,7 +122,7 @@ const Home = () => {
                   Website Resmi Desa Karangrejo
                 </span>
               </h1>
-              <img src="/carousel/2.jpg" alt="hehe" />
+              <img src="/carousel/2.jpg" alt="carrousel_pic" />
             </div>
             {/* <img src="/carousel/2.jpg" alt="..." /> */}
             {/* <img
@@ -340,7 +340,7 @@ const Home = () => {
             </h2>
             <section className="p-2 grid grid-cols-2 gap-2">
               {administrasi.map((item) => (
-                <>
+                <div key={item.id}>
                   {/* <section className="p-3 grid grid-cols-2"> */}
                   <Card className="rounded-none w-full">
                     <section className="grid grid-cols-2 content-end gap-2 ">
@@ -353,7 +353,7 @@ const Home = () => {
                     </section>
                   </Card>
                   {/* </section> */}
-                </>
+                </div>
               ))}
             </section>
           </section>
