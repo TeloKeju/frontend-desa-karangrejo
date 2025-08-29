@@ -50,7 +50,7 @@ function App() {
       <ScrollToTop />
       {!isAdminRoute && <Header />}
       <Routes>
-        <Route path="/" element={<div >Home</div>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/profile-desa" element={<ProfileDesa />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/pemerintah" element={<Pemerintah />} />
