@@ -50,41 +50,40 @@ function App() {
       <ScrollToTop />
       {!isAdminRoute && <Header />}
       <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="/profile-desa" element={<ProfileDesa />} />
-          <Route path="/listing" element={<Listing />} />
-          <Route path="/pemerintah" element={<Pemerintah />} />
-          <Route path="/galeri" element={<Galeri />} />
-          <Route path="/infografis">
-            <Route index element={<Penduduk />} />
-            <Route path="idm" element={<IDM />} />
-            <Route path="apb-desa" element={<APBDesa />} />
-            <Route path="stunting" element={<Stunting />} />
-            <Route path="bansos" element={<Bansos />} />
-            <Route path="sdgs" element={<SDGs />} />
-          </Route>
-
-          {/* <Route path="/berita" element={<Berita />} /> */}
-
-          <Route path="/berita">
-            <Route index element={<Berita />} />
-            <Route path=":id" element={<DetailBerita />} />
-          </Route>
-
-          <Route path="/belanja">
-            <Route index element={<Belanja />} />
-            <Route path=":id" element={<DetailBelanja />} />
-          </Route>
-
-          <Route path="/ppid">
-            <Route index element={<PPID />} />
-            <Route path="dasar-hukum" element={<IDM />} />
-            <Route path="berkala" element={<APBDesa />} />
-            <Route path="serta-merta" element={<Stunting />} />
-            <Route path="setiap-saat" element={<Bansos />} />
-          </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile-desa" element={<ProfileDesa />} />
+        <Route path="/listing" element={<Listing />} />
+        <Route path="/pemerintah" element={<Pemerintah />} />
+        <Route path="/galeri" element={<Galeri />} />
+        <Route path="/infografis">
+          <Route index element={<Penduduk />} />
+          <Route path="idm" element={<IDM />} />
+          <Route path="apb-desa" element={<APBDesa />} />
+          <Route path="stunting" element={<Stunting />} />
+          <Route path="bansos" element={<Bansos />} />
+          <Route path="sdgs" element={<SDGs />} />
         </Route>
+
+        {/* <Route path="/berita" element={<Berita />} /> */}
+
+        <Route path="/berita">
+          <Route index element={<Berita />} />
+          <Route path=":id" element={<DetailBerita />} />
+        </Route>
+
+        <Route path="/belanja">
+          <Route index element={<Belanja />} />
+          <Route path=":id" element={<DetailBelanja />} />
+        </Route>
+
+        <Route path="/ppid">
+          <Route index element={<PPID />} />
+          <Route path="dasar-hukum" element={<IDM />} />
+          <Route path="berkala" element={<APBDesa />} />
+          <Route path="serta-merta" element={<Stunting />} />
+          <Route path="setiap-saat" element={<Bansos />} />
+        </Route>
+
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin">
           <Route index element={<PendudukAdmin />} />
