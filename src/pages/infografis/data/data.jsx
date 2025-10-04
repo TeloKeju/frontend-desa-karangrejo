@@ -278,6 +278,27 @@ export const agama = [
   },
 ];
 
+export const posyanduData = [
+  {
+    image: "/iconPenduduk/icon_ibuhamil.webp",
+    label: "Ibu Hamil",
+    key: "ibu_hamil",
+    jumlah: 20,
+  },
+  {
+    image: "/iconPenduduk/icon_balita.webp",
+    label: "Balita",
+    key: "balita",
+    jumlah: 20,
+  },
+  {
+    image: "/iconPenduduk/icon_lansia.webp",
+    label: "Lansia",
+    key: "lansia",
+    jumlah: 20,
+  },
+];
+
 // APBDesa
 export const apbDesa = [
   {

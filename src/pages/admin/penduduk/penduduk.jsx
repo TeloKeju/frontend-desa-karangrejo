@@ -12,6 +12,7 @@ import DataPekerjaan from "./dataPekerjaan";
 import DataPerkawinan from "./perkawinan";
 import WajibPilihAdmin from "./wajibPilih";
 import AdminStunting from "./dataStunting";
+import DataPosyandu from "./dataPosyandu";
 
 const PendudukAdmin = () => {
   return (
@@ -25,6 +26,7 @@ const PendudukAdmin = () => {
           <DataUmur />
           <DataPekerjaan />
           <AdminStunting />
+          <DataPosyandu/>
           <WajibPilihAdmin />
         </section>
       </div>

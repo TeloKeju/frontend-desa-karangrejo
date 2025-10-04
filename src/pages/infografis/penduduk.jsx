@@ -2,7 +2,7 @@ import InfografisLink from "./link";
 
 import { Card, Table } from "flowbite-react";
 
-import { jumlahPenduduk, perkawinan, agama } from "./data/data";
+import { jumlahPenduduk, perkawinan, agama, posyanduData } from "./data/data";
 
 // import { Chart as ChartJS } from "chart.js/auto";
 // import { Bar, Doughnut, Line } from "react-chartjs-2";
@@ -108,7 +108,7 @@ const Penduduk = () => {
   }
 
   const [wajibPilih, setWajibPilih] = useState([]);
-  const dataWajibPilihDitampilkan = 3
+  const dataWajibPilihDitampilkan = 3;
 
   async function getDataWajibPilih(s) {
     try {
@@ -123,6 +123,17 @@ const Penduduk = () => {
     }
   }
 
+  async function getDataPosyandu() {
+    try {
+      const res = await apiKarangrejo.get(`/posyandu`);
+      posyanduData.forEach((item) => {
+        item.jumlah = res.data.data[item.key];
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getDataPenduduk();
     getPendudukKelompokUmur();
@@ -131,6 +142,7 @@ const Penduduk = () => {
     getDataAgama();
     getDataPerkawinan();
     getDataWajibPilih();
+    getDataPosyandu();
   }, []);
 
   return (
@@ -169,9 +181,9 @@ const Penduduk = () => {
               Jumlah Penduduk dan Kepala Keluarga
             </h1>
             <section className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-6">
-              {jumlahPenduduk.map((item , i) => (
+              {jumlahPenduduk.map((item, i) => (
                 <div key={i}>
-                  <Card className=" ">
+                  <Card className="h-full">
                     <section className="grid grid-cols-3">
                       <section className="col-span-1">
                         <img
@@ -252,7 +264,7 @@ const Penduduk = () => {
                     <Table.HeadCell>Jenis Pekerjaan</Table.HeadCell>
                     <Table.HeadCell>Jumlah</Table.HeadCell>
                   </Table.Head>
-                  {pendudukPekerjaan?.map((item , i) => (
+                  {pendudukPekerjaan?.map((item, i) => (
                     <div key={i}>
                       <Table.Body className="divide-y">
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -330,7 +342,9 @@ const Penduduk = () => {
                           {item.judul}
                         </h2>
                         <p className="text-start text-xl ms-10">
-                          <span className="font-semibold">{item.jumlah}</span>{" "}
+                          <span className="font-semibold">
+                            {item?.jumlah || 0}
+                          </span>{" "}
                           Jiwa
                         </p>
                       </section>
@@ -346,7 +360,7 @@ const Penduduk = () => {
               Berdasarkan Agama
             </h1>
             <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
-              {agama.map((item , i) => (
+              {agama.map((item, i) => (
                 <div key={i}>
                   <Card className=" ">
                     <section className="grid grid-cols-3">
@@ -364,6 +378,41 @@ const Penduduk = () => {
                         </h2>
                         <p className="text-start text-xl ms-10">
                           <span className="font-semibold">{item.jumlah}</span>{" "}
+                          Jiwa
+                        </p>
+                      </section>
+                    </section>
+                  </Card>
+                </div>
+              ))}
+            </section>
+          </section>
+
+          <section className="my-28">
+            <h1 className="font-bold text-3xl lg:text-4xl text-start">
+              Pos Pelayanan Terpadu
+            </h1>
+            <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
+              {posyanduData.map((item, index) => (
+                <div key={index}>
+                  <Card className=" ">
+                    <section className="grid grid-cols-3">
+                      <section className="col-span-1">
+                        <img
+                          src={item.image}
+                          alt="Icon Perkawinan"
+                          loading="lazy"
+                          className="transform scale-150"
+                        />
+                      </section>
+                      <section className=" flex flex-col justify-center col-span-2">
+                        <h2 className="text-start text-xl font-semibold ms-10 uppercase">
+                          {item.label}
+                        </h2>
+                        <p className="text-start text-xl ms-10">
+                          <span className="font-semibold">
+                            {item?.jumlah || 0}
+                          </span>{" "}
                           Jiwa
                         </p>
                       </section>

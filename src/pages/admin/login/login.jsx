@@ -1,10 +1,16 @@
 import { setCookie } from "cookies-next";
 import { Button, Card, TextInput } from "flowbite-react";
 
-const dataUsers = {
-  username: "@adminKarangrejo",
-  password: "@adminKarangrejo_desa",
-};
+const dataUsers = [
+  {
+    username: "@adminKarangrejo",
+    password: "@adminKarangrejo_desa",
+  },
+  {
+    username: "Posyandu@DesaKarangrejo25",
+    password: "Posyandukarangrejo25",
+  },
+];
 
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -34,14 +40,17 @@ const Login = () => {
   function handleLogin(e) {
     e.preventDefault();
     if (validateForm()) {
-      if (
-        formData.username === dataUsers.username &&
-        formData.password === dataUsers.password
-      ) {
+      const foundUser = dataUsers.find(
+        (user) =>
+          user.username === formData.username &&
+          user.password === formData.password
+      );
+
+      if (foundUser) {
         alert("Login Berhasil");
-        setCookie("username", formData.username, { maxAge : 60 * 60 * 24 });
-        setCookie("password", formData.password, { maxAge : 60 * 60 * 24 });
-        setCookie("token", "jsaishHiahih1HIHSiNSA", { maxAge : 60 * 60 * 24 });
+        setCookie("username", formData.username, { maxAge: 60 * 60 * 24 });
+        setCookie("password", formData.password, { maxAge: 60 * 60 * 24 });
+        setCookie("token", "jsaishHiahih1HIHSiNSA", { maxAge: 60 * 60 * 24 });
         return navigate("/admin");
       } else {
         alert("Username atau Password salah");
