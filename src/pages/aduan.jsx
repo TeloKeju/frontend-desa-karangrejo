@@ -647,12 +647,12 @@ const AduanPage = () => {
                 <div className="flex items-center gap-2 font-medium">
                   <IconBrandWhatsapp size={16} className="text-green-600" />
                   <a
-                    href="https://wa.me/6281559870098"
+                    href="https://wa.me/6285649295356"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[#608bc1] hover:underline"
                   >
-                    +62 815-5987-0098 (WhatsApp Desa)
+                    +62 856-4929-5356 (WhatsApp Desa)
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
@@ -662,7 +662,7 @@ const AduanPage = () => {
                 <div className="pt-2 border-t border-gray-100">
                   <span className="block font-semibold text-gray-800 mb-0.5">Kantor Balai Desa Karangrejo</span>
                   <span className="text-gray-500">
-                    Dusun Karangrejo, RT 01 RW 01, Kec. Kandat, Kab. Kediri, Jawa Timur 64173
+                    Dusun Karangrejo, RT 02 RW 01, Kec. Kandat, Kab. Kediri, Jawa Timur 64173
                   </span>
                 </div>
               </div>
